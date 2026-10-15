@@ -6,9 +6,10 @@
     xmlns:c="urn:import:com.google.appinventor.client.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
   <g:FlowPanel styleName="dialog-body">
+    <!-- Same fields and order as today's NewYoungAndroidProjectWizard -->
     <c:TextField ui:field="name" label="{messages.projectNameLabel}"/>
-    <c:Select ui:field="theme" label="{messages.themeLabel}"/>
-    <c:Select ui:field="toolkit" label="{messages.toolkitLabel}"/>
+    <c:Select ui:field="toolkit" label="{messages.blocksToolkitTitle}"/>
+    <c:Select ui:field="theme" label="{messages.themeTitle}"/>
     <g:FlowPanel styleName="dialog-buttons">
       <c:Button ui:field="cancel" text="{messages.cancelButton}"/>
       <c:Button ui:field="create" variant="PRIMARY"

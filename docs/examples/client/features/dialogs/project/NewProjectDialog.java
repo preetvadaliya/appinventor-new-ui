@@ -43,7 +43,7 @@ public class NewProjectDialog extends SharedView
 
   public NewProjectDialog() {
     initWidget(BINDER.createAndBindUi(this));
-    dialog.setCaption(MESSAGES.newProjectTitle());
+    dialog.setCaption(MESSAGES.newYoungAndroidProjectWizardCaption());
     dialog.setContent(this);
   }
 

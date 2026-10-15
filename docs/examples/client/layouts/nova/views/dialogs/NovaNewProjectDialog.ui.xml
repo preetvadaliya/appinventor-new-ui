@@ -1,0 +1,41 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:c="urn:import:com.google.appinventor.client.controls"
+    xmlns:n="urn:import:com.google.appinventor.client.layouts.nova.controls">
+  <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
+  <g:FlowPanel styleName="nova-Dialog">
+
+    <!-- Header: icon, title, one line of help -->
+    <g:FlowPanel styleName="nova-Dialog-header">
+      <c:IconView ui:field="icon" styleName="nova-Dialog-icon"/>
+      <g:FlowPanel styleName="nova-Dialog-heading">
+        <g:Label styleName="nova-Dialog-title"
+            text="{messages.newYoungAndroidProjectWizardCaption}"/>
+        <g:Label styleName="nova-Dialog-description"
+            text="{messages.newProjectDescription}"/>
+      </g:FlowPanel>
+    </g:FlowPanel>
+
+    <g:HTML styleName="nova-Separator"/>
+
+    <!-- Content: labels above fields, full width -->
+    <g:FlowPanel styleName="nova-Dialog-content">
+      <n:NovaTextField ui:field="name" label="{messages.projectNameLabel}"/>
+      <n:NovaSelect ui:field="toolkit" label="{messages.blocksToolkitTitle}"/>
+      <n:NovaSelect ui:field="theme" label="{messages.themeTitle}"/>
+    </g:FlowPanel>
+
+    <g:HTML styleName="nova-Separator"/>
+
+    <!-- Footer: actions on the right, the main one last -->
+    <g:FlowPanel styleName="nova-Dialog-footer">
+      <n:NovaButton ui:field="cancel" variant="QUIET"
+          text="{messages.cancelButton}"/>
+      <n:NovaButton ui:field="create" variant="PRIMARY"
+          text="{messages.createProjectButton}"/>
+    </g:FlowPanel>
+  </g:FlowPanel>
+</ui:UiBinder>
