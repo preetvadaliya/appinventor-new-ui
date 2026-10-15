@@ -2,14 +2,14 @@
 // Released under the Apache License, Version 2.0
 // http://www.apache.org/licenses/LICENSE-2.0
 
-package com.google.appinventor.client.kit;
+package com.google.appinventor.client.controls;
 
 import com.google.appinventor.client.core.actions.ActionId;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.IsWidget;
 
-/** A button. Classic and neo each implement it in their own kit. */
+/** A button. Classic and neo each implement it in their own controls. */
 public interface Button extends IsWidget, HasText, HasClickHandlers {
 
   enum Variant { DEFAULT, PRIMARY, QUIET, DANGER }

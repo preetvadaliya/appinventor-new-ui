@@ -1,4 +1,4 @@
-# The kit
+# Controls
 
 Each layout has its own set of building blocks: buttons, menus, dialogs,
 inputs. Shared screens use them through interfaces, so they look like whichever
@@ -8,13 +8,13 @@ layout is active.
 
 | Part | Where | What |
 |---|---|---|
-| Contract | `kit/` | Interfaces: what a Button, Dialog, TextField can do |
-| Behaviour | `kit/behaviour/` | Keyboard, focus and ARIA code shared by every kit |
-| Implementations | `layouts/<x>/kit/` | What classic's or neo's button looks like |
+| Contract | `controls/` | Interfaces: what a Button, Dialog, TextField can do |
+| Behaviour | `controls/behaviour/` | Keyboard, focus and ARIA code shared by every layout's controls |
+| Implementations | `layouts/<x>/controls/` | What classic's or neo's button looks like |
 
-`kit/standard/` is a plain default implementation built from today's widgets. A
-new layout starts by extending `StandardKit` and replaces pieces one at a time;
-it never extends another layout's kit.
+`controls/standard/` is a plain default implementation built from today's widgets. A
+new layout starts by extending `StandardControls` and replaces pieces one at a time;
+it never extends another layout's controls.
 
 ## Building blocks
 
@@ -34,7 +34,7 @@ From what the client uses today (92 `new Button(`, 26 `new DialogBox(`,
 | `Collapsible` | `AbstractCollapsiblePanel` |
 | `Icon` | `components/Icon` (Material glyph); `widgets/Icon` is an image-and-caption used only by `MockNonVisibleComponent` and stays with the mocks |
 
-## Using the kit from shared screens
+## Using the controls from shared screens
 
 GWT 2.8.1's UiBinder accepts an interface-typed element when a `@UiFactory`
 method creates it, and it looks for `@UiFactory` methods on superclasses
@@ -42,13 +42,13 @@ method creates it, and it looks for `@UiFactory` methods on superclasses
 class:
 
 ```java
-// kit/KitView.java
-public abstract class KitView extends Composite {
+// controls/SharedView.java
+public abstract class SharedView extends Composite {
   @UiFactory Button button() {
-    return Ui.kit().button();
+    return Controls.active().button();
   }
   @UiFactory TextField textField() {
-    return Ui.kit().textField();
+    return Controls.active().textField();
   }
   …
 }
@@ -57,28 +57,28 @@ public abstract class KitView extends Composite {
 ```xml
 <!-- features/properties/PropertiesPanel.ui.xml -->
 <g:FlowPanel>
-  <kit:TextField ui:field="search"/>
-  <kit:Button ui:field="reset" text="Reset"/>
+  <c:TextField ui:field="search"/>
+  <c:Button ui:field="reset" text="Reset"/>
 </g:FlowPanel>
 ```
 
 In classic this renders `ClassicTextField` and `ClassicButton`; in neo,
 `NeoTextField` and `NeoButton`.
 
-## Layout views use their own kit directly
+## Layout views use their own controls directly
 
-A layout's own views may name their concrete kit classes
-(`<k:NeoButton action="NEW_PROJECT"/>`), because they never run in another
+A layout's own views may name their concrete control classes
+(`<c:NeoButton action="NEW_PROJECT"/>`), because they never run in another
 layout.
 
 ## Behaviour lives once
 
-`kit/behaviour` holds what every kit needs and nobody should rewrite:
+`controls/behaviour` holds what every layout's controls need and nobody should rewrite:
 
 - `MenuKeyboard`: open/close, arrow keys, Escape, ARIA for menus
 - `DialogA11y`, `FocusTrap`: dialog roles, focus trapping and return
 - `RovingTabIndex`: arrow-key navigation in toolbars and lists
 - today's `TableAccessibility`, `ImageAccessibility`, `FocusImpl*`
-- `ActionBinding`: connects a kit control to an `Action`
+- `ActionBinding`: connects a control to an `Action`
 
 Each layout's piece is then mostly markup and class names.

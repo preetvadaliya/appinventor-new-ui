@@ -7,7 +7,7 @@ the corrections made while writing the tickets:
 - `Ode.java` stays in `client/` as the GWT entry point, much thinner
   (`docs/02-target.md`).
 - `widgets/Icon` (image and caption) stays with the mocks as `NonVisibleIcon`;
-  the kit's `Icon` comes from `components/Icon`.
+  the controls' `Icon` comes from `components/Icon`.
 - `gwt.css` stays in `war/static/css/`.
 - Dialog names under `features/dialogs/system/` for the dialogs built inline
   today are proposals; P5-41 settles them.
@@ -231,7 +231,7 @@ client/
 │   │   └── Urls.java
 │   └── validation/
 │       └── TextValidators.java
-├── features/   # shared screens, written once, look from the active kit
+├── features/   # shared screens, written once, look from the active controls
 │   ├── admin/
 │   │   └── AdminUserList.java
 │   ├── assets/
@@ -605,7 +605,7 @@ client/
 │           ├── SourceStructureBox.java
 │           ├── ViewerBox.java
 │           └── WorkAreaPanel.java
-├── kit/   # the contract every layout's building blocks implement
+├── controls/   # the contract every layout's building blocks implement
 │   ├── behaviour/   # keyboard, focus, ARIA, written once
 │   │   ├── ActionBinding.java
 │   │   ├── DialogA11y.java
@@ -618,10 +618,10 @@ client/
 │   │   ├── RovingTabIndex.java
 │   │   ├── TableAccessibility.java
 │   │   └── Validator.java
-│   ├── standard/   # plain default kit a new layout starts from
+│   ├── standard/   # plain default set a new layout starts from
 │   │   ├── StandardButton.java
 │   │   ├── StandardDialog.java
-│   │   ├── StandardKit.java
+│   │   ├── StandardControls.java
 │   │   ├── StandardMenuButton.java
 │   │   ├── StandardTextField.java
 │   │   └── StandardWizard.java
@@ -635,8 +635,8 @@ client/
 │   ├── Icon.java
 │   ├── IconButton.java
 │   ├── Icons.java
-│   ├── Kit.java
-│   ├── KitView.java
+│   ├── Controls.java
+│   ├── SharedView.java
 │   ├── MenuButton.java
 │   ├── MenuItem.java
 │   ├── Radio.java
@@ -648,18 +648,17 @@ client/
 │   ├── ToolbarItem.java
 │   ├── Tooltip.java
 │   ├── Tree.java
-│   ├── Ui.java
 │   └── Wizard.java
 ├── layouts/   # one self-contained folder per layout
-│   ├── classic/   # classic: kit, views, menus, icons, CSS
+│   ├── classic/   # classic: controls, views, menus, icons, CSS
 │   │   ├── icons/
 │   │   │   └── ClassicIcons.java
-│   │   ├── kit/
+│   │   ├── controls/
 │   │   │   ├── ClassicButton.java
 │   │   │   ├── ClassicCheckbox.java
 │   │   │   ├── ClassicDialog.java
 │   │   │   ├── ClassicIconButton.java
-│   │   │   ├── ClassicKit.java
+│   │   │   ├── ClassicControls.java
 │   │   │   ├── ClassicMenuButton.java
 │   │   │   ├── ClassicSelect.java
 │   │   │   ├── ClassicTextField.java
@@ -671,7 +670,7 @@ client/
 │   │   ├── public/
 │   │   │   └── classic/   # static CSS, loaded only in classic
 │   │   │       ├── icons/   # classic icons (PNG, SVG over time)
-│   │   │       ├── kit.css
+│   │   │       ├── controls.css
 │   │   │       ├── tokens.css
 │   │   │       └── views.css
 │   │   ├── views/
@@ -699,15 +698,15 @@ client/
 │   │   │       ├── ClassicTopBar.java
 │   │   │       └── ClassicTopBar.ui.xml
 │   │   └── ClassicLayout.java
-│   ├── neo/   # neo: kit, views, menus, icons, CSS
+│   ├── neo/   # neo: controls, views, menus, icons, CSS
 │   │   ├── icons/
 │   │   │   └── NeoIcons.java
-│   │   ├── kit/
+│   │   ├── controls/
 │   │   │   ├── NeoButton.java
 │   │   │   ├── NeoCheckbox.java
 │   │   │   ├── NeoDialog.java
 │   │   │   ├── NeoIconButton.java
-│   │   │   ├── NeoKit.java
+│   │   │   ├── NeoControls.java
 │   │   │   ├── NeoMenuButton.java
 │   │   │   ├── NeoSelect.java
 │   │   │   ├── NeoTextField.java
@@ -719,7 +718,7 @@ client/
 │   │   ├── public/
 │   │   │   └── neo/   # static CSS, loaded only in neo
 │   │   │       ├── icons/   # neo icons (PNG/Material, SVG over time)
-│   │   │       ├── kit.css
+│   │   │       ├── controls.css
 │   │   │       ├── tokens.css
 │   │   │       └── views.css
 │   │   ├── views/

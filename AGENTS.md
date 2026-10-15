@@ -68,8 +68,8 @@ Prove "no visual change" with the snapshot script from P0-02 (once it lands):
 
 - One ticket, one PR; at most ~400 added lines and ~20 files.
 - No visual change unless the ticket says so.
-- `core/` never imports GWT widgets or `kit/`, `features/`, `layouts/`.
-- `features/` use kit interfaces only, never a concrete layout class.
+- `core/` never imports GWT widgets or `controls/`, `features/`, `layouts/`.
+- `features/` use control interfaces only, never a concrete layout class.
 - A layout never imports or extends another layout.
 - Menus and toolbars name actions by `ActionId`; never find a widget by name.
 - Commit subjects are short and conventional, e.g.

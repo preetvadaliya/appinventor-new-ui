@@ -14,7 +14,7 @@ lines each), which MIT merged within 1–4 days of opening.
 | P2 · Live light/dark | P2-05 … P2-08 | 11 | Tokens as custom properties; no reload |
 | P3 · Actions | P3-09 … P3-14 | 15 | Every item runs on an `ActionId` |
 | P4 · Independent views | P4-15 … P4-22 | 18.5 | Views per layout; no inheritance |
-| P5 · Kits | P5-23 … P5-32, P5-41, P5-42 | 32.5 | A kit per layout; shared screens use it; actions in core |
+| P5 · Controls | P5-23 … P5-32, P5-41, P5-42 | 32.5 | Controls per layout; shared screens use it; actions in core |
 | P6 · CSS split | P6-33 … P6-37 | 11 | No global stylesheet |
 | P7 · Final moves | P7-38 … P7-40 | 3 | Final packages; import rules enforced |
 
@@ -25,8 +25,8 @@ package-move window), C-03 (decide nova's scope).
 
 - P2 (theme) and P3 (actions) are independent: after P1, one PR from each can be
   in review at the same time.
-- P5-23 … P5-25 (kit contracts) can start while P4 is in review.
-- P6 needs the views (P4) and the kits (P5).
+- P5-23 … P5-25 (control contracts) can start while P4 is in review.
+- P6 needs the views (P4) and the controls (P5).
 - P7 comes last, by decision `0005-package-moves-last.md`.
 
 The exact dependencies are recorded on each ticket as **blocked by** links.

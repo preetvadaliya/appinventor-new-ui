@@ -23,8 +23,8 @@ public enum LayoutId {
 // layouts/Layout.java
 public interface Layout {
   LayoutId id();
-  Kit kit();
-  List<String> stylesheets();     // tokens, kit, views
+  Controls controls();
+  List<String> stylesheets();     // tokens, controls, views
   Icons icons();
 
   ShellPresenter.View shell();
@@ -76,7 +76,7 @@ classic user never downloads neo's code. Boot then:
 2. loads the layout from the registry;
 3. adds `<link>`s for the layout's stylesheets and sets
    `<html data-layout="neo" data-theme="dark">`;
-4. installs the layout's kit (`Ui.install(layout.kit())`);
+4. installs the layout's controls (`Controls.install(layout.controls())`);
 5. creates the presenters with the layout's views.
 
 Switching layout still reloads the page: it swaps code and CSS, and it is rare.

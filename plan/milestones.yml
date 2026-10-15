@@ -33,21 +33,21 @@ milestones:
     description: >-
       Classic and neo each own their views under layouts/; nothing inherits from classic.
   - key: P5
-    title: "P5 · Kits"
+    title: "P5 · Controls"
     due: 2027-07-26
     description: >-
-      Each layout has its own kit of buttons, menus, dialogs and inputs, and shared
-      screens are built from kit interfaces.
+      Each layout has its own buttons, menus, dialogs and inputs, and shared
+      screens are built from control interfaces.
   - key: P6
     title: "P6 · CSS split"
     due: 2027-09-01
     description: >-
-      No global stylesheet: each layout loads only its own tokens, kit and view CSS.
+      No global stylesheet: each layout loads only its own tokens, controls and view CSS.
   - key: P7
     title: "P7 · Final moves"
     due: 2027-09-11
     description: >-
-      Packages sit in core/, kit/, features/ and layouts/, and a test enforces the
+      Packages sit in core/, controls/, features/ and layouts/, and a test enforces the
       import rules. Nova can start.
   - key: Nova
     title: "Nova"

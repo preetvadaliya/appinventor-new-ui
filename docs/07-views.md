@@ -51,21 +51,21 @@ public class NeoProjectToolbar extends Composite
 <!-- layouts/neo/views/projects/NeoProjectToolbar.ui.xml -->
 <g:FlowPanel styleName="neo-projectbar">
   <g:FlowPanel styleName="neo-projectbar-start">
-    <k:NeoButton action="NEW_PROJECT"/>
-    <k:NeoButton action="IMPORT_PROJECT"/>
-    <k:NeoButton action="IMPORT_TEMPLATE"/>
-    <k:NeoButton action="NEW_FOLDER"/>
+    <c:NeoButton action="NEW_PROJECT"/>
+    <c:NeoButton action="IMPORT_PROJECT"/>
+    <c:NeoButton action="IMPORT_TEMPLATE"/>
+    <c:NeoButton action="NEW_FOLDER"/>
   </g:FlowPanel>
   <g:FlowPanel styleName="neo-projectbar-center">
-    <k:NeoButton action="MOVE_PROJECTS"/>
-    <k:NeoMenuButton action="EXPORT">
-      <k:NeoMenuItem action="EXPORT_PROJECT"/>
-      <k:NeoMenuItem action="EXPORT_ALL_PROJECTS"/>
-    </k:NeoMenuButton>
+    <c:NeoButton action="MOVE_PROJECTS"/>
+    <c:NeoMenuButton action="EXPORT">
+      <c:NeoMenuItem action="EXPORT_PROJECT"/>
+      <c:NeoMenuItem action="EXPORT_ALL_PROJECTS"/>
+    </c:NeoMenuButton>
   </g:FlowPanel>
   <g:FlowPanel styleName="neo-projectbar-end">
-    <k:NeoButton action="VIEW_TRASH"/>
-    <k:NeoButton action="DELETE_PROJECT"
+    <c:NeoButton action="VIEW_TRASH"/>
+    <c:NeoButton action="DELETE_PROJECT"
         variant="DANGER"/>
   </g:FlowPanel>
 </g:FlowPanel>
@@ -98,7 +98,7 @@ public ProjectToolbarPresenter.View projectToolbar() {
 Shared dialogs live in `features/dialogs`. A layout has three options per
 dialog:
 
-1. Do nothing. The dialog is built from kit pieces and already looks like the
+1. Do nothing. The dialog is built from controls and already looks like the
    layout.
 2. Restyle it in the layout's CSS.
 3. Replace it by implementing the presenter's `View` interface in the layout

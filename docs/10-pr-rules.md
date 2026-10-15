@@ -22,10 +22,10 @@
 
 ## Structure
 
-- New code goes into its final package (`core/`, `kit/`, `features/`,
+- New code goes into its final package (`core/`, `controls/`, `features/`,
   `layouts/<x>/`).
-- `core/` never imports GWT widgets or `kit/`, `features/`, `layouts/`.
-- `features/` use kit interfaces only.
+- `core/` never imports GWT widgets or `controls/`, `features/`, `layouts/`.
+- `features/` use control interfaces only.
 - A layout never imports or extends another layout.
 - Menus and toolbars name actions by `ActionId`; never find a widget by name.
 - Icons are `IconKey`s, never glyph names, outside a layout's icon set.

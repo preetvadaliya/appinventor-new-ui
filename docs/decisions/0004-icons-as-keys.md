@@ -10,7 +10,7 @@ text only. A later layout may use a different icon font.
 Actions name an `IconKey` (`ADD`, `IMPORT`, `FOLDER_NEW` …). Each layout maps
 keys to its own glyphs in `layouts/<x>/icons/`; classic ignores them. A
 layout's icon font ships in its own public folder and loads only for it. The
-kit puts the action label into `aria-label` when a layout shows only an icon. A
+controls puts the action label into `aria-label` when a layout shows only an icon. A
 unit test checks every key is mapped by every layout that draws icons.
 
 ## Consequences

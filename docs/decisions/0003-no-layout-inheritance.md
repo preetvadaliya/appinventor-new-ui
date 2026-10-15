@@ -10,8 +10,8 @@ layout built the same way would triple the duplication.
 ## Decision
 Logic lives in presenters in `core/presenters`, each with a `View` interface.
 Each layout implements the views independently in `layouts/<x>/views/`. A
-layout may extend the neutral `kit/standard`, never another layout. Shared
-screens live in `features/` and use kit interfaces. A test enforces the import
+layout may extend the neutral `controls/standard`, never another layout. Shared
+screens live in `features/` and use control interfaces. A test enforces the import
 rules (P7-40).
 
 ## Consequences

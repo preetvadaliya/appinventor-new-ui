@@ -56,7 +56,7 @@ SIZE_OPTIONS = [("S", "GREEN", "Up to 1.5 days"),
                 ("M", "YELLOW", "2 to 3 days"),
                 ("L", "ORANGE", "3.5 days or more")]
 AREA_OPTIONS = [("layout", "YELLOW"), ("theme", "ORANGE"),
-                ("actions", "PURPLE"), ("views", "BLUE"), ("kit", "BLUE"),
+                ("actions", "PURPLE"), ("views", "BLUE"), ("controls", "BLUE"),
                 ("css", "PINK"), ("packaging", "GREEN"),
                 ("coordination", "GRAY")]
 

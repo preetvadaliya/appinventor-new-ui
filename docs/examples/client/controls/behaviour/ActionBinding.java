@@ -2,7 +2,7 @@
 // Released under the Apache License, Version 2.0
 // http://www.apache.org/licenses/LICENSE-2.0
 
-package com.google.appinventor.client.kit.behaviour;
+package com.google.appinventor.client.controls.behaviour;
 
 import com.google.appinventor.client.core.actions.Action;
 import com.google.appinventor.client.core.actions.ActionId;
@@ -10,7 +10,7 @@ import com.google.appinventor.client.core.app.App;
 import java.util.function.Consumer;
 
 /**
- * Connects a kit control to an action, so each kit's button only has to
+ * Connects a control to an action, so each layout's button only has to
  * draw itself. Written once for every layout.
  */
 public final class ActionBinding {

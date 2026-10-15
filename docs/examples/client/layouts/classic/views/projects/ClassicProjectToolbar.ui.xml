@@ -3,22 +3,22 @@
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:k="urn:import:com.google.appinventor.client.layouts.classic.kit">
+    xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
   <g:FlowPanel styleName="classic-ProjectToolbar">
     <g:Label ui:field="title" styleName="classic-ProjectToolbar-title"/>
     <g:FlowPanel ui:field="projectButtons">
-      <k:ClassicButton action="NEW_PROJECT"/>
-      <k:ClassicButton action="NEW_FOLDER"/>
-      <k:ClassicButton action="MOVE_PROJECTS"/>
-      <k:ClassicButton action="DELETE_PROJECT"/>
-      <k:ClassicButton action="VIEW_TRASH"/>
-      <k:ClassicButton action="LOGIN_TO_GALLERY"/>
-      <k:ClassicButton action="SEND_TO_GALLERY"/>
+      <c:ClassicButton action="NEW_PROJECT"/>
+      <c:ClassicButton action="NEW_FOLDER"/>
+      <c:ClassicButton action="MOVE_PROJECTS"/>
+      <c:ClassicButton action="DELETE_PROJECT"/>
+      <c:ClassicButton action="VIEW_TRASH"/>
+      <c:ClassicButton action="LOGIN_TO_GALLERY"/>
+      <c:ClassicButton action="SEND_TO_GALLERY"/>
     </g:FlowPanel>
     <g:FlowPanel ui:field="trashButtons" visible="false">
-      <k:ClassicButton action="SWITCH_TO_PROJECTS"/>
-      <k:ClassicButton action="RESTORE_PROJECT"/>
-      <k:ClassicButton action="DELETE_FOREVER"/>
+      <c:ClassicButton action="SWITCH_TO_PROJECTS"/>
+      <c:ClassicButton action="RESTORE_PROJECT"/>
+      <c:ClassicButton action="DELETE_FOREVER"/>
     </g:FlowPanel>
   </g:FlowPanel>
 </ui:UiBinder>

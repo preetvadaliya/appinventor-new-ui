@@ -20,10 +20,10 @@ properties; about 570 hex colours are hard-coded.
 |---|---|---|
 | `features/public/features/base.css` | Rules for shared screens (designer, properties, palette, blocks, dialogs). Reads tokens only. | always |
 | `layouts/<x>/public/<x>/tokens.css` | The layout's light and dark values | active layout |
-| `layouts/<x>/public/<x>/kit.css` | The layout's buttons, menus, dialogs, inputs | active layout |
+| `layouts/<x>/public/<x>/controls.css` | The layout's buttons, menus, dialogs, inputs | active layout |
 | `layouts/<x>/public/<x>/views.css` | The layout's frame: top bar, toolbars, project list, status | active layout |
 | `features/designer/mocks/public/mocks/*.css` | Phone preview skins for the user's app | always |
-| `kit/public/kit/gwt-reset.css` | GWT widget defaults | always |
+| `controls/public/controls/gwt-reset.css` | GWT widget defaults | always |
 
 `Ya.css` and the `Ode.Resources` bundle are deleted at the end (P6-37). `Ya.css`
 is also linked from `war/Ya_tos_form.html`. CSS served from `/ode/` needs a
@@ -53,5 +53,5 @@ agreed before P6-33, when `base.css` starts reading tokens. Typical groups:
 1. P2: tokens move to custom properties; the rules files stay where they are.
 2. P6-33, P6-34: shared-feature rules leave `Ya.css` for `base.css`.
 3. P6-35: frame rules leave `Ya.css` for each layout's `views.css`.
-4. P6-36: kit rules go to each layout's `kit.css`.
+4. P6-36: control rules go to each layout's `controls.css`.
 5. P6-37: `Ya.css` and `Ode.Resources` are deleted.

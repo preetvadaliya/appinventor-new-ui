@@ -2,35 +2,35 @@
 // Released under the Apache License, Version 2.0
 // http://www.apache.org/licenses/LICENSE-2.0
 
-package com.google.appinventor.client.kit;
+package com.google.appinventor.client.controls;
 
 import com.google.gwt.uibinder.client.UiFactory;
 import com.google.gwt.user.client.ui.Composite;
 
 /**
- * Base class for shared views. A template that says <kit:Button> gets the
+ * Base class for shared views. A template that says <c:Button> gets the
  * active layout's button: UiBinder calls these @UiFactory methods, and it
  * finds them on superclasses.
  */
-public abstract class KitView extends Composite {
+public abstract class SharedView extends Composite {
 
   @UiFactory
   protected Button button() {
-    return Ui.kit().button();
+    return Controls.active().button();
   }
 
   @UiFactory
   protected TextField textField() {
-    return Ui.kit().textField();
+    return Controls.active().textField();
   }
 
   @UiFactory
   protected Select select() {
-    return Ui.kit().select();
+    return Controls.active().select();
   }
 
   @UiFactory
   protected Checkbox checkbox() {
-    return Ui.kit().checkbox();
+    return Controls.active().checkbox();
   }
 }

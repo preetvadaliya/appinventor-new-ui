@@ -75,15 +75,15 @@ it, so `core` never imports a layout.
 
 ## Binding a button to an action
 
-Kit buttons take an action id. UiBinder fills enum-typed setters straight from
+Controls buttons take an action id. UiBinder fills enum-typed setters straight from
 attributes (GWT 2.8.1 ships `EnumAttributeParser`), so no custom parser is
 needed:
 
 ```xml
-<k:NeoButton action="NEW_PROJECT"/>
+<c:NeoButton action="NEW_PROJECT"/>
 ```
 
-A helper in `kit/behaviour` attaches the click handler and listens for
+A helper in `controls/behaviour` attaches the click handler and listens for
 changes; each layout's button only renders:
 
 ```java

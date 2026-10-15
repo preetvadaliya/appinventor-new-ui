@@ -2,12 +2,12 @@
 // Released under the Apache License, Version 2.0
 // http://www.apache.org/licenses/LICENSE-2.0
 
-package com.google.appinventor.client.layouts.neo.kit;
+package com.google.appinventor.client.layouts.neo.controls;
 
+import com.google.appinventor.client.controls.Button;
+import com.google.appinventor.client.controls.behaviour.ActionBinding;
 import com.google.appinventor.client.core.actions.Action;
 import com.google.appinventor.client.core.actions.ActionId;
-import com.google.appinventor.client.kit.Button;
-import com.google.appinventor.client.kit.behaviour.ActionBinding;
 import com.google.appinventor.client.layouts.neo.icons.NeoIcons;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickHandler;

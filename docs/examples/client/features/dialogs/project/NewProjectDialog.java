@@ -6,14 +6,14 @@ package com.google.appinventor.client.features.dialogs.project;
 
 import static com.google.appinventor.client.core.i18n.OdeMessages.MESSAGES;
 
+import com.google.appinventor.client.controls.Button;
+import com.google.appinventor.client.controls.Controls;
+import com.google.appinventor.client.controls.Dialog;
+import com.google.appinventor.client.controls.Select;
+import com.google.appinventor.client.controls.SharedView;
+import com.google.appinventor.client.controls.TextField;
 import com.google.appinventor.client.core.presenters.project.NewProjectPresenter;
 import com.google.appinventor.client.core.properties.choices.Choice;
-import com.google.appinventor.client.kit.Button;
-import com.google.appinventor.client.kit.Dialog;
-import com.google.appinventor.client.kit.KitView;
-import com.google.appinventor.client.kit.Select;
-import com.google.appinventor.client.kit.TextField;
-import com.google.appinventor.client.kit.Ui;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -22,10 +22,10 @@ import com.google.gwt.user.client.ui.Widget;
 import java.util.List;
 
 /**
- * The shared New Project dialog. Built from kit interfaces, so it looks
+ * The shared New Project dialog. Built from control interfaces, so it looks
  * like classic in classic and like neo in neo. Holds no logic.
  */
-public class NewProjectDialog extends KitView
+public class NewProjectDialog extends SharedView
     implements NewProjectPresenter.View {
 
   interface Binder extends UiBinder<Widget, NewProjectDialog> {
@@ -39,7 +39,7 @@ public class NewProjectDialog extends KitView
   @UiField Button create;
   @UiField Button cancel;
 
-  private final Dialog dialog = Ui.kit().dialog();
+  private final Dialog dialog = Controls.active().dialog();
 
   public NewProjectDialog() {
     initWidget(BINDER.createAndBindUi(this));

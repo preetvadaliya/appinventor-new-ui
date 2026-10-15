@@ -21,7 +21,7 @@ entirely, into static files each layout serves from its public folder:
 ```
 
 The rules files (`variableColors.css`, `neo.css`, later `views.css` and
-`kit.css`) refer to tokens with `var(--name)`. Both rules files already declare
+`controls.css`) refer to tokens with `var(--name)`. Both rules files already declare
 `@external .*;`, so class names are unobfuscated today and nothing in the
 templates changes.
 
@@ -80,5 +80,5 @@ A later layout can use a different icon font (for example Tabler,
 public folder and load only for that layout. A unit test checks that every
 `IconKey` is mapped by every layout that draws icons.
 
-If a layout shows an icon without text, the kit puts the action's label into
+If a layout shows an icon without text, the controls puts the action's label into
 `aria-label` and the tooltip, so icon-only buttons stay accessible.

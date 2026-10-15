@@ -29,9 +29,9 @@ only**. Nova starts after P7 (milestone *Nova*).
 1. **Logic once.** Actions, presenters and models live in `core/` and know
    nothing about widgets or CSS.
 2. **Look per layout.** Each layout owns its frame (top bar, toolbars, project
-   list), its kit (buttons, menus, dialogs, inputs), its tokens and its icons.
+   list), its controls (buttons, menus, dialogs, inputs), its tokens and its icons.
 3. **Shared screens through interfaces.** The designer, properties, blocks and
-   dialogs are written once against kit interfaces and take on the active
+   dialogs are written once against control interfaces and take on the active
    layout's look.
 4. **Small, safe steps.** About 45 PRs, each reviewable in one sitting, none of
    which changes what users see unless it says so.
@@ -45,9 +45,9 @@ only**. Nova starts after P7 (milestone *Nova*).
 | `03-layouts.md` | Layout ids, the `Layout` contract, the registry |
 | `04-theming.md` | Tokens, live light/dark, icons |
 | `05-actions.md` | `ActionId`, `Action`, presenters, binding |
-| `06-kit.md` | Kit contracts, shared behaviour, the standard kit |
+| `06-controls.md` | Control contracts, shared behaviour, the standard controls |
 | `07-views.md` | Views without inheritance, worked examples |
-| `08-css.md` | `base.css` and each layout's tokens, kit and views CSS |
+| `08-css.md` | `base.css` and each layout's tokens, controls and views CSS |
 | `09-migration.md` | The PRs, their order and the timeline |
 | `10-pr-rules.md` | What every PR must satisfy |
 | `file-map.html` | Every client file, today and proposed |

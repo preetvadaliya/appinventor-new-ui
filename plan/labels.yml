@@ -14,7 +14,7 @@ labels:
   - {name: "area: theme", color: D05F2D, description: "Tokens, light/dark, icons (Variables drawer)"}
   - {name: "area: actions", color: 7C5385, description: "ActionId, actions, presenters (Procedures drawer)"}
   - {name: "area: views", color: 3F71B5, description: "Per-layout views (Math drawer)"}
-  - {name: "area: kit", color: 49A6D4, description: "Kit contracts and per-layout kits (Lists drawer)"}
+  - {name: "area: controls", color: 49A6D4, description: "Control contracts and each layout's controls (Lists drawer)"}
   - {name: "area: css", color: B32D5E, description: "Stylesheets (Text drawer)"}
   - {name: "area: packaging", color: "008B8B", description: "Packages, dead code, import rules (Matrix drawer)"}
 
