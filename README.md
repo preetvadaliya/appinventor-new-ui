@@ -32,6 +32,7 @@ By milestone, Ready to pick up, Upstream review, Decisions, My work).
 - [docs/00-overview.md](docs/00-overview.md) — goals, non-goals, scope
 - [docs/02-target.md](docs/02-target.md) — the target structure
 - [docs/09-migration.md](docs/09-migration.md) — the tickets, their order and the timeline
+- [docs/11-folder-structure.md](docs/11-folder-structure.md) — the complete client tree after P7
 - [docs/file-map.html](docs/file-map.html) — every client file, today and proposed
   (download and open locally)
 
