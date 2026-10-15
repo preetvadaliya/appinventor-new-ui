@@ -9,7 +9,7 @@
   contain no edits besides package and import lines.
 - CSS rules moved verbatim between files do not count towards the limit; check
   with `git diff --color-moved`. A ticket that still grows too large ships as
-  `(1/2)` and `(2/2)` PRs.
+  `(1/2)` and `(2/2)` PRs. (Agreed 2026-10-15.)
 
 ## Behaviour
 
