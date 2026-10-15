@@ -21,6 +21,9 @@ public interface Controls {
 
   Checkbox checkbox();
 
+  /** The layout's icon set: images, glyphs, or both. */
+  Icons icons();
+
   /** Called once by LayoutRegistry with the chosen layout's controls. */
   static void install(Controls controls) {
     Holder.active = controls;

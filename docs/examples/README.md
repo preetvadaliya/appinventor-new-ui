@@ -2,8 +2,9 @@
 
 Complete example files for four pieces of the new structure, written against
 MIT master's real names and values: the New Project action, the project
-toolbar (classic and neo), the New Project wizard, and the layout choice
-property editors. They show the shape and size of each file; they have not
+toolbar (classic and neo), the New Project wizard, the layout choice
+property editors, and icons that may be pictures or font glyphs (including
+nova's, for later). They show the shape and size of each file; they have not
 been compiled, and the tickets decide the final code.
 
 Paths mirror `appengine/src/com/google/appinventor/client/`.
@@ -15,3 +16,4 @@ Paths mirror `appengine/src/com/google/appinventor/client/`.
 | Project toolbar | `core/presenters/ProjectToolbarPresenter.java`, `layouts/classic/views/projects/ClassicProjectToolbar.{java,ui.xml}`, `layouts/neo/views/projects/NeoProjectToolbar.{java,ui.xml}` |
 | New Project wizard | `core/presenters/project/NewProjectPresenter.java`, `features/dialogs/project/NewProjectDialog.{java,ui.xml}`, `core/properties/choices/ProjectChoices.java` |
 | Property editors | `core/properties/choices/{Choice,Choices,LayoutChoices}.java`, `core/properties/editors/{PropertyEditor,ChoiceEditorModel,PropertyEditors}.java`, `features/properties/editors/ChoiceEditorView.java` |
+| Icons | `core/icons/{Icon,BlockCategory,ComponentIconSource}.java`, `controls/{Icons,IconView}.java`, `features/designer/palette/{ComponentIcons,PaletteItemView}.java`, `features/blocks/{BlockCategoryImages,BlockDrawerItem}.java`, `layouts/{classic,neo,nova}/icons/*Icons.java` |

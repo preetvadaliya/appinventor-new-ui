@@ -49,36 +49,56 @@ public void setMode(ThemeMode mode) {   // LIGHT, DARK, SYSTEM
 
 ## Images and icons
 
-Live switching cannot swap a PNG `ImageResource` through CSS. Two steps:
+An icon is either a **picture** or a **glyph from an icon font**, and each
+layout decides which (decision `0006-icons-images-or-glyphs.md`).
 
-1. **Bridge (P2-07).** `ThemedImage` holds the light and dark resource and swaps
-   on `ThemeChangedEvent`. It replaces the 25 places in 17 files that pick an
-   image once (20 `Ode.getImageBundle()` calls in 16 files and 5 `GWT.create`
-   picks).
-2. **Icon sets (P4-22).** Each layout gets its own icon set keyed by
-   `IconKey`: classic mostly draws text (plus a few glyphs and PNGs it shows
-   today), neo maps keys to Material Symbols. Icons that
-   are glyphs or SVG with `currentColor` follow the theme with no swap at all.
+```java
+// core/icons/Icon.java: a plain value, no widget code
+Icon.image("…/button.png", "…/dark/button.png")  // picture
+Icon.glyph("material-icons", "add")              // Material ligature
+Icon.glyph("ti ti-click", "")                    // Tabler class
+Icon.NONE                                        // text only
+```
 
-Palette icons for App Inventor components (Button, Label, Canvas …) come from a
-shared default set, `ComponentIcons`; a layout overrides them per icon. Neo
-does today for about 85 of them.
+Each layout supplies an icon set with three lookups, and every one may answer
+with a picture or a glyph:
+
+```java
+// controls/Icons.java
+Icon action(IconKey key);                  // toolbars and menus
+Icon blockCategory(BlockCategory c);       // Blocks editor drawers
+Icon component(ComponentIconSource s);     // palette, tree, strip
+```
+
+| | Actions | Block drawers | Components |
+|---|---|---|---|
+| classic | none (text) | shared PNGs | shared PNGs (9 with dark versions) |
+| neo | Material glyphs | shared PNGs | its own PNGs for 84 components (85 dark), shared PNGs for the rest |
+| nova (later) | Tabler glyphs | Tabler glyphs | Tabler glyphs where it has one, shared PNGs for the rest |
+
+One shared widget, `controls/IconView`, draws any `Icon`: an `<img>` for a
+picture, an `<i>` for a glyph. It swaps a picture's dark version on
+`ThemeChangedEvent`, so light/dark needs no reload. The component palette, the
+component tree, the non-visible components strip and the Blocks editor's drawer
+list all draw through it, so the same code shows a PNG in classic and neo and a
+Tabler glyph in nova.
+
+**Extensions** always keep their own picture (`aiwebres/…` in the extension),
+unless a layout maps that extension type explicitly. A nova palette can
+therefore show glyphs and pictures side by side; the layout's CSS gives both
+the same box size.
+
+Pictures become static files, so no Java image bundle is needed per layout
+and theme: shared ones under `features/designer/palette/public/palette/` and
+`features/blocks/public/blocks/`, a layout's own under
+`layouts/<x>/public/<x>/palette/{light,dark}/`.
 
 ## Icons are meanings, not glyph names
 
-An action names an `IconKey` (`ADD`, `IMPORT`, `FOLDER_NEW` …), never a font
-glyph. Each layout maps keys to its own glyphs:
-
-```java
-// layouts/neo/icons/NeoIcons.java
-case ADD:        return "add";        // Material
-case FOLDER_NEW: return "create_new_folder";
-```
-
-A later layout can use a different icon font (for example Tabler,
-`ti ti-plus`) without touching any action. Its font files ship in its own
-public folder and load only for that layout. A unit test checks that every
-`IconKey` is mapped by every layout that draws icons.
-
-If a layout shows an icon without text, the controls puts the action's label into
-`aria-label` and the tooltip, so icon-only buttons stay accessible.
+Actions name an `IconKey` (`ADD`, `IMPORT`, `FOLDER_NEW` …), never a glyph; a
+layout's icon set turns the key into its own picture or glyph. A layout's icon
+font ships in its own public folder and loads only for that layout. If a
+control shows an icon without text, it puts the action's label into
+`aria-label`, so icon-only buttons stay accessible. A unit test checks that
+every `IconKey` and `BlockCategory` is answered by every layout that draws
+icons.
