@@ -221,6 +221,8 @@ def sync_milestones(ms):
                 "due_on": due}
         cur = have.get(m["title"])
         if cur is None:
+            if due is None:
+                del data["due_on"]      # POST rejects null
             res = act(f"create milestone {m['title']}", rest, "POST",
                       f"repos/{REPO}/milestones", data)
             numbers[m["key"]] = res["number"] if res else None
