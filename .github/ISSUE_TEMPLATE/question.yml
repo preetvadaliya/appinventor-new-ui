@@ -1,0 +1,12 @@
+name: Question
+description: Something about the plan or a ticket is unclear
+title: "[Question] "
+labels: ["type: question"]
+body:
+  - type: textarea
+    id: question
+    attributes: {label: Question}
+    validations: {required: true}
+  - type: input
+    id: ticket
+    attributes: {label: Related ticket, placeholder: "P3-10"}

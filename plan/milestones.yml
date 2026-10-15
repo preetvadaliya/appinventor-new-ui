@@ -1,0 +1,56 @@
+# One milestone per phase. Due dates assume half-time work (2.5 days a week) from
+# Monday 2026-10-19 with a 20% buffer; tools/sync.py recomputes ticket dates from
+# the estimates in plan/tickets/*.md.
+start: 2026-10-19
+days_per_week: 2.5
+buffer: 1.2
+
+milestones:
+  - key: P0
+    title: "P0 · Groundwork"
+    due: 2026-10-30
+    description: >-
+      Dead code is gone and every later PR can prove it changes nothing on screen.
+  - key: P1
+    title: "P1 · Layouts by id"
+    due: 2026-11-13
+    description: >-
+      Classic and neo are chosen by a LayoutId and implement one Layout contract,
+      instead of a boolean and a factory that neo subclasses.
+  - key: P2
+    title: "P2 · Live light/dark"
+    due: 2026-12-18
+    description: >-
+      Switching light/dark no longer reloads the page, in classic and neo.
+  - key: P3
+    title: "P3 · Actions"
+    due: 2027-02-05
+    description: >-
+      Every toolbar and menu item runs on an ActionId; no logic finds widgets by name.
+  - key: P4
+    title: "P4 · Independent views"
+    due: 2027-04-09
+    description: >-
+      Classic and neo each own their views under layouts/; nothing inherits from classic.
+  - key: P5
+    title: "P5 · Kits"
+    due: 2027-07-09
+    description: >-
+      Each layout has its own kit of buttons, menus, dialogs and inputs, and shared
+      screens are built from kit interfaces.
+  - key: P6
+    title: "P6 · CSS split"
+    due: 2027-08-13
+    description: >-
+      No global stylesheet: each layout loads only its own tokens, kit and view CSS.
+  - key: P7
+    title: "P7 · Final moves"
+    due: 2027-08-27
+    description: >-
+      Packages sit in core/, kit/, features/ and layouts/, and a test enforces the
+      import rules. Nova can start.
+  - key: Nova
+    title: "Nova"
+    due: null
+    description: >-
+      A third layout, added as one folder under layouts/. Planned after P7.

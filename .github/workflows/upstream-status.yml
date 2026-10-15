@@ -1,0 +1,22 @@
+name: Upstream status
+
+# Copies the state of each ticket's upstream PR into the project once a day.
+# The default GITHUB_TOKEN cannot write to a user-owned project, so this needs
+# a repository secret PROJECT_TOKEN: a token with the repo and project scopes.
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      HAS_TOKEN: ${{ secrets.PROJECT_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update project from upstream PRs
+        if: env.HAS_TOKEN == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.PROJECT_TOKEN }}
+        run: python3 tools/upstream_status.py

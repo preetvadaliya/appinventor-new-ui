@@ -1,0 +1,15 @@
+name: Decision
+description: A decision to make or record
+title: "[Decision] "
+labels: ["type: decision"]
+body:
+  - type: textarea
+    id: context
+    attributes: {label: Context, description: "What forces the decision."}
+    validations: {required: true}
+  - type: textarea
+    id: options
+    attributes: {label: Options, description: "Each option with its cost."}
+  - type: textarea
+    id: decision
+    attributes: {label: Decision, description: "Filled in when decided; then record it in docs/decisions/."}

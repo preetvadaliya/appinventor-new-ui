@@ -1,0 +1,32 @@
+# Every colour comes from App Inventor itself:
+#   layout:  each layout's own colour (classic clr-primary, neo text-highlight)
+#   area:    the Blocks editor drawer colours (blocklyeditor/src/blockColors.js)
+#   type:    pale tints from the IDE's tokens, so layout and area colours stand out
+#   workflow: the IDE's selection green, error and warning reds
+# GitHub's default labels are deleted, except "good first issue" and "help wanted",
+# which GitHub shows to newcomers; those two are recoloured.
+labels:
+  - {name: "layout: classic", color: A4CF47, description: "Touches the classic layout (classic clr-primary)"}
+  - {name: "layout: neo", color: A7247A, description: "Touches the neo layout (neo text-highlight)"}
+  - {name: "layout: nova", color: 2D1799, description: "Nova, the planned third layout (Dictionary drawer, placeholder)"}
+
+  - {name: "area: layout", color: B18E35, description: "Layout ids, Layout contract, registry (Control drawer)"}
+  - {name: "area: theme", color: D05F2D, description: "Tokens, light/dark, icons (Variables drawer)"}
+  - {name: "area: actions", color: 7C5385, description: "ActionId, actions, presenters (Procedures drawer)"}
+  - {name: "area: views", color: 3F71B5, description: "Per-layout views (Math drawer)"}
+  - {name: "area: kit", color: 49A6D4, description: "Kit contracts and per-layout kits (Lists drawer)"}
+  - {name: "area: css", color: B32D5E, description: "Stylesheets (Text drawer)"}
+  - {name: "area: packaging", color: "008B8B", description: "Packages, dead code, import rules (Matrix drawer)"}
+
+  - {name: "type: refactor", color: EEF2E0, description: "Code change with no visible change"}
+  - {name: "type: tooling", color: F7F9F2, description: "Scripts and checks that support the work"}
+  - {name: "type: docs", color: D6E9F8, description: "Design docs and decision records"}
+  - {name: "type: decision", color: D2E0A6, description: "A decision to make or record"}
+  - {name: "type: coordination", color: EEEEEE, description: "Work with MIT reviewers and contributors"}
+  - {name: "type: question", color: DDDDDD, description: "Something to clarify"}
+  - {name: "type: bug", color: FF6666, description: "Something broke (IDE error colour)"}
+
+  - {name: "agent-ready", color: 8FC202, description: "Ticket is complete enough to hand to a contributor or coding agent"}
+  - {name: "good first issue", color: CCDDB3, description: "Small and well scoped"}
+  - {name: "help wanted", color: 67A7E3, description: "Open for anyone to pick up"}
+  - {name: "blocked", color: FF0000, description: "Waiting on something outside this repo, e.g. an MIT review"}

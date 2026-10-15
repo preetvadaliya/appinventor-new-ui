@@ -1,0 +1,40 @@
+name: Refactor ticket
+description: One ticket, one upstream pull request
+title: "[P?-??] "
+labels: ["type: refactor"]
+body:
+  - type: textarea
+    id: summary
+    attributes: {label: Summary, description: "The end state in two or three sentences, and whether users see any change."}
+    validations: {required: true}
+  - type: textarea
+    id: why
+    attributes: {label: Why, description: "What is wrong today, with file:line facts from master."}
+    validations: {required: true}
+  - type: textarea
+    id: read
+    attributes: {label: Read first, value: "- `docs/10-pr-rules.md`\n"}
+  - type: textarea
+    id: scope
+    attributes: {label: In scope, description: "Exact files, including new files with their final paths."}
+    validations: {required: true}
+  - type: textarea
+    id: out
+    attributes: {label: Out of scope, description: "What belongs to another ticket (name its key)."}
+  - type: textarea
+    id: steps
+    attributes: {label: Steps}
+    validations: {required: true}
+  - type: textarea
+    id: acceptance
+    attributes: {label: Acceptance criteria, value: "- [ ] \n- [ ] Snapshot diff shows no change in classic or neo, light or dark.\n"}
+    validations: {required: true}
+  - type: textarea
+    id: rules
+    attributes: {label: Rules, value: "- At most ~400 added lines and ~20 files.\n- No visual change.\n- Short conventional commit subjects, no AI attribution.\n"}
+  - type: textarea
+    id: verify
+    attributes: {label: How to verify, value: "- `ant -Dskip.ios=true noplay`, `ant tests`, `ant BlocklyTest`\n- Snapshot screens: \n"}
+  - type: textarea
+    id: deps
+    attributes: {label: Dependencies, description: "Blocked by … Blocks …"}
