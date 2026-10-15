@@ -378,10 +378,13 @@ def sync_project(tickets, issues, public):
         proj = res["createProjectV2"]["projectV2"]
     pid = proj["id"]
     act("update project description and readme", gql, """mutation($p:ID!,
-        $d:String!,$r:String!,$pub:Boolean!){updateProjectV2(input:{
-        projectId:$p,shortDescription:$d,readme:$r,public:$pub}){
-        projectV2{id}}}""", p=pid, d=PROJECT_DESCRIPTION, r=README,
-        pub=public)
+        $d:String!,$r:String!){updateProjectV2(input:{
+        projectId:$p,shortDescription:$d,readme:$r}){
+        projectV2{id}}}""", p=pid, d=PROJECT_DESCRIPTION, r=README)
+    if public is not None:              # otherwise leave visibility alone
+        act(f"make project {'public' if public else 'private'}", gql,
+            """mutation($p:ID!,$pub:Boolean!){updateProjectV2(input:{
+            projectId:$p,public:$pub}){projectV2{id}}}""", p=pid, pub=public)
 
     fields = project_fields(pid)
     ensure_select(pid, fields, "Status", STATUS_OPTIONS)
@@ -499,8 +502,11 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--prune", action="store_true",
                     help="delete labels that are not in the plan")
-    ap.add_argument("--public", action="store_true",
-                    help="make the project public")
+    vis = ap.add_mutually_exclusive_group()
+    vis.add_argument("--public", dest="public", action="store_true",
+                     default=None, help="make the project public")
+    vis.add_argument("--private", dest="public", action="store_false",
+                     help="make the project private")
     a = ap.parse_args()
     DRY = a.dry_run
     labels, ms, tickets = load_plan()
