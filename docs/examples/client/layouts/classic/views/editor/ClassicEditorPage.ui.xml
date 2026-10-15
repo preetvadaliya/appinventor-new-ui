@@ -1,0 +1,39 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!--
+  Project editor: one page for both the Designer and the Blocks editor.
+  showMode() switches a class on the work area; the CSS decides which
+  panes show and where the side column goes. Each pane scrolls on its own.
+  Designer: palette | viewer | components + assets | properties
+  Blocks:   drawers + assets | blocks workspace
+-->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:ed="urn:import:com.google.appinventor.client.layouts.classic.views.editor"
+    xmlns:box="urn:import:com.google.appinventor.client.features.workspace.boxes"
+    xmlns:con="urn:import:com.google.appinventor.client.features.console">
+  <g:FlowPanel styleName="classic-Page classic-EditorPage">
+    <ed:ClassicDesignToolbar ui:field="toolbar"/>
+
+    <g:FlowPanel ui:field="work" styleName="classic-Work is-designer">
+      <box:PaletteBox ui:field="palette"
+          styleName="classic-Pane classic-Work-palette"/>
+      <box:ViewerBox ui:field="viewer"
+          styleName="classic-Pane classic-Work-viewer"/>
+      <g:FlowPanel styleName="classic-Work-side">
+        <box:SourceStructureBox ui:field="components"
+            styleName="classic-Pane classic-Work-components"/>
+        <box:BlockSelectorBox ui:field="drawers"
+            styleName="classic-Pane classic-Work-drawers"/>
+        <box:AssetListBox ui:field="assets"
+            styleName="classic-Pane classic-Work-assets"/>
+      </g:FlowPanel>
+      <box:PropertiesBox ui:field="properties"
+          styleName="classic-Pane classic-Work-properties"/>
+    </g:FlowPanel>
+
+    <con:ConsolePanel ui:field="console" styleName="classic-Console"
+        visible="false"/>
+  </g:FlowPanel>
+</ui:UiBinder>

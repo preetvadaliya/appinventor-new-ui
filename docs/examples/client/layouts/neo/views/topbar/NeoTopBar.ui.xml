@@ -1,0 +1,37 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:c="urn:import:com.google.appinventor.client.layouts.neo.controls"
+    xmlns:top="urn:import:com.google.appinventor.client.layouts.neo.views.topbar">
+  <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
+  <g:FlowPanel styleName="neo-TopBar">
+    <g:Image ui:field="logo" styleName="neo-TopBar-logo"/>
+    <top:NeoMainMenu ui:field="mainMenu"/>
+
+    <g:FlowPanel styleName="neo-TopBar-end">
+      <g:Label ui:field="readOnly" styleName="neo-TopBar-warning"
+          text="{messages.readOnlyMode}" visible="false"/>
+      <!-- Neo keeps Help here instead of in the main menu -->
+      <c:NeoMenuButton ui:field="help" text="{messages.helpTabName}"
+          variant="QUIET">
+        <c:NeoMenuItem action="ABOUT"/>
+        <c:NeoMenuItem action="OPEN_LIBRARY"/>
+        <c:NeoMenuItem action="OPEN_GET_STARTED"/>
+        <c:NeoMenuItem action="OPEN_TUTORIALS"/>
+        <c:NeoMenuItem action="OPEN_TROUBLESHOOTING"/>
+        <c:NeoMenuItem action="OPEN_FORUMS"/>
+        <c:NeoMenuItem action="OPEN_GUIDE"/>
+        <c:NeoMenuItem action="OPEN_FEEDBACK"/>
+        <c:NeoMenuItem action="SHOW_SPLASH"/>
+        <c:NeoMenuItem action="SHOW_SHORTCUTS"/>
+      </c:NeoMenuButton>
+      <c:NeoMenuButton ui:field="language" variant="QUIET"/>
+      <c:NeoMenuButton ui:field="account" variant="QUIET">
+        <c:NeoMenuItem action="SIGN_OUT"/>
+        <c:NeoMenuItem action="DELETE_ACCOUNT" variant="DANGER"/>
+      </c:NeoMenuButton>
+    </g:FlowPanel>
+  </g:FlowPanel>
+</ui:UiBinder>

@@ -1,0 +1,12 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- Projects page: toolbar stays put, the list scrolls. -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:pr="urn:import:com.google.appinventor.client.layouts.classic.views.projects">
+  <g:FlowPanel styleName="classic-Page classic-ProjectsPage">
+    <pr:ClassicProjectToolbar ui:field="toolbar"/>
+    <pr:ClassicProjectList ui:field="list" styleName="classic-Scroll"/>
+  </g:FlowPanel>
+</ui:UiBinder>

@@ -1,0 +1,12 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:box="urn:import:com.google.appinventor.client.features.workspace.boxes">
+  <g:FlowPanel styleName="neo-Page neo-AdminPage">
+    <g:FlowPanel styleName="neo-Card">
+      <box:AdminUserListBox ui:field="users" styleName="neo-Scroll"/>
+    </g:FlowPanel>
+  </g:FlowPanel>
+</ui:UiBinder>

@@ -1,0 +1,28 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- The whole page. Fills the window; only the panes inside scroll. -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:top="urn:import:com.google.appinventor.client.layouts.neo.views.topbar"
+    xmlns:st="urn:import:com.google.appinventor.client.layouts.neo.views.status"
+    xmlns:pr="urn:import:com.google.appinventor.client.layouts.neo.views.projects"
+    xmlns:ed="urn:import:com.google.appinventor.client.layouts.neo.views.editor"
+    xmlns:ad="urn:import:com.google.appinventor.client.layouts.neo.views.admin"
+    xmlns:tu="urn:import:com.google.appinventor.client.features.tutorial">
+  <g:FlowPanel styleName="neo-Shell">
+    <top:NeoTopBar ui:field="topBar"/>
+
+    <g:FlowPanel styleName="neo-Shell-main">
+      <g:FlowPanel styleName="neo-Shell-pages">
+        <pr:NeoProjectsPage ui:field="projectsPage"/>
+        <ed:NeoEditorPage ui:field="editorPage" visible="false"/>
+        <ad:NeoAdminPage ui:field="adminPage" visible="false"/>
+      </g:FlowPanel>
+      <tu:TutorialPanel ui:field="tutorial" styleName="neo-Shell-tutorial"
+          visible="false"/>
+    </g:FlowPanel>
+
+    <st:NeoStatusBar ui:field="statusBar"/>
+  </g:FlowPanel>
+</ui:UiBinder>

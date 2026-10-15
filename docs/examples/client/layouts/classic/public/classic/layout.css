@@ -1,0 +1,126 @@
+/* Classic: the page frame. Part of classic's views.css, shown on its own.
+   Rule: the window never scrolls. Every pane scrolls inside itself. */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Top bar / page / status bar */
+.classic-Shell {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  height: 100vh;
+  height: 100dvh;
+}
+
+/* Page area plus the optional tutorial on the right */
+.classic-Shell-main {
+  display: flex;
+  min-height: 0;
+}
+
+.classic-Shell-pages {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+}
+
+.classic-Shell-pages > * {
+  flex: 1;
+  min-width: 0;
+}
+
+.classic-Shell-tutorial {
+  flex: none;
+  width: 360px;
+  overflow: auto;
+  border-left: 1px solid var(--color-border);
+}
+
+/* Every page fills the space it is given */
+.classic-Page {
+  display: grid;
+  min-height: 0;
+  height: 100%;
+}
+
+.classic-ProjectsPage {
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.classic-EditorPage {
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.classic-AdminPage {
+  grid-template-rows: minmax(0, 1fr);
+}
+
+.classic-Scroll,
+.classic-Pane {
+  min-height: 0;
+  overflow: auto;
+}
+
+/* Work area: Designer and Blocks share it */
+.classic-Work {
+  display: grid;
+  gap: 4px;
+  padding: 4px 8px;
+  min-height: 0;
+  overflow-x: auto;          /* narrow windows scroll here, not the page */
+}
+
+.classic-Work.is-designer {
+  grid-template-columns: 240px minmax(368px, 1fr) 240px 222px;
+  grid-template-areas: "palette viewer side properties";
+}
+
+.classic-Work.is-blocks {
+  grid-template-columns: 260px minmax(368px, 1fr);
+  grid-template-areas: "side viewer";
+}
+
+.classic-Work-palette    { grid-area: palette; }
+.classic-Work-viewer     { grid-area: viewer; }
+.classic-Work-side       { grid-area: side; }
+.classic-Work-properties { grid-area: properties; }
+
+.classic-Work-side {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 0;
+}
+
+.classic-Work-components,
+.classic-Work-drawers {
+  flex: 3 1 0;
+}
+
+.classic-Work-assets {
+  flex: 2 1 0;
+}
+
+/* Which panes each mode shows */
+.is-blocks .classic-Work-palette,
+.is-blocks .classic-Work-properties,
+.is-blocks .classic-Work-components,
+.is-designer .classic-Work-drawers {
+  display: none;
+}
+
+/* Blockly scrolls its own workspace; the phone preview scrolls here */
+.is-blocks .classic-Work-viewer {
+  overflow: hidden;
+}
+
+.classic-Console {
+  max-height: 30vh;
+  overflow: auto;
+  border-top: 1px solid var(--color-border);
+}
