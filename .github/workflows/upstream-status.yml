@@ -2,7 +2,8 @@ name: Upstream status
 
 # Copies the state of each ticket's upstream PR into the project once a day.
 # The default GITHUB_TOKEN cannot write to a user-owned project, so this needs
-# a repository secret PROJECT_TOKEN: a token with the repo and project scopes.
+# a repository secret PROJECT_TOKEN: a classic token with the project and
+# public_repo scopes.
 on:
   schedule:
     - cron: "0 6 * * *"
