@@ -22,7 +22,10 @@ PR_RE = re.compile(r"github\.com/([^/]+/[^/]+)/pull/(\d+)")
 
 def gh(*args, body=None):
     res = subprocess.run(["gh", *args], input=body, capture_output=True,
-                         text=True, check=True)
+                         text=True)
+    if res.returncode != 0:
+        raise SystemExit(f"gh {args[0]} {args[1]} failed:\n"
+                         f"{res.stderr.strip() or res.stdout.strip()}")
     return res.stdout
 
 
