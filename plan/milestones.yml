@@ -8,44 +8,44 @@ buffer: 1.2
 milestones:
   - key: P0
     title: "P0 · Groundwork"
-    due: 2026-10-30
+    due: 2026-10-28
     description: >-
       Dead code is gone and every later PR can prove it changes nothing on screen.
   - key: P1
     title: "P1 · Layouts by id"
-    due: 2026-11-13
+    due: 2026-11-09
     description: >-
       Classic and neo are chosen by a LayoutId and implement one Layout contract,
       instead of a boolean and a factory that neo subclasses.
   - key: P2
     title: "P2 · Live light/dark"
-    due: 2026-12-18
+    due: 2026-12-16
     description: >-
       Switching light/dark no longer reloads the page, in classic and neo.
   - key: P3
     title: "P3 · Actions"
-    due: 2027-02-05
+    due: 2027-02-04
     description: >-
       Every toolbar and menu item runs on an ActionId; no logic finds widgets by name.
   - key: P4
     title: "P4 · Independent views"
-    due: 2027-04-09
+    due: 2027-04-07
     description: >-
       Classic and neo each own their views under layouts/; nothing inherits from classic.
   - key: P5
     title: "P5 · Kits"
-    due: 2027-07-09
+    due: 2027-07-26
     description: >-
       Each layout has its own kit of buttons, menus, dialogs and inputs, and shared
       screens are built from kit interfaces.
   - key: P6
     title: "P6 · CSS split"
-    due: 2027-08-13
+    due: 2027-09-01
     description: >-
       No global stylesheet: each layout loads only its own tokens, kit and view CSS.
   - key: P7
     title: "P7 · Final moves"
-    due: 2027-08-27
+    due: 2027-09-11
     description: >-
       Packages sit in core/, kit/, features/ and layouts/, and a test enforces the
       import rules. Nova can start.

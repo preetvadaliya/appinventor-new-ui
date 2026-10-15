@@ -73,6 +73,13 @@ A test (P7-40) fails the build when one of these breaks:
    `views.css`, plus the shared `base.css`.
 5. Menus and toolbars name actions by `ActionId`.
 
+## Ode.java
+
+`Ode.java` is the GWT entry point (`YaClient.gwt.xml:4`). It shrinks as its
+parts move out (layout choice, theme, dialogs, shell wiring). Moving the class
+itself to `core/boot/` needs MIT's agreement to change the entry point; until
+then it stays in `client/`.
+
 ## Naming
 
 "Component" already means the user's app components (Button, Label in the

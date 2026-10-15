@@ -54,12 +54,16 @@ are not made by the factory at all: neo's `Ode.ui.xml` names them directly.
 | Viewer header | `YaVisibleComponentsPanel` | `YaVisibleComponentsPanelNeo` |
 | Status bar | `StatusPanel` | `StatusPanelNeo` (byte-identical template) |
 
+`YaVisibleComponentsPanel` is the whole phone-preview panel (size and preview
+selectors, hidden-components checkbox, and the container for the mock form), not
+only a header.
+
 Each neo view subclasses its classic twin, declares its own UiBinder,
 re-declares the same `@UiField`s and copies them back (`super.x = x`), for
 example `TopToolbarNeo.java:44-48`.
 
 Everything else is shared and built in Java: designer, `Mock*` components
-(~104 files), properties (52 editors), Blockly wrapper (`BlocklyPanel`, about 49
+(~104 files), properties (48 editors in `editor/youngandroid/properties`), Blockly wrapper (`BlocklyPanel`, about 49
 JSNI methods), admin, wizards and dialogs.
 
 ## Actions
@@ -80,13 +84,18 @@ names differ between the Java constants and the templates.
   neo `lightNeo.css`/`darkNeo.css` + `neo.css` (2,145 lines).
 - Tokens are GWT `@def` constants, not CSS custom properties; dark mode is a
   different compiled bundle. About 570 hex colours remain hard-coded.
-- Neo mostly overrides `Ya.css` (264 of its classes also appear there).
-- Images: `Images`, `DarkModeImages`, `ImagesNeo`, `DarkModeImagesNeo`, about
-  350 PNGs. Neo also uses Material Symbols through `components/Icon.java`.
+- Neo mostly overrides `Ya.css` (250 of its classes also appear there).
+- Images: `Images` (137), `DarkModeImages` (9 overrides), `ImagesNeo` (88),
+  `DarkModeImagesNeo` (93), about 350 PNGs. Neo also overrides most component
+  palette icons, and uses Material Symbols through `components/Icon.java`.
+  Classic shows a few Material glyphs too (folder rows) and 9 PNG chrome images.
 - Blockly uses `geras2` and the default Classic theme; dark mode is a 31-line
   `darkTheme.js` passed to `AI.inject`. It does not depend on the layout.
 
 ## Tests
 
 Client Java tests: 7 files in `appengine/tests/com/google/appinventor/client`.
+They run through the `ai.dojunit` macro with `haltonfailure="no"`
+(`build-common.xml:219`), so a failing test does not fail `ant tests`: read the
+report. P7-40 adds a check that does fail the build.
 Blockly: Karma + mocha (`ant BlocklyTest`).

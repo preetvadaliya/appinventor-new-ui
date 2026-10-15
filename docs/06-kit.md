@@ -32,7 +32,7 @@ From what the client uses today (92 `new Button(`, 26 `new DialogBox(`,
 | `Select`, `Checkbox`, `Radio` | `ListBox`, `CheckBox`, `RadioButton` |
 | `Tree` | `Tree`, `TreeItem` |
 | `Collapsible` | `AbstractCollapsiblePanel` |
-| `Icon` | `widgets/Icon`, `components/Icon` |
+| `Icon` | `components/Icon` (Material glyph); `widgets/Icon` is an image-and-caption used only by `MockNonVisibleComponent` and stays with the mocks |
 
 ## Using the kit from shared screens
 

@@ -7,6 +7,9 @@
   split it on the ticket before you start.
 - Pure package-move PRs (P7-38, P7-39) are exempt from the size limit and
   contain no edits besides package and import lines.
+- CSS rules moved verbatim between files do not count towards the limit; check
+  with `git diff --color-moved`. A ticket that still grows too large ships as
+  `(1/2)` and `(2/2)` PRs.
 
 ## Behaviour
 
@@ -37,7 +40,8 @@ ant BlocklyTest
 ```
 
 `AiClientLib` alone does not catch UiBinder or CssResource errors; run the full
-build before opening the PR.
+build before opening the PR. `ant tests` stays green even when a client test
+fails (`haltonfailure="no"`): read the test report.
 
 ## Naming
 

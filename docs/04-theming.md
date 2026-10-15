@@ -42,7 +42,8 @@ public void setMode(ThemeMode mode) {   // LIGHT, DARK, SYSTEM
   `ThemeChangedEvent`:
   - Blockly: `workspace.setTheme(…)` instead of picking the theme only at
     `AI.inject` (`BlocksEditor.java:649`, `BlocklyPanel.java:759`).
-  - Data visualizer charts (`DataVisualizerPanel.java:130, 658`) redraw.
+  - `DataVisualizerPanel` (the CloudDB table dialog) toggles its `cdbviz-dark`
+    class, which today it sets only once (`DataVisualizerPanel.java:130, 658`).
 - The appearance dialog (today `UISettingsWizard`) calls `ThemeService` and no
   longer saves-and-reloads for light/dark.
 
@@ -51,14 +52,17 @@ public void setMode(ThemeMode mode) {   // LIGHT, DARK, SYSTEM
 Live switching cannot swap a PNG `ImageResource` through CSS. Two steps:
 
 1. **Bridge (P2-07).** `ThemedImage` holds the light and dark resource and swaps
-   on `ThemeChangedEvent`. It replaces the 30 image-bundle call sites in 17
-   files that pick an image once at build time.
+   on `ThemeChangedEvent`. It replaces the 25 places in 17 files that pick an
+   image once (20 `Ode.getImageBundle()` calls in 16 files and 5 `GWT.create`
+   picks).
 2. **Icon sets (P4-22).** Each layout gets its own icon set keyed by
-   `IconKey`: classic draws text, neo maps keys to Material Symbols. Icons that
+   `IconKey`: classic mostly draws text (plus a few glyphs and PNGs it shows
+   today), neo maps keys to Material Symbols. Icons that
    are glyphs or SVG with `currentColor` follow the theme with no swap at all.
 
-Palette icons for App Inventor components (Button, Label, Canvas …) are shared
-by default; a layout may supply its own set.
+Palette icons for App Inventor components (Button, Label, Canvas …) come from a
+shared default set, `ComponentIcons`; a layout overrides them per icon. Neo
+does today for about 85 of them.
 
 ## Icons are meanings, not glyph names
 

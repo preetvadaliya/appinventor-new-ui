@@ -41,7 +41,9 @@ cd appinventor
 ant -Dskip.ios=true noplay           # full build
 ant -q -Dskip.ios=true -f appengine/build.xml AiClientLib
                                      # ~10 s Java check, no GWT
-(cd appengine && ant tests)          # server, shared, client tests
+(cd appengine && ant tests)          # server, shared, client tests;
+                                     # read the report: failures do
+                                     # not fail the build
 ant BlocklyTest                      # blocks editor tests
 ```
 

@@ -1,7 +1,7 @@
 # Migration plan
 
-40 pull requests in 8 phases, about 92 developer-days. With a 20% buffer that is
-about 22 weeks full-time or 44 weeks half-time. Each phase is a GitHub
+42 code tickets in 8 phases, about 97.5 developer-days; several ship as two
+PRs. With a 20% buffer that is about 23 weeks full-time or 47 weeks half-time. Each phase is a GitHub
 milestone; each PR has a ticket in `plan/tickets/`.
 
 PR sizes follow the table-removal series #4148–#4154 (7–19 files, +91 to +403
@@ -14,7 +14,7 @@ lines each), which MIT merged within 1–4 days of opening.
 | P2 · Live light/dark | P2-05 … P2-08 | 11 | Tokens as custom properties; no reload |
 | P3 · Actions | P3-09 … P3-14 | 15 | Every item runs on an `ActionId` |
 | P4 · Independent views | P4-15 … P4-22 | 18.5 | Views per layout; no inheritance |
-| P5 · Kits | P5-23 … P5-32 | 26.5 | A kit per layout; shared screens use it |
+| P5 · Kits | P5-23 … P5-32, P5-41, P5-42 | 32.5 | A kit per layout; shared screens use it; actions in core |
 | P6 · CSS split | P6-33 … P6-37 | 11 | No global stylesheet |
 | P7 · Final moves | P7-38 … P7-40 | 3 | Final packages; import rules enforced |
 
@@ -45,14 +45,14 @@ The exact dependencies are recorded on each ticket as **blocked by** links.
 
 | Milestone | Due |
 |---|---|
-| P0 | 2026-10-30 |
-| P1 | 2026-11-13 |
-| P2 | 2026-12-18 |
-| P3 | 2027-02-05 |
-| P4 | 2027-04-09 |
-| P5 | 2027-07-09 |
-| P6 | 2027-08-13 |
-| P7 | 2027-08-27 |
+| P0 | 2026-10-28 |
+| P1 | 2026-11-09 |
+| P2 | 2026-12-16 |
+| P3 | 2027-02-04 |
+| P4 | 2027-04-07 |
+| P5 | 2027-07-26 |
+| P6 | 2027-09-01 |
+| P7 | 2027-09-11 |
 
 Ticket start and target dates in the project are computed from the estimates by
 `tools/sync.py`, in ticket order.

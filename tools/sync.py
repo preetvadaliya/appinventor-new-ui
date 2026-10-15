@@ -117,6 +117,10 @@ def load_plan():
         if not m:
             sys.exit(f"{path}: no front matter")
         meta = yaml.safe_load(m.group(1))
+        # "[type: refactor, …]" parses as one-key mappings in YAML flow style
+        meta["labels"] = [next(f"{k}: {v}" for k, v in l.items())
+                          if isinstance(l, dict) else l
+                          for l in meta["labels"]]
         meta["body"] = m.group(2).strip()
         meta["blocked_by"] = meta.get("blocked_by") or []
         tickets.append(meta)
@@ -129,6 +133,11 @@ def load_plan():
             if name not in {l["name"] for l in labels["labels"]}:
                 sys.exit(f"{t['key']}: label '{name}' is not in labels.yml")
     schedule(tickets, ms)
+    for m in ms["milestones"]:            # due = last target in the phase
+        ends = [t["target"] for t in tickets if t["milestone"] == m["key"]
+                and t["key"].startswith("P")]
+        if ends:
+            m["due"] = max(ends)
     return labels["labels"], ms, tickets
 
 
@@ -144,7 +153,7 @@ def schedule(tickets, ms):
     by_key = {t["key"]: t for t in tickets}
     cum = 0.0
     for t in sorted((t for t in tickets if t["key"].startswith("P")),
-                    key=lambda t: int(t["key"][3:])):
+                    key=lambda t: (int(t["key"][1]), int(t["key"][3:]))):
         t["start"] = at(cum)
         cum += float(t["estimate"])
         t["target"] = at(cum) - dt.timedelta(days=1)

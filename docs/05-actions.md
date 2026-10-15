@@ -107,16 +107,14 @@ presenter in `core/presenters`, next to the `View` interface the layouts draw:
 // core/presenters/ProjectToolbarPresenter.java
 public interface View {
   void showTitle(String title);
+  void showTrash(boolean trash);
 }
 
 private void update() {
   int n = selection.count();
   boolean ro = App.session().isReadOnly();
-  show(!trash, NEW_PROJECT, IMPORT_PROJECT,
-      IMPORT_TEMPLATE, NEW_FOLDER, MOVE_PROJECTS,
-      DELETE_PROJECT, VIEW_TRASH, EXPORT);
-  show(trash, SWITCH_TO_PROJECTS,
-      RESTORE_PROJECT, DELETE_FOREVER);
+  view.showTrash(trash);   // which buttons this
+                           // toolbar shows
   enable(!ro, NEW_PROJECT);
   enable(!ro && n > 0, MOVE_PROJECTS,
       DELETE_PROJECT, RESTORE_PROJECT,
@@ -124,8 +122,19 @@ private void update() {
 }
 ```
 
+Which buttons a toolbar shows in the project list versus the trash belongs to
+that toolbar (`View.showTrash`), not to the action: the same action may also sit
+in a menu that stays visible. Hiding an action hides it everywhere.
+
 If a layout does not place an action at all, nothing breaks: no widget is bound
 to it.
+
+## From Command to Action
+
+P3-09 adds a transitional `actions/CommandAction` that wraps today's `Command`
+classes, so P3-10 to P3-13 can give every item an `ActionId` without rewriting 60
+classes. P5-42 turns them into `Action` subclasses in `core/actions/<area>/` once
+the dialogs they open have presenters, and deletes `CommandAction`.
 
 ## What a view may and may not do
 

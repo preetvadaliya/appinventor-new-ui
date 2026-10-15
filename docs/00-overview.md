@@ -33,7 +33,7 @@ only**. Nova starts after P7 (milestone *Nova*).
 3. **Shared screens through interfaces.** The designer, properties, blocks and
    dialogs are written once against kit interfaces and take on the active
    layout's look.
-4. **Small, safe steps.** About 40 PRs, each reviewable in one sitting, none of
+4. **Small, safe steps.** About 45 PRs, each reviewable in one sitting, none of
    which changes what users see unless it says so.
 
 ## Documents

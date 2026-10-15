@@ -28,9 +28,16 @@ public interface Layout {
   Icons icons();
 
   ShellPresenter.View shell();
-  ProjectToolbarPresenter.View projectToolbar();
+  StatusBarView statusBar();
+  TopBarPresenter.View topBar();
   MainMenuPresenter.View mainMenu();
+  ProjectToolbarPresenter.View projectToolbar();
+  ProjectListPresenter.View projectList();
   DesignToolbarPresenter.View designToolbar();
+
+  default ViewerHeaderView viewerHeader() {
+    return new ViewerHeader();        // shared
+  }
 
   default NewProjectPresenter.View newProjectDialog() {
     return new NewProjectDialog();    // shared feature
