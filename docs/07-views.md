@@ -104,3 +104,23 @@ interfaces (`<c:Button>`, `<c:TextField>`) through `SharedView`, so they look
 right in any layout. A layout may replace one by implementing the presenter's
 `View` and returning it from the matching `Layout` method; the presenter does
 not change. Example: `NovaNewProjectDialog` in `docs/examples`.
+
+## Property editor views
+
+Property editors follow the same pattern (decision 0011). Each kind of editor
+has a model in `core/properties/editors/` with a `View` interface, and one
+shared default view in `features/properties/editors/`: a template plus
+behaviour-only Java extending `SharedView`.
+
+| Piece | File | Differs per layout? |
+|---|---|---|
+| Logic: valid values, encoding, summary | `core/properties/editors/LengthEditorModel.java` | no |
+| Arrangement: what sits where | `features/properties/editors/LengthEditorView.ui.xml` | no, shared |
+| Behaviour: popup, radios and fields in step | `features/properties/editors/LengthEditorView.java` | no, shared |
+| Look of each control | `ClassicRadio`, `NeoRadio`, `ClassicTextField` … | yes, from `Controls.active()` |
+| Colours, spacing | `tokens.css`, `controls.css`, shared `properties.css` | yes |
+
+So classic and neo share every editor template and still look like
+themselves. A layout writes its own editor view only to change the
+arrangement (say, a segmented control instead of four radios), in
+`layouts/<layout>/views/properties/`, returned from its `EditorViews`.

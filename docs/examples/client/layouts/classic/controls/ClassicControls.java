@@ -9,6 +9,7 @@ import com.google.appinventor.client.controls.Checkbox;
 import com.google.appinventor.client.controls.Controls;
 import com.google.appinventor.client.controls.Dialog;
 import com.google.appinventor.client.controls.Icons;
+import com.google.appinventor.client.controls.Radio;
 import com.google.appinventor.client.controls.Select;
 import com.google.appinventor.client.controls.TextField;
 import com.google.appinventor.client.layouts.classic.icons.ClassicIcons;
@@ -40,6 +41,11 @@ public class ClassicControls implements Controls {
   @Override
   public Checkbox checkbox() {
     return new ClassicCheckbox();
+  }
+
+  @Override
+  public Radio radio() {
+    return new ClassicRadio();
   }
 
   @Override

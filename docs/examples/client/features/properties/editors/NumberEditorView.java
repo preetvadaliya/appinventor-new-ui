@@ -4,25 +4,35 @@
 
 package com.google.appinventor.client.features.properties.editors;
 
-import com.google.appinventor.client.controls.Controls;
+import com.google.appinventor.client.controls.SharedView;
 import com.google.appinventor.client.controls.TextField;
 import com.google.appinventor.client.core.properties.editors.NumberEditorModel;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.KeyCodes;
-import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.Widget;
 import java.util.function.Consumer;
 
 /**
- * The shared view for every number property: the active layout's
- * TextField, with typing filtered and the error shown under the field.
+ * The shared view for every number property. Markup is in the template;
+ * this class only filters typing and reports Enter, blur and Escape.
  */
-public class NumberEditorView extends Composite
+public class NumberEditorView extends SharedView
     implements NumberEditorModel.View {
 
-  private final TextField field = Controls.active().textField();
+  interface Binder extends UiBinder<Widget, NumberEditorView> {
+  }
+
+  private static final Binder BINDER = GWT.create(Binder.class);
+
+  @UiField
+  TextField field;
+
   private String allowed = "";
 
   public NumberEditorView() {
-    initWidget(field.asWidget());
+    initWidget(BINDER.createAndBindUi(this));
     field.addKeyPressHandler(e -> {
       char c = e.getCharCode();
       if (c >= ' ' && allowed.indexOf(c) < 0) {

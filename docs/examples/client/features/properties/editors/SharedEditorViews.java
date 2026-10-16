@@ -6,6 +6,7 @@ package com.google.appinventor.client.features.properties.editors;
 
 import com.google.appinventor.client.core.properties.editors.ChoiceEditorModel;
 import com.google.appinventor.client.core.properties.editors.EditorViews;
+import com.google.appinventor.client.core.properties.editors.LengthEditorModel;
 import com.google.appinventor.client.core.properties.editors.NumberEditorModel;
 
 /**
@@ -22,5 +23,10 @@ public class SharedEditorViews implements EditorViews {
   @Override
   public NumberEditorModel.View number() {
     return new NumberEditorView();
+  }
+
+  @Override
+  public LengthEditorModel.View length() {
+    return new LengthEditorView();
   }
 }

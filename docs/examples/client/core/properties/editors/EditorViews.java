@@ -13,4 +13,6 @@ public interface EditorViews {
   ChoiceEditorModel.View choice();
 
   NumberEditorModel.View number();
+
+  LengthEditorModel.View length();
 }

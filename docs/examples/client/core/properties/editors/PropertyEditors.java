@@ -40,6 +40,10 @@ public final class PropertyEditors {
       case PropertyTypeConstants.PROPERTY_TYPE_UNIT_COORDINATE:
         return NumberEditorModel.range(0, 1);
 
+      // Width and Height (MockImageSprite asks for pixelsOnly() itself)
+      case PropertyTypeConstants.PROPERTY_TYPE_LENGTH:
+        return LengthEditorModel.withPercent();
+
       // the other choice lists and the text, color, asset, component …
       // models follow the same pattern (ticket P5-31)
       default:

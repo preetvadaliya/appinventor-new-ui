@@ -18,8 +18,15 @@ widget code.
   today's values and captions unchanged.
 - `PropertyEditors.forType(type)` maps each editor type from
   `simple_components.json` to its model.
-- One shared default view per model in `features/properties/editors/`, built
-  from control interfaces; a layout may replace any of them.
+- One shared default view per model in `features/properties/editors/`, written
+  like every other view (decision 0008): a `.ui.xml` template whose `c:`
+  elements are control interfaces, plus behaviour-only Java extending
+  `SharedView`. The controls make it look right in each layout, so one
+  template serves classic and neo.
+- A layout replaces an editor view only when it wants a different
+  arrangement, not different styling: it implements the model's `View` in
+  `layouts/<layout>/views/properties/` and returns it from its own
+  `EditorViews` (`Layout.editorViews()`). The model does not change.
 
 Two exceptions: the chatbot provider and model lists come from the chat
 proxy, so their loader lives outside `core/` (it does HTTP) and feeds a

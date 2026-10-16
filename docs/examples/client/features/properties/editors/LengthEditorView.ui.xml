@@ -1,0 +1,38 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- Width and Height: a summary button ("120 pixels") that opens the
+     form below. Every c: element is the active layout's control. -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:c="urn:import:com.google.appinventor.client.controls">
+  <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
+  <g:HTMLPanel styleName="flex-col properties-LengthEditor">
+    <c:Button ui:field="summary"/>
+
+    <!-- Java moves this into the popup (see LengthEditorView). -->
+    <g:HTMLPanel ui:field="form" styleName="flex-col gap-sm pad-md">
+      <c:Radio ui:field="automatic" text="{messages.automaticCaption}"/>
+      <c:Radio ui:field="fillParent" text="{messages.fillParentCaption}"/>
+
+      <div class="flex-row items-center gap-xs">
+        <c:Radio ui:field="pixels"/>
+        <c:TextField ui:field="pixelsAmount" maxLength="4"/>
+        <span><ui:text from="{messages.pixelsCaption}"/></span>
+      </div>
+
+      <g:HTMLPanel ui:field="percentRow" styleName="flex-row items-center gap-xs">
+        <c:Radio ui:field="percent"/>
+        <c:TextField ui:field="percentAmount" maxLength="4"/>
+        <span><ui:text from="{messages.percentCaption}"/></span>
+      </g:HTMLPanel>
+
+      <g:Label ui:field="error" styleName="properties-Error" visible="false"/>
+
+      <div class="flex-row justify-end gap-sm">
+        <c:Button ui:field="cancel" text="{messages.cancelButton}"/>
+        <c:Button ui:field="ok" text="{messages.okButton}" variant="PRIMARY"/>
+      </div>
+    </g:HTMLPanel>
+  </g:HTMLPanel>
+</ui:UiBinder>

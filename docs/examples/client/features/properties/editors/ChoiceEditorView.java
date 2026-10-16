@@ -4,27 +4,34 @@
 
 package com.google.appinventor.client.features.properties.editors;
 
-import com.google.appinventor.client.controls.Controls;
 import com.google.appinventor.client.controls.Select;
+import com.google.appinventor.client.controls.SharedView;
 import com.google.appinventor.client.core.properties.choices.Choice;
 import com.google.appinventor.client.core.properties.editors.ChoiceEditorModel;
-import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.Widget;
 import java.util.List;
 import java.util.function.Consumer;
 
 /**
- * The shared view for every choice property. Uses the active layout's
- * Select, so it is ClassicSelect in classic and NeoSelect in neo.
- * Used for all 36 choice properties.
+ * The shared view for every choice property. The template's <c:Select>
+ * is ClassicSelect in classic and NeoSelect in neo.
  */
-public class ChoiceEditorView extends Composite
+public class ChoiceEditorView extends SharedView
     implements ChoiceEditorModel.View {
 
-  private final Select select = Controls.active().select();
+  interface Binder extends UiBinder<Widget, ChoiceEditorView> {
+  }
+
+  private static final Binder BINDER = GWT.create(Binder.class);
+
+  @UiField
+  Select select;
 
   public ChoiceEditorView() {
-    initWidget(select.asWidget());
-    setStyleName("properties-ChoiceEditor");
+    initWidget(BINDER.createAndBindUi(this));
   }
 
   @Override

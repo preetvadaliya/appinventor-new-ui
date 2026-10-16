@@ -21,6 +21,8 @@ public interface Controls {
 
   Checkbox checkbox();
 
+  Radio radio();
+
   /** The layout's icon set: images, glyphs, or both. */
   Icons icons();
 

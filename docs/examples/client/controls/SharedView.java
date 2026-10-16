@@ -33,4 +33,9 @@ public abstract class SharedView extends Composite {
   protected Checkbox checkbox() {
     return Controls.active().checkbox();
   }
+
+  @UiFactory
+  protected Radio radio() {
+    return Controls.active().radio();
+  }
 }
