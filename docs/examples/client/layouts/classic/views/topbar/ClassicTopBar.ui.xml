@@ -1,29 +1,18 @@
 <!-- Copyright 2026 MIT, All rights reserved -->
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- ClassicTopBar: logo, main menu, links, language, account. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls"
-    xmlns:top="urn:import:com.google.appinventor.client.layouts.classic.views.topbar">
-  <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
+    xmlns:top="urn:import:com.google.appinventor.client.layouts.classic.views.topbar"
+    xmlns:menus="urn:import:com.google.appinventor.client.layouts.classic.views.menus">
   <g:FlowPanel styleName="classic-TopBar">
-    <g:Image ui:field="logo" styleName="classic-TopBar-logo"/>
-    <top:ClassicMainMenu ui:field="mainMenu"/>
-
+    <top:ClassicLogo/>
+    <menus:ClassicMainMenu ui:field="mainMenu"/>
     <g:FlowPanel styleName="classic-TopBar-end">
-      <g:Label ui:field="readOnly" styleName="classic-TopBar-warning"
-          text="{messages.readOnlyMode}" visible="false"/>
-      <c:ClassicButton action="SWITCH_TO_PROJECTS"
-          text="{messages.myProjectsTabName}" variant="QUIET"/>
-      <c:ClassicButton action="VIEW_TRASH"
-          text="{messages.viewTrashTabName}" variant="QUIET"/>
-      <c:ClassicButton action="OPEN_GUIDE" variant="QUIET"/>
-      <c:ClassicButton action="OPEN_FEEDBACK" variant="QUIET"/>
-      <c:ClassicMenuButton ui:field="language" variant="QUIET"/>
-      <c:ClassicMenuButton ui:field="account" variant="QUIET">
-        <c:ClassicMenuItem action="SIGN_OUT"/>
-        <c:ClassicMenuItem action="DELETE_ACCOUNT" variant="DANGER"/>
-      </c:ClassicMenuButton>
+      <top:ClassicTopLinks ui:field="links"/>
+      <top:ClassicLanguageMenu ui:field="language"/>
+      <top:ClassicAccountMenu ui:field="account"/>
     </g:FlowPanel>
   </g:FlowPanel>
 </ui:UiBinder>

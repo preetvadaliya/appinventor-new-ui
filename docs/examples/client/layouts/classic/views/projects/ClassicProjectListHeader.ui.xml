@@ -1,0 +1,20 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- ClassicProjectListHeader: select-all and three sortable columns.
+     The same ClassicSortHeader component is used three times. -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls"
+    xmlns:pr="urn:import:com.google.appinventor.client.layouts.classic.views.projects">
+  <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
+  <g:FlowPanel styleName="classic-ProjectListHeader">
+    <c:ClassicCheckbox ui:field="selectAll"/>
+    <pr:ClassicSortHeader ui:field="name" column="NAME"
+        label="{messages.projectNameHeader}"/>
+    <pr:ClassicSortHeader ui:field="created" column="DATE_CREATED"
+        label="{messages.projectDateCreatedHeader}"/>
+    <pr:ClassicSortHeader ui:field="modified" column="DATE_MODIFIED"
+        label="{messages.projectDateModifiedHeader}"/>
+  </g:FlowPanel>
+</ui:UiBinder>

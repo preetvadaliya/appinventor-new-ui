@@ -1,0 +1,14 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- ClassicSortHeader: one clickable column title with a sort arrow.
+     Props: column, label. State: setSort(NONE | ASCENDING | DESCENDING). -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui">
+  <g:FocusPanel ui:field="button" styleName="classic-SortHeader">
+    <g:FlowPanel>
+      <g:InlineLabel ui:field="label" styleName="classic-SortHeader-label"/>
+      <g:InlineLabel ui:field="arrow" styleName="classic-SortHeader-arrow"/>
+    </g:FlowPanel>
+  </g:FocusPanel>
+</ui:UiBinder>
