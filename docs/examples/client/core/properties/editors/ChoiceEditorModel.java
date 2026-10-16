@@ -17,7 +17,7 @@ public class ChoiceEditorModel
     extends PropertyEditor<ChoiceEditorModel.View> {
 
   /** What any choice editor view must be able to do. */
-  public interface View {
+  public interface View extends EditorView {
     void setChoices(List<Choice> choices);
 
     void select(String value);
@@ -32,6 +32,11 @@ public class ChoiceEditorModel
   }
 
   @Override
+  protected View createView(EditorViews views) {
+    return views.choice();
+  }
+
+  @Override
   protected void bind() {
     view.setChoices(choices.list());
     view.onPick(value -> {
@@ -41,7 +46,6 @@ public class ChoiceEditorModel
         refresh();                  // undo an impossible pick
       }
     });
-    refresh();
   }
 
   @Override

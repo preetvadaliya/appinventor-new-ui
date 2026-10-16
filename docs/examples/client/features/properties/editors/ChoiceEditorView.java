@@ -15,6 +15,7 @@ import java.util.function.Consumer;
 /**
  * The shared view for every choice property. Uses the active layout's
  * Select, so it is ClassicSelect in classic and NeoSelect in neo.
+ * Used for all 36 choice properties.
  */
 public class ChoiceEditorView extends Composite
     implements ChoiceEditorModel.View {
