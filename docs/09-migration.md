@@ -1,7 +1,7 @@
 # Migration plan
 
-43 code tickets in 8 phases, about 103.5 developer-days; several ship as two
-or three PRs. With a 20% buffer that is about 25 weeks full-time or 50 weeks half-time. Each phase is a GitHub
+47 code tickets in 8 phases, about 111.5 developer-days; several ship as two
+or three PRs. With a 20% buffer that is about 27 weeks full-time or 54 weeks half-time. Each phase is a GitHub
 milestone; each PR has a ticket in `plan/tickets/`.
 
 PR sizes follow the table-removal series #4148–#4154 (7–19 files, +91 to +403
@@ -12,9 +12,9 @@ lines each), which MIT merged within 1–4 days of opening.
 | P0 · Groundwork | P0-01, P0-02 | 3 | Dead code gone; snapshot diff for every PR |
 | P1 · Layouts by id | P1-03, P1-04 | 3.5 | `LayoutId`, `Layout`, `LayoutRegistry` |
 | P2 · Live light/dark | P2-05 … P2-08 | 11 | Tokens as custom properties; no reload |
-| P3 · Actions | P3-09 … P3-14 | 15 | Every item runs on an `ActionId` |
+| P3 · Actions | P3-09 … P3-14, P3-45 | 16.5 | Every item runs on an `ActionId` |
 | P4 · Independent views | P4-15 … P4-22 | 19.5 | Views per layout; no inheritance |
-| P5 · Controls | P5-23 … P5-32, P5-41 … P5-43 | 37.5 | Controls and designer regions per layout; property editors as models; actions in core |
+| P5 · Controls | P5-23 … P5-32, P5-41 … P5-43, P5-47, P5-48 | 42 | Controls and designer regions per layout; property editors as models; actions in core |
 | P6 · CSS split | P6-33 … P6-37 | 11 | No global stylesheet |
 | P7 · Final moves | P7-38 … P7-40, P7-44 | 5 | Final packages; every layout draws every control; import rules enforced |
 
@@ -50,11 +50,11 @@ The exact dependencies are recorded on each ticket as **blocked by** links.
 | P0 | 2026-10-28 |
 | P1 | 2026-11-09 |
 | P2 | 2026-12-16 |
-| P3 | 2027-02-04 |
-| P4 | 2027-04-11 |
-| P5 | 2027-08-15 |
-| P6 | 2027-09-21 |
-| P7 | 2027-10-01 |
+| P3 | 2027-02-09 |
+| P4 | 2027-04-16 |
+| P5 | 2027-09-04 |
+| P6 | 2027-10-11 |
+| P7 | 2027-10-28 |
 
 Ticket start and target dates in the project are computed from the estimates by
 `tools/sync.py`, in ticket order.

@@ -1,7 +1,9 @@
 # Drag and drop
 
-Status: proposal, under discussion. Nothing here is a decision yet; the
-tickets at the end are proposed, not created.
+Status: accepted for the drag engine (decision `0015`): every drag between
+components, the component tree included, runs on one engine, and Escape
+cancels a drag. Tickets P3-45, P5-47 and P5-48 are created; P4-46 (file
+drops) and the P0-01 extension are still proposed.
 
 ## What the client does today
 
@@ -97,7 +99,8 @@ Each mock layout draws its own hint while a component hovers over it:
 
 ## Requirements
 
-- No visible change for classic and neo: the palette preview stays the
+- Escape cancels a drag (decision 0015); that is the only visible change
+  for classic and neo. The palette preview stays the
   mock as it looks on the phone, the move preview stays a copy of the
   component, the hints stay where they are.
 - A layout can replace the preview, and change it while dragging. Nova
@@ -320,9 +323,10 @@ public interface FileDropZone extends IsWidget {
   from a token, `--color-drop-hint`, instead of `#0000ff`.
 - The tree hint and the file overlay are styled by the layout's CSS.
 
-## Proposed tickets
+## Tickets
 
-Numbers continue after P7-44. Estimates in days.
+Numbers continue after P7-44. Estimates in days. P3-45, P5-47 and P5-48 are
+in `plan/tickets/`; P4-46 and the P0-01 extension are proposed.
 
 | Key | Title | Size | Blocked by | Blocks |
 |---|---|---|---|---|
@@ -342,11 +346,11 @@ Elsewhere:
 
 ## Open questions
 
-1. Should Escape cancel a drag? Today it does not; adding it is a small
-   visible change.
-2. Should the tree keep HTML5 drag and drop (it works today) instead of
-   moving to the engine (P5-48)? Moving it gives one hint style and one
-   code path; keeping it saves 1.5 days.
+1. ~~Should Escape cancel a drag?~~ Yes (decision 0015). It is the one
+   visible change, in P5-47.
+2. ~~Should the tree keep HTML5 drag and drop?~~ No: it moves to the engine
+   (P5-48), for one hint style and one code path. P5-47 and P5-48 are 4.5
+   days together.
 3. The debugging view behind "internal error, open the debugging
    view?" (`Ode.java:722-724`) cannot open today. Delete the prompt with
    the view, or replace it with the console?

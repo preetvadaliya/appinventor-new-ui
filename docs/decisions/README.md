@@ -21,6 +21,7 @@ amending its record, never by quietly doing something else in a PR.
 | [0012](0012-editor-errors.md) | Editors keep `Window.alert` through P7 | Models report through `View.showError`; inline errors come in a later, look-changing ticket |
 | [0013](0013-standard-controls.md) | `StandardControls` is a bridge, deleted in P7 | Every layout writes every control; shared behaviour lives in `controls/behaviour/` |
 | [0014](0014-google-style.md) | Code follows Google style | Google Java Style strictly, enums one constant per line, `ant checkstyle` clean on changed lines |
+| [0015](0015-one-drag-engine.md) | One drag engine for every drag in the designer | The tree moves onto it too, the drop rule lives once in `core/dnd`, Escape cancels a drag |
 
 ## Waiting on a ticket
 
