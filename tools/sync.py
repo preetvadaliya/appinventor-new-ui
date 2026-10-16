@@ -28,6 +28,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 
 import yaml
 
@@ -64,12 +65,22 @@ DRY = False
 
 
 # --------------------------------------------------------------- gh helpers
+TRANSIENT = ("timed out", "connection reset", "EOF", "502", "503", "504",
+             "TLS handshake", "no such host")
+
+
 def gh(*args, body=None):
-    res = subprocess.run(["gh", *args], input=body, capture_output=True,
-                         text=True)
-    if res.returncode != 0:
-        raise RuntimeError(f"gh {' '.join(args)}\n{res.stderr.strip()}")
-    return res.stdout
+    """Run gh; retry a few times when the network drops."""
+    for attempt in range(4):
+        res = subprocess.run(["gh", *args], input=body, capture_output=True,
+                             text=True)
+        if res.returncode == 0:
+            return res.stdout
+        err = res.stderr.strip()
+        if attempt < 3 and any(t in err for t in TRANSIENT):
+            time.sleep(2 * (attempt + 1))
+            continue
+        raise RuntimeError(f"gh {' '.join(args)}\n{err}")
 
 
 def rest(method, path, data=None):
@@ -405,14 +416,22 @@ def sync_project(tickets, issues, public):
         d = gql("""query($p:ID!,$c:String){node(id:$p){... on ProjectV2{
             items(first:100,after:$c){pageInfo{hasNextPage endCursor}
             nodes{id content{... on Issue{number}}
-            fieldValues(first:30){nodes{... on
-            ProjectV2ItemFieldSingleSelectValue{name field{
-            ... on ProjectV2FieldCommon{name}}}}}}}}}}""", p=pid, c=cursor)
+            fieldValues(first:30){nodes{
+            ... on ProjectV2ItemFieldSingleSelectValue{name field{
+              ... on ProjectV2FieldCommon{name}}}
+            ... on ProjectV2ItemFieldNumberValue{number field{
+              ... on ProjectV2FieldCommon{name}}}
+            ... on ProjectV2ItemFieldDateValue{date field{
+              ... on ProjectV2FieldCommon{name}}}}}}}}}}""", p=pid, c=cursor)
         page = d["node"]["items"]
         for n in page["nodes"]:
             if n["content"]:
-                vals = {v["field"]["name"]: v["name"]
-                        for v in n["fieldValues"]["nodes"] if v}
+                vals = {}
+                for v in n["fieldValues"]["nodes"]:
+                    if v and v.get("field"):
+                        vals[v["field"]["name"]] = (
+                            v.get("name") or v.get("date")
+                            if "number" not in v else v["number"])
                 items[n["content"]["number"]] = (n["id"], vals)
         if not page["pageInfo"]["hasNextPage"]:
             break
@@ -431,13 +450,15 @@ def sync_project(tickets, issues, public):
             if DRY:
                 continue
             item_id, vals = res["addProjectV2ItemById"]["item"]["id"], {}
-        set_value(pid, fields, item_id, "Size", single=t["size"])
-        set_value(pid, fields, item_id, "Estimate",
-                  number=float(t["estimate"]))
-        set_value(pid, fields, item_id, "Start", date=str(t["start"]))
-        set_value(pid, fields, item_id, "Target", date=str(t["target"]))
+        want = {"Size": ("single", t["size"]),
+                "Estimate": ("number", float(t["estimate"])),
+                "Start": ("date", str(t["start"])),
+                "Target": ("date", str(t["target"]))}
         if area_of(t):
-            set_value(pid, fields, item_id, "Area", single=area_of(t))
+            want["Area"] = ("single", area_of(t))
+        for name, (kind, value) in want.items():
+            if vals.get(name) != value:      # skip what is already right
+                set_value(pid, fields, item_id, name, **{kind: value})
         if "Status" not in vals:
             status = "Backlog" if t["blocked_by"] else "Ready"
             set_value(pid, fields, item_id, "Status", single=status)
