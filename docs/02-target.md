@@ -18,7 +18,7 @@ client/
 ├── controls/   the contract every layout's building blocks fill
 │   ├── Button, MenuButton, Dialog, TextField, Select, Tree …
 │   ├── behaviour/    keyboard, focus, ARIA, written once
-│   ├── standard/     a plain default set
+│   ├── standard/     bridge during P5, deleted in P7 (0013)
 │   ├── SharedView    base class: @UiFactory -> active controls
 │   └── Controls      the factory; holds the active set
 ├── features/   shared parts, look from the active controls
@@ -76,8 +76,8 @@ A test (P7-40) fails the build when one of these breaks:
 1. `core` imports no GWT widget classes and nothing from `controls`, `features` or
    `layouts`.
 2. `features` import `controls` interfaces only, never a concrete layout class.
-3. `layouts/x` never imports `layouts/y`. A new layout may extend
-   `controls/standard`, never another layout.
+3. `layouts/x` never imports `layouts/y`, and after P7 nothing imports
+   `controls/standard` (decision 0013).
 4. Only the active layout's CSS loads: its `tokens.css`, `controls.css` and
    `views/*.css`, after the shared `reset.css`, `layout.css` and shared feature
    files (decision `0010-css-files.md`).

@@ -16,12 +16,12 @@ lines each), which MIT merged within 1–4 days of opening.
 | P4 · Independent views | P4-15 … P4-22 | 19.5 | Views per layout; no inheritance |
 | P5 · Controls | P5-23 … P5-32, P5-41 … P5-43 | 37.5 | Controls and designer regions per layout; property editors as models; actions in core |
 | P6 · CSS split | P6-33 … P6-37 | 11 | No global stylesheet |
-| P7 · Final moves | P7-38 … P7-40 | 3 | Final packages; import rules enforced |
+| P7 · Final moves | P7-38 … P7-40, P7-44 | 5 | Final packages; every layout draws every control; import rules enforced |
 
 Coordination and decision tickets: C-01 (share the plan with MIT), C-02 (agree
-the package-move window), C-03 (decide nova's scope), C-04 (how property
-editors report invalid input, before P5-30), C-05 (whether `StandardControls`
-stays, before P7-39).
+the package-move window), C-03 (decide nova's scope), C-04 (property editors
+keep `Window.alert`, decided: 0012), C-05 (`StandardControls` is a bridge
+deleted in P7-44, decided: 0013).
 
 ## Order and overlap
 

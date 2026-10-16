@@ -12,9 +12,10 @@ layout is active.
 | Behaviour | `controls/behaviour/` | Keyboard, focus and ARIA code shared by every layout's controls |
 | Implementations | `layouts/<x>/controls/` | What classic's or neo's button looks like |
 
-`controls/standard/` is a plain default implementation built from today's widgets. A
-new layout starts by extending `StandardControls` and replaces pieces one at a time;
-it never extends another layout's controls.
+`controls/standard/` wraps today's widgets so views can move to the contracts with no
+visual change. It is a bridge for P5 only (decision 0013): by the end of P7 every layout
+writes every control as its own template plus behaviour Java, and `controls/standard/`
+is deleted (P7-44). A layout never extends another layout's controls.
 
 ## Building blocks
 

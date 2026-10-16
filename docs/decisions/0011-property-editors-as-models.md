@@ -27,6 +27,8 @@ widget code.
   arrangement, not different styling: it implements the model's `View` in
   `layouts/<layout>/views/properties/` and returns it from its own
   `EditorViews` (`Layout.editorViews()`). The model does not change.
+- Wrong values are reported through `View.showError`, which shows today's
+  `Window.alert` until a later ticket switches to inline errors (decision 0012).
 
 Two exceptions: the chatbot provider and model lists come from the chat
 proxy, so their loader lives outside `core/` (it does HTTP) and feeds a

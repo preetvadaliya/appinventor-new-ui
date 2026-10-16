@@ -24,8 +24,8 @@ the corrections made while writing the tickets:
   land in P7; P5-30 and P5-31 fold most of them into those models and views.
 - CSS files follow decision 0010; shared CSS is `features/public/features/`
   (`reset.css`, `layout.css` and shared feature files).
-- Transitional classes (`actions/CommandAction`, `client/ShellBinders`) are gone
-  by then (P5-42, P4-21).
+- Transitional classes (`actions/CommandAction`, `client/ShellBinders`) and the
+  bridge `controls/standard/` are gone by then (P5-42, P4-21, P7-44).
 
 Nova, when it comes, is one more folder next to `classic/` and `neo/` with the
 same shape.
@@ -631,13 +631,6 @@ client/
 │   │   ├── RovingTabIndex.java
 │   │   ├── TableAccessibility.java
 │   │   └── Validator.java
-│   ├── standard/   # plain default set a new layout starts from
-│   │   ├── StandardButton.java
-│   │   ├── StandardDialog.java
-│   │   ├── StandardControls.java
-│   │   ├── StandardMenuButton.java
-│   │   ├── StandardTextField.java
-│   │   └── StandardWizard.java
 │   ├── uibinder/
 │   │   └── ActionItemParser.java
 │   ├── Button.java

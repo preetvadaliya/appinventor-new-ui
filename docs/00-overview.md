@@ -45,7 +45,7 @@ only**. Nova starts after P7 (milestone *Nova*).
 | `03-layouts.md` | Layout ids, the `Layout` contract, the registry |
 | `04-theming.md` | Tokens, live light/dark, icons |
 | `05-actions.md` | `ActionId`, `Action`, presenters, binding |
-| `06-controls.md` | Control contracts, shared behaviour, the standard controls |
+| `06-controls.md` | Control contracts, shared behaviour, the P5 bridge |
 | `07-views.md` | Views per layout: one template per region, HTMLPanels and flexbox |
 | `08-css.md` | Shared `reset.css` and `layout.css`, and each layout's tokens, controls and views CSS |
 | `09-migration.md` | The PRs, their order and the timeline |

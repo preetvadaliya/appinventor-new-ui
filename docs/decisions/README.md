@@ -18,14 +18,14 @@ amending its record, never by quietly doing something else in a PR.
 | [0009](0009-designer-regions-per-layout.md) | Designer regions belong to each layout | Palette, viewer, tree, properties … are layout views; logic stays in presenters |
 | [0010](0010-css-files.md) | CSS is split into small files by job | Shared `reset.css`/`layout.css`; per layout `tokens`, `controls`, `views/*` |
 | [0011](0011-property-editors-as-models.md) | Property editors are models; choice lists are data | Logic in `core/`, one shared template view per kind, 36 choice lists as data |
+| [0012](0012-editor-errors.md) | Editors keep `Window.alert` through P7 | Models report through `View.showError`; inline errors come in a later, look-changing ticket |
+| [0013](0013-standard-controls.md) | `StandardControls` is a bridge, deleted in P7 | Every layout writes every control; shared behaviour lives in `controls/behaviour/` |
 
 ## Waiting on a ticket
 
 | # | Question | Ticket |
 |---|---|---|
 | 0007 | What nova is: screens, controls, colour, icons | C-03 |
-| 0012 | Property editor errors: inline or `Window.alert` | C-04 |
-| 0013 | Does `StandardControls` stay after P5 | C-05 |
 
 ## Writing a new one
 
