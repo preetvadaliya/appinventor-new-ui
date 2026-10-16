@@ -1,0 +1,14 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- NonVisibleStrip: Clock, TinyDB, Notifier … under the phone. Icons are
+     added in Java, one IconView with the component's name each. -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui">
+  <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
+  <g:FlowPanel styleName="nonvisible">
+    <g:Label ui:field="heading" styleName="nonvisible-heading"
+        text="{messages.nonVisibleComponentsHeader}" visible="false"/>
+    <g:FlowPanel ui:field="icons" styleName="nonvisible-icons"/>
+  </g:FlowPanel>
+</ui:UiBinder>

@@ -1,0 +1,17 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- PaletteView: search, the categories, and the extension import link.
+     Categories are added in Java, one PaletteCategory each. -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:c="urn:import:com.google.appinventor.client.controls">
+  <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
+  <g:FlowPanel styleName="palette">
+    <c:TextField ui:field="search" placeholder="{messages.searchComponents}"/>
+    <g:FlowPanel ui:field="results" styleName="palette-results" visible="false"/>
+    <g:FlowPanel ui:field="categories" styleName="palette-categories"/>
+    <c:Button ui:field="importExtension" variant="QUIET"
+        text="{messages.importExtensionMenuItem}"/>
+  </g:FlowPanel>
+</ui:UiBinder>

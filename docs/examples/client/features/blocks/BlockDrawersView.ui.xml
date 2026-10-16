@@ -1,0 +1,16 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- BlockDrawersView: Built-in drawers (BlockDrawerItem each), then one
+     drawer per component on the screen, then Any component. -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:c="urn:import:com.google.appinventor.client.controls">
+  <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
+  <g:FlowPanel styleName="drawers">
+    <g:Label styleName="drawers-section" text="{messages.builtinBlocksLabel}"/>
+    <g:FlowPanel ui:field="builtIn" styleName="drawers-list"/>
+    <c:Tree ui:field="components" styleName="drawers-components"/>
+    <g:FlowPanel ui:field="anyComponent" styleName="drawers-list"/>
+  </g:FlowPanel>
+</ui:UiBinder>

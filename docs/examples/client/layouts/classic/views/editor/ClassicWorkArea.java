@@ -5,12 +5,12 @@
 package com.google.appinventor.client.layouts.classic.views.editor;
 
 import com.google.appinventor.client.core.presenters.EditorPagePresenter.Mode;
-import com.google.appinventor.client.features.workspace.boxes.AssetListBox;
-import com.google.appinventor.client.features.workspace.boxes.BlockSelectorBox;
-import com.google.appinventor.client.features.workspace.boxes.PaletteBox;
-import com.google.appinventor.client.features.workspace.boxes.PropertiesBox;
-import com.google.appinventor.client.features.workspace.boxes.SourceStructureBox;
-import com.google.appinventor.client.features.workspace.boxes.ViewerBox;
+import com.google.appinventor.client.features.assets.AssetsView;
+import com.google.appinventor.client.features.blocks.BlockDrawersView;
+import com.google.appinventor.client.features.designer.palette.PaletteView;
+import com.google.appinventor.client.features.designer.tree.ComponentTreeView;
+import com.google.appinventor.client.features.designer.viewer.ViewerView;
+import com.google.appinventor.client.features.properties.PropertiesView;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -18,7 +18,11 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Widget;
 
-/** Places the shared panes for classic; switches Designer and Blocks. */
+/**
+ * Classic's arrangement of the shared designer and blocks views. The
+ * views' presenters fill them; this class only places them and switches
+ * between Designer and Blocks.
+ */
 public class ClassicWorkArea extends Composite {
 
   interface Binder extends UiBinder<Widget, ClassicWorkArea> {
@@ -27,14 +31,12 @@ public class ClassicWorkArea extends Composite {
   private static final Binder BINDER = GWT.create(Binder.class);
 
   @UiField FlowPanel work;
-  @UiField(provided = true) PaletteBox palette = PaletteBox.get();
-  @UiField(provided = true) ViewerBox viewer = ViewerBox.get();
-  @UiField(provided = true) SourceStructureBox components =
-      SourceStructureBox.get();
-  @UiField(provided = true) BlockSelectorBox drawers =
-      BlockSelectorBox.get();
-  @UiField(provided = true) AssetListBox assets = AssetListBox.get();
-  @UiField(provided = true) PropertiesBox properties = PropertiesBox.get();
+  @UiField PaletteView palette;
+  @UiField ViewerView viewer;
+  @UiField ComponentTreeView components;
+  @UiField BlockDrawersView drawers;
+  @UiField AssetsView assets;
+  @UiField PropertiesView properties;
 
   public ClassicWorkArea() {
     initWidget(BINDER.createAndBindUi(this));
@@ -44,4 +46,11 @@ public class ClassicWorkArea extends Composite {
     work.setStyleName("is-designer", mode == Mode.DESIGNER);
     work.setStyleName("is-blocks", mode == Mode.BLOCKS);
   }
+
+  public PaletteView palette() { return palette; }
+  public ViewerView viewer() { return viewer; }
+  public ComponentTreeView components() { return components; }
+  public BlockDrawersView drawers() { return drawers; }
+  public AssetsView assets() { return assets; }
+  public PropertiesView properties() { return properties; }
 }

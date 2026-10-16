@@ -60,10 +60,43 @@ body {
   grid-template-rows: minmax(0, 1fr);
 }
 
-.classic-Scroll,
-.classic-Pane {
+.classic-Scroll {
   min-height: 0;
   overflow: auto;
+}
+
+/* Pane (features/workspace/Pane): fixed header, scrolling body */
+.pane {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.pane-header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  background: var(--color-header);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pane-title {
+  flex: 1;
+  font-weight: bold;
+}
+
+.pane-body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+/* Blockly scrolls its own workspace */
+.is-blocks .classic-Work-viewer .pane-body {
+  overflow: hidden;
 }
 
 /* Work area: Designer and Blocks share it */
@@ -112,11 +145,6 @@ body {
 .is-blocks .classic-Work-components,
 .is-designer .classic-Work-drawers {
   display: none;
-}
-
-/* Blockly scrolls its own workspace; the phone preview scrolls here */
-.is-blocks .classic-Work-viewer {
-  overflow: hidden;
 }
 
 .classic-Console {
