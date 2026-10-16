@@ -7,16 +7,16 @@
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <g:HTMLPanel styleName="col pane">
-    <div class="row center pane-header">
+  <g:HTMLPanel styleName="flex-col pane">
+    <div class="flex-row items-center pane-header">
       <span class="pane-title"><ui:text from="{messages.paletteBoxCaption}"/></span>
     </div>
 
-    <div class="col grow scroll gap-sm pad-sm">
+    <div class="flex-col grow overflow-auto gap-sm pad-sm">
       <c:ClassicTextField ui:field="search"
           placeholder="{messages.searchComponents}"/>
-      <g:FlowPanel ui:field="results" styleName="col" visible="false"/>
-      <g:FlowPanel ui:field="categories" styleName="col"/>
+      <g:FlowPanel ui:field="results" styleName="flex-col" visible="false"/>
+      <g:FlowPanel ui:field="categories" styleName="flex-col"/>
       <c:ClassicButton ui:field="importExtension" variant="QUIET"
           text="{messages.importExtensionMenuItem}"/>
     </div>

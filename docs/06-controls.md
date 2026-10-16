@@ -71,6 +71,24 @@ A layout's own views may name their concrete control classes
 (`<c:NeoButton action="NEW_PROJECT"/>`), because they never run in another
 layout.
 
+## Each control is a template plus behaviour
+
+A control's markup is its own `.ui.xml`; its Java only does behaviour (action
+binding, focus, ARIA, events). For example
+`layouts/classic/controls/ClassicTextField.ui.xml`:
+
+```xml
+<g:HTMLPanel styleName="flex-col gap-xs classic-TextField">
+  <g:Label ui:field="label" styleName="classic-Label"/>
+  <g:TextBox ui:field="input" styleName="classic-Input"/>
+  <g:Label ui:field="error" styleName="classic-Error" visible="false"/>
+</g:HTMLPanel>
+```
+
+`ClassicTextField.java` wires `for`/`id`, `aria-invalid` and the error text,
+and never builds markup. How the control looks is in the layout's
+`controls.css`. Page templates use controls; they never open them up.
+
 ## Behaviour lives once
 
 `controls/behaviour` holds what every layout's controls need and nobody should rewrite:

@@ -5,7 +5,7 @@
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
   <g:FocusPanel ui:field="row" styleName="classic-Row">
-    <g:HTMLPanel styleName="row center">
+    <g:HTMLPanel styleName="flex-row items-center">
       <c:ClassicCheckbox ui:field="selected"/>
       <g:Label ui:field="name" styleName="grow"/>
       <g:Label ui:field="created" styleName="classic-DateColumn"/>

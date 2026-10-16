@@ -7,9 +7,9 @@
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <g:HTMLPanel styleName="col classic-ProjectList">
+  <g:HTMLPanel styleName="flex-col classic-ProjectList">
 
-    <div class="row center classic-ListHeader">
+    <div class="flex-row items-center classic-ListHeader">
       <c:ClassicCheckbox ui:field="selectAll"/>
       <g:FocusPanel ui:field="sortByName" styleName="grow classic-SortHeader">
         <g:InlineLabel ui:field="nameHeader" text="{messages.projectNameHeader}"/>
@@ -24,7 +24,7 @@
       </g:FocusPanel>
     </div>
 
-    <g:FlowPanel ui:field="rows" styleName="col grow scroll"/>
+    <g:FlowPanel ui:field="rows" styleName="flex-col grow overflow-auto"/>
 
     <g:Label ui:field="empty" styleName="classic-Empty"
         text="{messages.createNoProjectsDialogText}" visible="false"/>

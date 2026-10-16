@@ -5,9 +5,9 @@
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls"
     xmlns:ic="urn:import:com.google.appinventor.client.controls">
-  <g:HTMLPanel styleName="col">
+  <g:HTMLPanel styleName="flex-col">
     <g:FocusPanel ui:field="row" styleName="classic-Row">
-      <g:HTMLPanel styleName="row center gap-xs">
+      <g:HTMLPanel styleName="flex-row items-center gap-xs">
         <c:ClassicCheckbox ui:field="selected"/>
         <ic:IconView ui:field="expander"/>
         <ic:IconView ui:field="folderIcon"/>
@@ -18,7 +18,7 @@
     </g:FocusPanel>
 
     <!-- children: more rows and folders, indented -->
-    <g:FlowPanel ui:field="children" styleName="col classic-Indent"
+    <g:FlowPanel ui:field="children" styleName="flex-col classic-Indent"
         visible="false"/>
   </g:HTMLPanel>
 </ui:UiBinder>

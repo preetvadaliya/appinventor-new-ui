@@ -5,7 +5,7 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui">
   <g:FocusPanel ui:field="trigger" styleName="classic-MenuButton">
-    <g:HTMLPanel styleName="row center gap-xs">
+    <g:HTMLPanel styleName="flex-row items-center gap-xs">
       <g:InlineLabel ui:field="caption"/>
       <span class="classic-MenuButton-caret">&#x25BE;</span>
     </g:HTMLPanel>

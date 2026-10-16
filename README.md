@@ -21,7 +21,7 @@ By milestone, Ready to pick up, Upstream review, Decisions, My work).
 | P2 · Live light/dark | Switching light/dark no longer reloads the page |
 | P3 · Actions | Every toolbar and menu item runs on an `ActionId` |
 | P4 · Independent views | Classic and neo own their views; no inheritance |
-| P5 · Controls | Each layout has its own controls; shared screens use control interfaces |
+| P5 · Controls | Each layout has its own controls and designer regions |
 | P6 · CSS split | Each layout loads only its own CSS |
 | P7 · Final moves | Final packages; a test enforces the import rules |
 | Nova | A third layout, as one new folder |

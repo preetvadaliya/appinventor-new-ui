@@ -5,10 +5,10 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:ed="urn:import:com.google.appinventor.client.layouts.classic.views.editor">
-  <g:HTMLPanel styleName="row grow gap-sm pad-sm">
+  <g:HTMLPanel styleName="flex-row grow gap-sm pad-sm">
     <ed:ClassicPalette ui:field="palette" addStyleNames="classic-PaletteColumn"/>
     <ed:ClassicViewer ui:field="viewer" addStyleNames="grow classic-ViewerColumn"/>
-    <div class="col classic-SideColumn gap-sm">
+    <div class="flex-col classic-SideColumn gap-sm">
       <ed:ClassicComponentTree ui:field="components" addStyleNames="grow"/>
       <ed:ClassicMedia ui:field="media" addStyleNames="classic-MediaPane"/>
     </div>

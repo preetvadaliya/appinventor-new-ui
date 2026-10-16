@@ -20,8 +20,8 @@ entirely, into static files each layout serves from its public folder:
 }
 ```
 
-The rules files (`variableColors.css`, `neo.css`, later `views.css` and
-`controls.css`) refer to tokens with `var(--name)`. Both rules files already declare
+The rules files (`variableColors.css`, `neo.css`, later each layout's
+`controls.css` and `views/*.css`) refer to tokens with `var(--name)`. Both rules files already declare
 `@external .*;`, so class names are unobfuscated today and nothing in the
 templates changes.
 

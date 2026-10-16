@@ -6,14 +6,14 @@
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <g:HTMLPanel styleName="col pane">
-    <div class="row center pane-header">
+  <g:HTMLPanel styleName="flex-col pane">
+    <div class="flex-row items-center pane-header">
       <span class="pane-title"><ui:text from="{messages.sourceStructureBoxCaption}"/></span>
     </div>
 
-    <c:ClassicTree ui:field="tree" addStyleNames="grow scroll"/>
+    <c:ClassicTree ui:field="tree" addStyleNames="grow overflow-auto"/>
 
-    <div class="row center gap-sm pad-sm">
+    <div class="flex-row items-center gap-sm pad-sm">
       <c:ClassicButton ui:field="rename" text="{messages.renameButton}"/>
       <c:ClassicButton ui:field="delete" variant="DANGER"
           text="{messages.deleteButton}"/>

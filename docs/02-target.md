@@ -9,27 +9,35 @@ client/
 │   ├── actions/      ActionId, Action, ActionRegistry, IconKey,
 │   │                 one class per action, by area
 │   ├── presenters/   logic behind each view + its View interface
+│   │                 (Shell, ProjectList, Palette, Viewer, Properties …)
+│   ├── properties/   property model, editors/ (logic models),
+│   │                 choices/ (option lists as data)
 │   ├── theme/        ThemeService, ThemeMode, ThemeChangedEvent
 │   ├── layout/       LayoutId
-│   └── project/ settings/ properties/ commands/ rpc/ util/ i18n/ …
-├── controls/        the contract every layout's building blocks fill
+│   └── project/ settings/ commands/ rpc/ util/ i18n/ …
+├── controls/   the contract every layout's building blocks fill
 │   ├── Button, MenuButton, Dialog, TextField, Select, Tree …
 │   ├── behaviour/    keyboard, focus, ARIA, written once
 │   ├── standard/     a plain default set
-│   ├── SharedView       base class: @UiFactory -> active controls
+│   ├── SharedView    base class: @UiFactory -> active controls
 │   └── Controls      the factory; holds the active set
-├── features/   written once, look from the active controls
-│   ├── designer/     viewer, palette, component tree,
-│   │   └── mocks/    the user's app components (Mock*)
-│   ├── properties/   panel and editors
-│   ├── blocks/ assets/ console/ tutorial/ dataviz/ admin/
-│   ├── dialogs/      project, files, component, settings, system
-│   └── public/features/base.css
+├── features/   shared parts, look from the active controls
+│   ├── designer/mocks/   the user's app components (Mock*), phone skins
+│   ├── properties/editors/  default editor views (ChoiceEditorView …)
+│   ├── blocks/       Blockly bridge (BlocklyPanel)
+│   ├── dialogs/      default dialogs a layout may replace
+│   ├── console/ tutorial/ dataviz/ admin/
+│   └── public/features/  reset.css, layout.css, shared feature CSS
 └── layouts/
     ├── Layout        what a layout must provide
     ├── LayoutRegistry
-    ├── classic/      controls/ views/ menus/ icons/ public/classic/
-    └── neo/          controls/ views/ menus/ icons/ public/neo/
+    ├── classic/
+    │   ├── controls/     ClassicButton … (template + behaviour)
+    │   ├── views/        shell/ topbar/ menus/ status/ projects/
+    │   │                 editor/ (designer and blocks regions) admin/
+    │   ├── icons/
+    │   └── public/classic/  tokens.css, controls.css, views/*.css
+    └── neo/          same shape
 ```
 
 ## Why four packages and not just `layouts/`
@@ -53,12 +61,13 @@ feature can see it.
 | Kind | Examples | Where | Per layout |
 |---|---|---|---|
 | Controls | Button, Menu, Dialog, TextField | `layouts/<x>/controls/` | yes |
-| Layout views | shell, top bar, project list, toolbars | `layouts/<x>/views/` | yes |
-| Shared features | designer, properties, blocks, dialogs | `features/` | no; a layout may replace one |
+| Layout views | shell, top bar, toolbars, project list, and the designer and blocks regions (palette, viewer, component tree, media, properties, drawers) | `layouts/<x>/views/` | yes |
+| Shared parts | property editor views, default dialogs, Blockly bridge, console, tutorial | `features/` | no; a layout may replace one |
 | App components | `MockButton`, `MockForm` | `features/designer/mocks/` | no; phone theme |
 
-A layout can replace a shared feature completely by implementing that feature's
-presenter `View` interface; it never subclasses another layout.
+The designer and blocks regions belong to each layout (decision
+`0009-designer-regions-per-layout.md`); their logic is shared through
+presenters. Templates follow decision `0008-templates-like-react.md`.
 
 ## Import rules
 
@@ -70,7 +79,8 @@ A test (P7-40) fails the build when one of these breaks:
 3. `layouts/x` never imports `layouts/y`. A new layout may extend
    `controls/standard`, never another layout.
 4. Only the active layout's CSS loads: its `tokens.css`, `controls.css` and
-   `views.css`, plus the shared `base.css`.
+   `views/*.css`, after the shared `reset.css`, `layout.css` and shared feature
+   files (decision `0010-css-files.md`).
 5. Menus and toolbars name actions by `ActionId`.
 
 ## Ode.java

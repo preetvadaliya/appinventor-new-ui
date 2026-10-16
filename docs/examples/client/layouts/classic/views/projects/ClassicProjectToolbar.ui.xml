@@ -4,10 +4,10 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
-  <g:HTMLPanel styleName="row center gap pad classic-ProjectToolbar">
+  <g:HTMLPanel styleName="flex-row items-center gap-md pad-md classic-ProjectToolbar">
     <g:Label ui:field="title" styleName="classic-Title"/>
 
-    <div ui:field="projectButtons" class="row center gap-sm">
+    <div ui:field="projectButtons" class="flex-row items-center gap-sm">
       <c:ClassicButton action="NEW_PROJECT"/>
       <c:ClassicButton action="NEW_FOLDER"/>
       <c:ClassicButton action="MOVE_PROJECTS"/>
@@ -17,7 +17,7 @@
       <c:ClassicButton action="SEND_TO_GALLERY"/>
     </div>
 
-    <div ui:field="trashButtons" class="row center gap-sm" hidden="hidden">
+    <div ui:field="trashButtons" class="flex-row items-center gap-sm" hidden="hidden">
       <c:ClassicButton action="SWITCH_TO_PROJECTS"/>
       <c:ClassicButton action="RESTORE_PROJECT"/>
       <c:ClassicButton action="DELETE_FOREVER"/>

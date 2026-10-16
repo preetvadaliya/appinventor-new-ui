@@ -4,7 +4,7 @@
 <!-- ClassicSelect: label and a drop-down list. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui">
-  <g:HTMLPanel styleName="col gap-xs classic-Select">
+  <g:HTMLPanel styleName="flex-col gap-xs classic-Select">
     <g:Label ui:field="label" styleName="classic-Label"/>
     <g:ListBox ui:field="list" styleName="classic-Input"/>
   </g:HTMLPanel>

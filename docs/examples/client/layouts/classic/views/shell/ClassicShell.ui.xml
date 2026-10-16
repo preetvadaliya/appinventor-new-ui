@@ -9,18 +9,18 @@
     xmlns:ad="urn:import:com.google.appinventor.client.layouts.classic.views.admin"
     xmlns:st="urn:import:com.google.appinventor.client.layouts.classic.views.status"
     xmlns:tu="urn:import:com.google.appinventor.client.features.tutorial">
-  <g:HTMLPanel styleName="col screen classic-Shell">
+  <g:HTMLPanel styleName="flex-col screen classic-Shell">
 
     <top:ClassicTopBar ui:field="topBar"/>
 
-    <div class="row grow">
-      <div class="col grow">
+    <div class="flex-row grow">
+      <div class="flex-col grow">
         <pr:ClassicProjectsPage ui:field="projectsPage"/>
         <ed:ClassicEditorPage ui:field="editorPage" visible="false"/>
         <ad:ClassicAdminPage ui:field="adminPage" visible="false"/>
       </div>
       <tu:TutorialPanel ui:field="tutorial" visible="false"
-          addStyleNames="col scroll classic-Tutorial"/>
+          addStyleNames="flex-col overflow-auto classic-Tutorial"/>
     </div>
 
     <st:ClassicStatusBar ui:field="statusBar"/>

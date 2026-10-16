@@ -5,8 +5,8 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <g:HTMLPanel styleName="col pane clip">
-    <div class="row center pane-header">
+  <g:HTMLPanel styleName="flex-col pane overflow-hidden">
+    <div class="flex-row items-center pane-header">
       <span class="pane-title"><ui:text from="{messages.viewerBoxCaption}"/></span>
     </div>
     <div ui:field="blockly" class="grow"/>

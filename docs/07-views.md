@@ -1,106 +1,106 @@
-# Views without inheritance
+# Views
 
-## Today
+Decisions: `0003-no-layout-inheritance.md`, `0008-templates-like-react.md`,
+`0009-designer-regions-per-layout.md`. Full examples: `docs/examples/`.
 
-```java
-// style/neo/ProjectToolbarNeo.java (master)
-public class ProjectToolbarNeo extends ProjectToolbar {
-  @UiField Label projectLabel;   // hides the parent's
-  @UiField Label trashLabel;
+## One template per region
 
-  public void bindProjectToolbar() {
-    populateToolbar(uibinder.createAndBindUi(this));
-    super.projectLabel = projectLabel;
-    super.trashLabel = trashLabel;
-  }
-}
-```
+Each layout owns its views. A view is a `.ui.xml` template plus a small Java
+class that implements a presenter's `View` interface. There is one template per
+page region, and small ones only for items repeated in a list.
 
-The same pattern appears in `TopToolbarNeo`, `TopPanelNeo`, `ProjectListNeo`,
-`ProjectFolderNeo` and `DesignToolbarNeo`.
+| Page | Templates (classic; neo has the same set) |
+|---|---|
+| Frame | `ClassicShell`, `ClassicTopBar`, `ClassicMainMenu`, `ClassicStatusBar` |
+| Projects | `ClassicProjectsPage`, `ClassicProjectToolbar`, `ClassicProjectList`; per item `ClassicProjectRow`, `ClassicProjectFolder` |
+| Editor | `ClassicEditorPage`, `ClassicDesignToolbar` |
+| Designer | `ClassicDesignerArea` placing `ClassicPalette`, `ClassicViewer`, `ClassicComponentTree`, `ClassicMedia`, `ClassicProperties`; per item `ClassicPaletteItem`, `ClassicPropertyRow` |
+| Blocks | `ClassicBlocksArea` placing `ClassicBlockDrawers`, `ClassicMedia`, `ClassicBlocksWorkspace` |
+| Admin | `ClassicAdminPage` |
 
-## After
+Designer and Blocks are two areas. `EditorPagePresenter` shows one and hides the
+other; no pane is hidden by CSS.
 
-The presenter in `core/presenters` owns the logic and declares a `View`
-interface. Each layout has an independent class that implements it with its own
-template.
+## How a template is written
 
-```java
-// layouts/neo/views/projects/NeoProjectToolbar.java
-public class NeoProjectToolbar extends Composite
-    implements ProjectToolbarPresenter.View {
-  interface Binder
-      extends UiBinder<Widget, NeoProjectToolbar> {}
-  private static final Binder BINDER =
-      GWT.create(Binder.class);
+- The root is `<g:HTMLPanel>`. Layout inside it is plain `<div>`s with the flex
+  classes from `layout.css`: `flex-row`, `flex-col`, `grow`, `overflow-auto`, `items-center`, `justify-end`,
+  `gap-*`, `pad-*` (Tailwind-style names, so they don't clash with today's
+  `.row`, `.col` and `.center`).
+- `<g:FlowPanel>` only where Java adds or removes children (rows, items).
+- `<g:SimplePanel>` only for one slot Java fills (the phone screen, an editor).
+- Widgets only where there is behaviour: the layout's controls
+  (`<c:ClassicButton action="NEW_PROJECT"/>`), `FocusPanel` for clickable rows.
+- On a component use `addStyleNames`, never `styleName`, so it keeps its own
+  class.
+- Text set in the template uses `{messages.…}`; text in raw HTML uses
+  `<ui:text from="{messages.…}"/>`.
 
-  @UiField Label title;
-
-  public NeoProjectToolbar() {
-    initWidget(BINDER.createAndBindUi(this));
-  }
-
-  @Override
-  public void showTitle(String text) {
-    title.setText(text);
-  }
-}
+```xml
+<!-- layouts/classic/views/projects/ClassicProjectsPage.ui.xml -->
+<g:HTMLPanel styleName="flex-col grow">
+  <pr:ClassicProjectToolbar ui:field="toolbar"/>
+  <pr:ClassicProjectList ui:field="list" addStyleNames="grow"/>
+</g:HTMLPanel>
 ```
 
 ```xml
-<!-- layouts/neo/views/projects/NeoProjectToolbar.ui.xml -->
-<g:FlowPanel styleName="neo-projectbar">
-  <g:FlowPanel styleName="neo-projectbar-start">
-    <c:NeoButton action="NEW_PROJECT"/>
-    <c:NeoButton action="IMPORT_PROJECT"/>
-    <c:NeoButton action="IMPORT_TEMPLATE"/>
-    <c:NeoButton action="NEW_FOLDER"/>
-  </g:FlowPanel>
-  <g:FlowPanel styleName="neo-projectbar-center">
-    <c:NeoButton action="MOVE_PROJECTS"/>
-    <c:NeoMenuButton action="EXPORT">
-      <c:NeoMenuItem action="EXPORT_PROJECT"/>
-      <c:NeoMenuItem action="EXPORT_ALL_PROJECTS"/>
-    </c:NeoMenuButton>
-  </g:FlowPanel>
-  <g:FlowPanel styleName="neo-projectbar-end">
-    <c:NeoButton action="VIEW_TRASH"/>
-    <c:NeoButton action="DELETE_PROJECT"
-        variant="DANGER"/>
-  </g:FlowPanel>
-</g:FlowPanel>
+<!-- layouts/classic/views/editor/ClassicDesignerArea.ui.xml -->
+<g:HTMLPanel styleName="flex-row grow gap-sm pad-sm">
+  <ed:ClassicPalette ui:field="palette" addStyleNames="classic-PaletteColumn"/>
+  <ed:ClassicViewer ui:field="viewer" addStyleNames="grow classic-ViewerColumn"/>
+  <div class="flex-col classic-SideColumn gap-sm">
+    <ed:ClassicComponentTree ui:field="components" addStyleNames="grow"/>
+    <ed:ClassicMedia ui:field="media" addStyleNames="classic-MediaPane"/>
+  </div>
+  <ed:ClassicProperties ui:field="properties"
+      addStyleNames="classic-PropertiesColumn"/>
+</g:HTMLPanel>
 ```
 
-`FlowPanel` renders a plain `<div>`; the layout's CSS arranges the groups.
-`HorizontalPanel`, `VerticalPanel` and `Grid` render tables for layout and are
-avoided.
+## Full height
 
-The layout hands its view out:
+The window never scrolls. The shell is `flex-col screen`; `grow` passes the
+remaining height down (page → area → column → region); only elements marked
+`overflow-auto` scroll: the project rows, each region's body, the phone preview, the
+trees. Blockly scrolls its own workspace.
+
+## The Java behind a view
+
+The view implements its presenter's `View` and holds no rules.
 
 ```java
-// layouts/neo/NeoLayout.java
-@Override
-public ProjectToolbarPresenter.View projectToolbar() {
-  return new NeoProjectToolbar();
+// layouts/classic/views/projects/ClassicProjectToolbar.java
+public class ClassicProjectToolbar extends Composite
+    implements ProjectToolbarPresenter.View {
+  @UiField Label title;
+  @UiField DivElement projectButtons;
+  @UiField DivElement trashButtons;
+
+  public void showTitle(String text) {
+    title.setText(text);
+  }
+
+  public void showTrash(boolean trash) {
+    UIObject.setVisible(projectButtons, !trash);
+    UIObject.setVisible(trashButtons, trash);
+  }
 }
 ```
 
-## Callers get simpler
+The layout hands its views out:
 
-| Today | After |
-|---|---|
-| `Ode.java:452-454` calls `enableStartButton()`, `setProjectTabButtonsVisible(true)`, `setTrashTabButtonsVisible(false)` | `projectToolbar.showProjects()` |
-| `ProjectList.java:309` calls `getProjectToolbar().updateButtons()` | nothing; the presenter listens to the selection |
-| `ProjectToolbarNeo extends ProjectToolbar` | independent views, about 15 lines each |
+```java
+// layouts/classic/ClassicLayout.java
+public ProjectToolbarPresenter.View projectToolbar() {
+  return new ClassicProjectToolbar();
+}
+```
 
-## Replacing a shared dialog
+## Shared dialogs
 
-Shared dialogs live in `features/dialogs`. A layout has three options per
-dialog:
-
-1. Do nothing. The dialog is built from controls and already looks like the
-   layout.
-2. Restyle it in the layout's CSS.
-3. Replace it by implementing the presenter's `View` interface in the layout
-   and returning it from the matching `Layout` method. The presenter (validation,
-   RPC, what happens on OK) does not change.
+Default dialogs live in `features/dialogs` and are built from control
+interfaces (`<c:Button>`, `<c:TextField>`) through `SharedView`, so they look
+right in any layout. A layout may replace one by implementing the presenter's
+`View` and returning it from the matching `Layout` method; the presenter does
+not change. Example: `NovaNewProjectDialog` in `docs/examples`.

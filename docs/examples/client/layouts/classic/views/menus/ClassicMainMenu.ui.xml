@@ -6,7 +6,7 @@
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <g:HTMLPanel styleName="row center gap-sm">
+  <g:HTMLPanel styleName="flex-row items-center gap-sm">
 
     <c:ClassicMenuButton text="{messages.projectsTabName}" variant="QUIET">
       <c:ClassicMenuItem action="SWITCH_TO_PROJECTS"/>

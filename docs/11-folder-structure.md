@@ -11,6 +11,13 @@ the corrections made while writing the tickets:
 - `gwt.css` stays in `war/static/css/`.
 - Dialog names under `features/dialogs/system/` for the dialogs built inline
   today are proposals; P5-41 settles them.
+- The views follow decisions 0008 and 0009: one template per page region, and
+  the designer and blocks regions (palette, viewer, component tree, media,
+  properties, drawers) are views owned by each layout. Today's palette, tree and
+  properties classes listed under `features/` split into presenters
+  (`core/presenters`) and those layout regions in P5-32 and P5-43.
+- CSS files follow decision 0010; shared CSS is `features/public/features/`
+  (`reset.css`, `layout.css` and shared feature files).
 - Transitional classes (`actions/CommandAction`, `client/ShellBinders`) are gone
   by then (P5-42, P4-21).
 
@@ -575,7 +582,7 @@ client/
 │   │   └── TextPropertyEditorBase.java
 │   ├── public/
 │   │   └── features/
-│   │       └── base.css
+│   │       └── layout.css + reset.css
 │   ├── system/
 │   │   ├── ConnectProgressBar.java
 │   │   ├── ErrorBanner.java
@@ -650,105 +657,40 @@ client/
 │   ├── Tree.java
 │   └── Wizard.java
 ├── layouts/   # one self-contained folder per layout
-│   ├── classic/   # classic: controls, views, menus, icons, CSS
+│   ├── Layout.java
+│   ├── LayoutRegistry.java
+│   ├── classic/
+│   │   ├── ClassicLayout.java          # controls, views, stylesheets()
+│   │   ├── controls/                   # each: .ui.xml + behaviour .java
+│   │   │   ├── ClassicControls.java
+│   │   │   ├── ClassicButton, ClassicIconButton
+│   │   │   ├── ClassicMenuButton, ClassicMenu, ClassicMenuItem, ClassicMenuSeparator
+│   │   │   ├── ClassicTextField, ClassicSelect, ClassicCheckbox
+│   │   │   ├── ClassicCollapsible, ClassicTree
+│   │   │   └── ClassicDialog
 │   │   ├── icons/
 │   │   │   └── ClassicIcons.java
-│   │   ├── controls/
-│   │   │   ├── ClassicButton.java
-│   │   │   ├── ClassicCheckbox.java
-│   │   │   ├── ClassicDialog.java
-│   │   │   ├── ClassicIconButton.java
-│   │   │   ├── ClassicControls.java
-│   │   │   ├── ClassicMenuButton.java
-│   │   │   ├── ClassicSelect.java
-│   │   │   ├── ClassicTextField.java
-│   │   │   ├── ClassicToolbar.java
-│   │   │   ├── ClassicTree.java
-│   │   │   └── ClassicWizard.java
-│   │   ├── menus/
-│   │   │   └── ClassicMenus.java
-│   │   ├── public/
-│   │   │   └── classic/   # static CSS, loaded only in classic
-│   │   │       ├── icons/   # classic icons (PNG, SVG over time)
-│   │   │       ├── controls.css
-│   │   │       ├── tokens.css
-│   │   │       └── views.css
-│   │   ├── views/
-│   │   │   ├── designer/
-│   │   │   │   ├── ClassicDesignToolbar.java
-│   │   │   │   └── ClassicDesignToolbar.ui.xml
-│   │   │   ├── projects/
-│   │   │   │   ├── ClassicProjectFolder.java
-│   │   │   │   ├── ClassicProjectFolder.ui.xml
-│   │   │   │   ├── ClassicProjectList.java
-│   │   │   │   ├── ClassicProjectList.ui.xml
-│   │   │   │   ├── ClassicProjectRow.java
-│   │   │   │   ├── ClassicProjectRow.ui.xml
-│   │   │   │   ├── ClassicProjectToolbar.java
-│   │   │   │   └── ClassicProjectToolbar.ui.xml
-│   │   │   ├── shell/
-│   │   │   │   ├── ClassicShell.java
-│   │   │   │   └── ClassicShell.ui.xml
-│   │   │   ├── status/
-│   │   │   │   ├── ClassicStatusBar.java
-│   │   │   │   └── ClassicStatusBar.ui.xml
-│   │   │   └── topbar/
-│   │   │       ├── ClassicMainMenu.java
-│   │   │       ├── ClassicMainMenu.ui.xml
-│   │   │       ├── ClassicTopBar.java
-│   │   │       └── ClassicTopBar.ui.xml
-│   │   └── ClassicLayout.java
-│   ├── neo/   # neo: controls, views, menus, icons, CSS
-│   │   ├── icons/
-│   │   │   └── NeoIcons.java
-│   │   ├── controls/
-│   │   │   ├── NeoButton.java
-│   │   │   ├── NeoCheckbox.java
-│   │   │   ├── NeoDialog.java
-│   │   │   ├── NeoIconButton.java
-│   │   │   ├── NeoControls.java
-│   │   │   ├── NeoMenuButton.java
-│   │   │   ├── NeoSelect.java
-│   │   │   ├── NeoTextField.java
-│   │   │   ├── NeoToolbar.java
-│   │   │   ├── NeoTree.java
-│   │   │   └── NeoWizard.java
-│   │   ├── menus/
-│   │   │   └── NeoMenus.java
-│   │   ├── public/
-│   │   │   └── neo/   # static CSS, loaded only in neo
-│   │   │       ├── icons/   # neo icons (PNG/Material, SVG over time)
-│   │   │       ├── controls.css
-│   │   │       ├── tokens.css
-│   │   │       └── views.css
-│   │   ├── views/
-│   │   │   ├── designer/
-│   │   │   │   ├── NeoDesignToolbar.java
-│   │   │   │   ├── NeoDesignToolbar.ui.xml
-│   │   │   │   ├── NeoViewerHeader.java
-│   │   │   │   └── NeoViewerHeader.ui.xml
-│   │   │   ├── projects/
-│   │   │   │   ├── NeoProjectFolder.java
-│   │   │   │   ├── NeoProjectFolder.ui.xml
-│   │   │   │   ├── NeoProjectList.java
-│   │   │   │   ├── NeoProjectList.ui.xml
-│   │   │   │   ├── NeoProjectRow.java
-│   │   │   │   ├── NeoProjectRow.ui.xml
-│   │   │   │   ├── NeoProjectToolbar.java
-│   │   │   │   └── NeoProjectToolbar.ui.xml
-│   │   │   ├── shell/
-│   │   │   │   ├── NeoShell.java
-│   │   │   │   └── NeoShell.ui.xml
-│   │   │   ├── status/
-│   │   │   │   ├── NeoStatusBar.java
-│   │   │   │   └── NeoStatusBar.ui.xml
-│   │   │   └── topbar/
-│   │   │       ├── NeoMainMenu.java
-│   │   │       ├── NeoMainMenu.ui.xml
-│   │   │       ├── NeoTopBar.java
-│   │   │       └── NeoTopBar.ui.xml
-│   │   └── NeoLayout.java
-│   ├── Layout.java
-│   └── LayoutRegistry.java
+│   │   ├── views/                      # each: .ui.xml + .java
+│   │   │   ├── shell/      ClassicShell
+│   │   │   ├── topbar/     ClassicTopBar
+│   │   │   ├── menus/      ClassicMainMenu
+│   │   │   ├── status/     ClassicStatusBar
+│   │   │   ├── projects/   ClassicProjectsPage, ClassicProjectToolbar,
+│   │   │   │               ClassicProjectList, ClassicProjectRow,
+│   │   │   │               ClassicProjectFolder
+│   │   │   ├── editor/     ClassicEditorPage, ClassicDesignToolbar,
+│   │   │   │               ClassicDesignerArea, ClassicPalette,
+│   │   │   │               ClassicPaletteItem, ClassicViewer,
+│   │   │   │               ClassicComponentTree, ClassicMedia,
+│   │   │   │               ClassicProperties, ClassicPropertyRow,
+│   │   │   │               ClassicBlocksArea, ClassicBlockDrawers,
+│   │   │   │               ClassicBlocksWorkspace
+│   │   │   └── admin/      ClassicAdminPage
+│   │   └── public/classic/
+│   │       ├── tokens.css
+│   │       ├── controls.css
+│   │       ├── views/      shell.css, projects.css, editor.css
+│   │       └── icons/
+│   └── neo/                            # same shape, Neo* names
 └── Ode.java
 ```

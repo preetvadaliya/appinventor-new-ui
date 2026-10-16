@@ -8,13 +8,13 @@
     xmlns:top="urn:import:com.google.appinventor.client.layouts.classic.views.topbar"
     xmlns:menus="urn:import:com.google.appinventor.client.layouts.classic.views.menus">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <g:HTMLPanel styleName="row center gap classic-TopBar">
+  <g:HTMLPanel styleName="flex-row items-center gap-md classic-TopBar">
 
     <g:Image ui:field="logo" styleName="classic-Logo"/>
 
     <menus:ClassicMainMenu ui:field="mainMenu"/>
 
-    <div class="row center end grow gap">
+    <div class="flex-row items-center justify-end grow gap-md">
       <g:Label ui:field="readOnly" styleName="classic-Warning"
           text="{messages.readOnlyMode}" visible="false"/>
 

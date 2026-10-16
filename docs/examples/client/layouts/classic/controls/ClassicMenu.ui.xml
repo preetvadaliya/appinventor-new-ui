@@ -5,5 +5,5 @@
      separators are the menu button's children, moved here in Java. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui">
-  <g:FlowPanel ui:field="items" styleName="col classic-Menu"/>
+  <g:FlowPanel ui:field="items" styleName="flex-col classic-Menu"/>
 </ui:UiBinder>

@@ -6,11 +6,11 @@
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <g:HTMLPanel styleName="row center gap pad classic-DesignToolbar">
+  <g:HTMLPanel styleName="flex-row items-center gap-md pad-md classic-DesignToolbar">
 
     <g:Label ui:field="projectName" styleName="classic-Title"/>
 
-    <div class="row center gap-sm grow">
+    <div class="flex-row items-center gap-sm grow">
       <c:ClassicButton action="TOGGLE_TUTORIAL"/>
       <!-- the project's screens are added in Java -->
       <c:ClassicMenuButton ui:field="screens" text="{messages.screensButton}"/>
@@ -20,7 +20,7 @@
       <c:ClassicButton action="SEND_TO_GALLERY"/>
     </div>
 
-    <div class="row center gap-sm">
+    <div class="flex-row items-center gap-sm">
       <c:ClassicButton action="TOGGLE_CONSOLE"/>
       <c:ClassicButton action="SWITCH_TO_DESIGNER"/>
       <c:ClassicButton action="SWITCH_TO_BLOCKS"/>

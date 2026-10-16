@@ -7,13 +7,13 @@
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:ed="urn:import:com.google.appinventor.client.layouts.classic.views.editor"
     xmlns:con="urn:import:com.google.appinventor.client.features.console">
-  <g:HTMLPanel styleName="col grow">
+  <g:HTMLPanel styleName="flex-col grow">
     <ed:ClassicDesignToolbar ui:field="toolbar"/>
 
     <ed:ClassicDesignerArea ui:field="designer"/>
     <ed:ClassicBlocksArea ui:field="blocks" visible="false"/>
 
     <con:ConsolePanel ui:field="console" visible="false"
-        addStyleNames="scroll classic-Console"/>
+        addStyleNames="overflow-auto classic-Console"/>
   </g:HTMLPanel>
 </ui:UiBinder>

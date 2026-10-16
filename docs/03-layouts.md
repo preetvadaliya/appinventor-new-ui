@@ -34,10 +34,12 @@ public interface Layout {
   ProjectToolbarPresenter.View projectToolbar();
   ProjectListPresenter.View projectList();
   DesignToolbarPresenter.View designToolbar();
-
-  default ViewerHeaderView viewerHeader() {
-    return new ViewerHeader();        // shared
-  }
+  PalettePresenter.View palette();
+  ViewerPresenter.View viewer();
+  ComponentTreePresenter.View componentTree();
+  AssetsPresenter.View media();
+  PropertiesPresenter.View properties();
+  BlockDrawersPresenter.View blockDrawers();
 
   default NewProjectPresenter.View newProjectDialog() {
     return new NewProjectDialog();    // shared feature
