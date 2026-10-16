@@ -1,0 +1,9 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- ClassicMenu: the drop-down list a ClassicMenuButton opens. Items and
+     separators are the menu button's children, moved here in Java. -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui">
+  <g:FlowPanel ui:field="items" styleName="col classic-Menu"/>
+</ui:UiBinder>

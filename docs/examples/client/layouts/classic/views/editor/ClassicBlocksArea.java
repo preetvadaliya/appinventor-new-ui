@@ -4,16 +4,18 @@
 
 package com.google.appinventor.client.layouts.classic.views.editor;
 
-import com.google.appinventor.client.features.assets.AssetsView;
-import com.google.appinventor.client.features.blocks.BlockDrawersView;
-import com.google.appinventor.client.features.blocks.BlocksWorkspaceView;
+import com.google.appinventor.client.layouts.classic.views.editor.columns.ClassicDrawersColumn;
+import com.google.appinventor.client.layouts.classic.views.editor.columns.ClassicWorkspaceColumn;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 
-/** Classic's Blocks area: places the shared views; presenters fill them. */
+/**
+ * Classic's Blocks area: lines up its columns. Each column holds the shared
+ * views that presenters fill.
+ */
 public class ClassicBlocksArea extends Composite {
 
   interface Binder extends UiBinder<Widget, ClassicBlocksArea> {
@@ -21,9 +23,8 @@ public class ClassicBlocksArea extends Composite {
 
   private static final Binder BINDER = GWT.create(Binder.class);
 
-  @UiField BlockDrawersView drawers;
-  @UiField AssetsView assets;
-  @UiField BlocksWorkspaceView workspace;
+  @UiField ClassicDrawersColumn drawers;
+  @UiField ClassicWorkspaceColumn workspace;
 
   public ClassicBlocksArea() {
     initWidget(BINDER.createAndBindUi(this));

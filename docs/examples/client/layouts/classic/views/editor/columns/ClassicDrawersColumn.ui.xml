@@ -1,0 +1,19 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- Block drawers over media. -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:w="urn:import:com.google.appinventor.client.features.workspace"
+    xmlns:bl="urn:import:com.google.appinventor.client.features.blocks"
+    xmlns:as="urn:import:com.google.appinventor.client.features.assets">
+  <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
+  <g:HTMLPanel styleName="col w-drawers gap-sm">
+    <w:Pane title="{messages.blockSelectorBoxCaption}" addStyleNames="grow">
+      <bl:BlockDrawersView ui:field="drawers"/>
+    </w:Pane>
+    <w:Pane title="{messages.assetListBoxCaption}" addStyleNames="h-media">
+      <as:AssetsView ui:field="assets"/>
+    </w:Pane>
+  </g:HTMLPanel>
+</ui:UiBinder>

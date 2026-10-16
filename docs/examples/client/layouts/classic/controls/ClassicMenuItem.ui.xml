@@ -1,0 +1,13 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- ClassicMenuItem: one row in a menu; label from the bound action. -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui">
+  <g:FocusPanel ui:field="item" styleName="classic-MenuItem">
+    <g:HTMLPanel styleName="row center gap">
+      <g:InlineLabel ui:field="label" styleName="grow"/>
+      <g:InlineLabel ui:field="shortcut" styleName="classic-MenuItem-shortcut"/>
+    </g:HTMLPanel>
+  </g:FocusPanel>
+</ui:UiBinder>

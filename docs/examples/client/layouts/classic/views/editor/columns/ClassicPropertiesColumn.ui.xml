@@ -1,0 +1,14 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:w="urn:import:com.google.appinventor.client.features.workspace"
+    xmlns:pp="urn:import:com.google.appinventor.client.features.properties">
+  <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
+  <g:HTMLPanel styleName="col w-properties">
+    <w:Pane title="{messages.propertiesBoxCaption}" addStyleNames="grow">
+      <pp:PropertiesView ui:field="properties"/>
+    </w:Pane>
+  </g:HTMLPanel>
+</ui:UiBinder>

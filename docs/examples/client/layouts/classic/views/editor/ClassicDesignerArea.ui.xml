@@ -4,45 +4,11 @@
 <!-- Designer:  palette | phone | components over media | properties -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:w="urn:import:com.google.appinventor.client.features.workspace"
-    xmlns:pal="urn:import:com.google.appinventor.client.features.designer.palette"
-    xmlns:vw="urn:import:com.google.appinventor.client.features.designer.viewer"
-    xmlns:tr="urn:import:com.google.appinventor.client.features.designer.tree"
-    xmlns:as="urn:import:com.google.appinventor.client.features.assets"
-    xmlns:pp="urn:import:com.google.appinventor.client.features.properties">
-  <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
+    xmlns:col="urn:import:com.google.appinventor.client.layouts.classic.views.editor.columns">
   <g:HTMLPanel styleName="row grow gap-sm pad-sm">
-
-    <!-- left: palette -->
-    <div class="col w-palette">
-      <w:Pane title="{messages.paletteBoxCaption}" addStyleNames="grow">
-        <pal:PaletteView ui:field="palette"/>
-      </w:Pane>
-    </div>
-
-    <!-- middle: the phone -->
-    <div class="col grow min-viewer">
-      <w:Pane title="{messages.viewerBoxCaption}" addStyleNames="grow">
-        <vw:ViewerView ui:field="viewer"/>
-      </w:Pane>
-    </div>
-
-    <!-- right: components over media -->
-    <div class="col w-side gap-sm">
-      <w:Pane title="{messages.sourceStructureBoxCaption}" addStyleNames="grow">
-        <tr:ComponentTreeView ui:field="components"/>
-      </w:Pane>
-      <w:Pane title="{messages.assetListBoxCaption}" addStyleNames="h-media">
-        <as:AssetsView ui:field="assets"/>
-      </w:Pane>
-    </div>
-
-    <!-- far right: properties -->
-    <div class="col w-properties">
-      <w:Pane title="{messages.propertiesBoxCaption}" addStyleNames="grow">
-        <pp:PropertiesView ui:field="properties"/>
-      </w:Pane>
-    </div>
-
+    <col:ClassicPaletteColumn ui:field="palette"/>
+    <col:ClassicViewerColumn ui:field="viewer"/>
+    <col:ClassicComponentsColumn ui:field="components"/>
+    <col:ClassicPropertiesColumn ui:field="properties"/>
   </g:HTMLPanel>
 </ui:UiBinder>

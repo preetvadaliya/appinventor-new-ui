@@ -4,28 +4,9 @@
 <!-- Blocks:  drawers over media | blocks workspace -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:w="urn:import:com.google.appinventor.client.features.workspace"
-    xmlns:bl="urn:import:com.google.appinventor.client.features.blocks"
-    xmlns:as="urn:import:com.google.appinventor.client.features.assets">
-  <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
+    xmlns:col="urn:import:com.google.appinventor.client.layouts.classic.views.editor.columns">
   <g:HTMLPanel styleName="row grow gap-sm pad-sm">
-
-    <!-- left: drawers over media -->
-    <div class="col w-drawers gap-sm">
-      <w:Pane title="{messages.blockSelectorBoxCaption}" addStyleNames="grow">
-        <bl:BlockDrawersView ui:field="drawers"/>
-      </w:Pane>
-      <w:Pane title="{messages.assetListBoxCaption}" addStyleNames="h-media">
-        <as:AssetsView ui:field="assets"/>
-      </w:Pane>
-    </div>
-
-    <!-- right: Blockly fills the rest and scrolls itself -->
-    <div class="col grow min-viewer">
-      <w:Pane title="{messages.viewerBoxCaption}" addStyleNames="grow clip">
-        <bl:BlocksWorkspaceView ui:field="workspace"/>
-      </w:Pane>
-    </div>
-
+    <col:ClassicDrawersColumn ui:field="drawers"/>
+    <col:ClassicWorkspaceColumn ui:field="workspace"/>
   </g:HTMLPanel>
 </ui:UiBinder>
