@@ -30,11 +30,20 @@
 - Menus and toolbars name actions by `ActionId`; never find a widget by name.
 - Icons are `IconKey`s, never glyph names, outside a layout's icon set.
 
+## Style
+
+- Google Java Style, strictly, plus our stricter rules (decision 0014,
+  `docs/13-code-style.md`): every enum constant on its own line, every `case`
+  body on its own lines, no horizontal alignment, 100 columns.
+- `ant checkstyle` shows no warnings on the lines the PR adds or changes.
+  Lines only moved keep their formatting.
+
 ## Checks
 
 ```sh
 export JAVA_HOME=/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home
 ant -Dskip.ios=true noplay
+ant checkstyle -Dcommit=upstream/master
 (cd appengine && ant tests)
 ant BlocklyTest
 ```

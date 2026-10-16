@@ -11,7 +11,8 @@ private static final String WIDGET_NAME_NEW = "New";
 …
 setButtonEnabled(WIDGET_NAME_MOVE,
     numSelectedProjects > 0);
-setButtonVisible("ImportProject", visible);  // neo only
+// neo only
+setButtonVisible("ImportProject", visible);
 ```
 
 The rules live in the classic widget, neo inherits them, and classic's code
@@ -22,8 +23,13 @@ switches buttons that exist only in neo's template.
 ```java
 // core/actions/ActionId.java
 public enum ActionId {
-  NEW_PROJECT, IMPORT_PROJECT, IMPORT_TEMPLATE,
-  NEW_FOLDER, MOVE_PROJECTS, DELETE_PROJECT, …
+  NEW_PROJECT,
+  IMPORT_PROJECT,
+  IMPORT_TEMPLATE,
+  NEW_FOLDER,
+  MOVE_PROJECTS,
+  DELETE_PROJECT,
+  // … one constant per line
 }
 ```
 
@@ -38,16 +44,21 @@ public abstract class Action {
   private final List<Runnable> listeners =
       new ArrayList<>();
 
+  /** Runs the command; called only while enabled. */
   public abstract void run();
 
-  public void setEnabled(boolean on) {
-    enabled = on;
-    changed();
+  public void setEnabled(boolean enabled) {
+    if (enabled != this.enabled) {
+      this.enabled = enabled;
+      changed();
+    }
   }
-  public void setVisible(boolean on) { … }
-  public void setLabel(String text) { … }
-  public void onChange(Runnable r) {
-    listeners.add(r);
+
+  // setVisible and setLabel work the same way
+
+  /** Called after every change of label or state. */
+  public void onChange(Runnable listener) {
+    listeners.add(listener);
   }
 }
 ```
@@ -62,10 +73,10 @@ public class NewProjectAction extends Action {
 
   @Override
   public void run() {
-    setEnabled(false);              // no double click
-    new NewProjectPresenter(
-        App.views().newProjectDialog())
-      .start(() -> setEnabled(true));
+    // disabled while open, so it cannot open twice
+    setEnabled(false);
+    new NewProjectPresenter(App.views().newProjectDialog())
+        .start(() -> setEnabled(true));
   }
 }
 ```
@@ -87,11 +98,11 @@ A helper in `controls/behaviour` attaches the click handler and listens for
 changes; each layout's button only renders:
 
 ```java
-private void render(Action a) {
-  label.setText(a.getLabel());
-  icon.setName(a.getIcon());
-  setVisible(a.isVisible());
-  button.setEnabled(a.isEnabled());
+private void render(Action action) {
+  label.setText(action.getLabel());
+  icon.setIcon(icons.action(action.getIcon()));
+  setVisible(action.isVisible());
+  button.setDisabled(!action.isEnabled());
 }
 ```
 
@@ -107,17 +118,20 @@ presenter in `core/presenters`, next to the `View` interface the layouts draw:
 // core/presenters/ProjectToolbarPresenter.java
 public interface View {
   void showTitle(String title);
+
+  /** Shows the trash buttons instead of the others. */
   void showTrash(boolean trash);
 }
 
 private void update() {
-  int n = selection.count();
-  boolean ro = App.session().isReadOnly();
-  view.showTrash(trash);   // which buttons this
-                           // toolbar shows
-  enable(!ro, NEW_PROJECT);
-  enable(!ro && n > 0, MOVE_PROJECTS,
-      DELETE_PROJECT, RESTORE_PROJECT,
+  int selected = selection.count();
+  boolean readOnly = App.session().isReadOnly();
+  view.showTrash(trash);
+  actions.enable(!readOnly, NEW_PROJECT);
+  actions.enable(!readOnly && selected > 0,
+      MOVE_PROJECTS,
+      DELETE_PROJECT,
+      RESTORE_PROJECT,
       DELETE_FOREVER);
 }
 ```

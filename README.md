@@ -44,6 +44,7 @@ Reference:
 
 - [docs/09-migration.md](docs/09-migration.md) — the tickets, their order and the timeline
 - [docs/10-pr-rules.md](docs/10-pr-rules.md) — what every PR must satisfy
+- [docs/13-code-style.md](docs/13-code-style.md) — how code is written (Google style)
 - [docs/11-folder-structure.md](docs/11-folder-structure.md) — the complete client tree after P7
 - [docs/file-map.html](docs/file-map.html) — every client file, today and proposed
   (download and open locally)

@@ -7,7 +7,8 @@ A layout is named by an id, not a boolean:
 ```java
 // core/layout/LayoutId.java
 public enum LayoutId {
-  CLASSIC, NEO
+  CLASSIC,
+  NEO
 }
 ```
 
@@ -23,26 +24,43 @@ public enum LayoutId {
 // layouts/Layout.java
 public interface Layout {
   LayoutId id();
+
   Controls controls();
-  List<String> stylesheets();     // tokens, controls, views
+
+  /** Tokens, controls, then views, in load order. */
+  List<String> stylesheets();
+
   Icons icons();
 
   ShellPresenter.View shell();
+
   StatusBarView statusBar();
+
   TopBarPresenter.View topBar();
+
   MainMenuPresenter.View mainMenu();
+
   ProjectToolbarPresenter.View projectToolbar();
+
   ProjectListPresenter.View projectList();
+
   DesignToolbarPresenter.View designToolbar();
+
   PalettePresenter.View palette();
+
   ViewerPresenter.View viewer();
+
   ComponentTreePresenter.View componentTree();
+
   AssetsPresenter.View media();
+
   PropertiesPresenter.View properties();
+
   BlockDrawersPresenter.View blockDrawers();
 
+  /** The shared dialog; a layout may return its own. */
   default NewProjectPresenter.View newProjectDialog() {
-    return new NewProjectDialog();    // shared feature
+    return new NewProjectDialog();
   }
 }
 ```
@@ -60,13 +78,22 @@ public static void load(LayoutId id,
   switch (id) {
     case CLASSIC:
       GWT.runAsync(new RunAsyncCallback() {
+        @Override
         public void onSuccess() {
           ready.accept(new ClassicLayout());
         }
-        public void onFailure(Throwable t) { … }
+
+        @Override
+        public void onFailure(Throwable reason) {
+          // …
+        }
       });
       break;
-    case NEO: …
+    case NEO:
+      // the same, with NeoLayout
+      break;
+    default:
+      throw new IllegalArgumentException("No layout " + id);
   }
 }
 ```

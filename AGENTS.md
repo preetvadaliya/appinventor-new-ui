@@ -82,6 +82,9 @@ Prove "no visual change" with the snapshot script from P0-02 (once it lands):
   `editor:`, `projects:` … (decision 0008).
 - Shared views (dialogs, property editors) extend `SharedView` and use control
   contracts (`<controls:Button>`), so they take on the active layout's look.
+- Code follows Google Java Style strictly (`docs/13-code-style.md`): every enum
+  constant on its own line, no horizontal alignment, and `ant checkstyle` clean on
+  the lines you change.
 - Commit subjects are short and conventional, e.g.
   `refactor(actions): project toolbar runs on action ids`.
 - No AI attribution lines (`Co-Authored-By` and similar) in commits or PRs.

@@ -20,6 +20,7 @@ amending its record, never by quietly doing something else in a PR.
 | [0011](0011-property-editors-as-models.md) | Property editors are models; choice lists are data | Logic in `core/`, one shared template view per kind, 36 choice lists as data |
 | [0012](0012-editor-errors.md) | Editors keep `Window.alert` through P7 | Models report through `View.showError`; inline errors come in a later, look-changing ticket |
 | [0013](0013-standard-controls.md) | `StandardControls` is a bridge, deleted in P7 | Every layout writes every control; shared behaviour lives in `controls/behaviour/` |
+| [0014](0014-google-style.md) | Code follows Google style | Google Java Style strictly, enums one constant per line, `ant checkstyle` clean on changed lines |
 
 ## Waiting on a ticket
 

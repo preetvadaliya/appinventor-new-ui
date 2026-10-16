@@ -10,13 +10,14 @@ entirely, into static files each layout serves from its public folder:
 ```css
 /* layouts/neo/public/neo/tokens.css */
 :root {
-  --color-surface: #ffffff;
-  --color-text: #333333;
+  --color-surface: #fff;
+  --color-text: #333;
   --color-primary: #a5cf47;
 }
+
 :root[data-theme="dark"] {
-  --color-surface: #111111;
-  --color-text: #aaaaaa;
+  --color-surface: #111;
+  --color-text: #aaa;
 }
 ```
 
@@ -29,10 +30,13 @@ templates changes.
 
 ```java
 // core/theme/ThemeService.java
-public void setMode(ThemeMode mode) {   // LIGHT, DARK, SYSTEM
-  apply(resolve(mode));                 // data-theme on <html>
-  settings.save(mode);                  // no reload
-  bus.fire(new ThemeChangedEvent(resolve(mode)));
+/** Switches to LIGHT, DARK or SYSTEM without a reload. */
+public void setMode(ThemeMode mode) {
+  Theme theme = resolve(mode);
+  // sets data-theme on <html>; the tokens do the rest
+  apply(theme);
+  settings.save(mode);
+  bus.fire(new ThemeChangedEvent(theme));
 }
 ```
 
@@ -54,10 +58,18 @@ layout decides which (decision `0006-icons-images-or-glyphs.md`).
 
 ```java
 // core/icons/Icon.java: a plain value, no widget code
-Icon.image("…/button.png", "…/dark/button.png")  // picture
-Icon.glyph("material-icons", "add")              // Material ligature
-Icon.glyph("ti ti-click", "")                    // Tabler class
-Icon.NONE                                        // text only
+
+// a picture, with its dark version
+Icon.image("…/button.png", "…/dark/button.png");
+
+// a Material Symbols ligature
+Icon.glyph("material-icons", "add");
+
+// a Tabler icon: the class draws it, no text
+Icon.glyph("ti ti-click", "");
+
+// text only
+Icon.NONE;
 ```
 
 Each layout supplies an icon set with three lookups, and every one may answer
@@ -65,9 +77,14 @@ with a picture or a glyph:
 
 ```java
 // controls/Icons.java
-Icon action(IconKey key);                  // toolbars and menus
-Icon blockCategory(BlockCategory c);       // Blocks editor drawers
-Icon component(ComponentIconSource s);     // palette, tree, strip
+/** Toolbar and menu icons. */
+Icon action(IconKey key);
+
+/** The Blocks editor's drawers. */
+Icon blockCategory(BlockCategory category);
+
+/** Palette, component tree and non-visible strip. */
+Icon component(ComponentIconSource source);
 ```
 
 | | Actions | Block drawers | Components |

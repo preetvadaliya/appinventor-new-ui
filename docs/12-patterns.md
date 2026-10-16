@@ -53,12 +53,10 @@ The project toolbar (P4-16). The template:
 ```xml
 <!-- layouts/classic/views/projects/
      ClassicProjectToolbar.ui.xml -->
-<ui:UiBinder
-    xmlns:ui="urn:ui:com.google.gwt.uibinder"
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
     xmlns:controls="urn:import:…classic.controls">
-  <gwt:HTMLPanel
-      styleName="flex-row items-center gap-md pad-md">
+  <gwt:HTMLPanel styleName="flex-row items-center gap-md pad-md">
     <gwt:Label ui:field="title" styleName="classic-Title"/>
 
     <gwt:HTMLPanel ui:field="projectButtons"
@@ -121,8 +119,8 @@ The status bar (P4-15), top bar (P4-19) and design toolbar (P4-20) follow
 the same shape. A menu is a menu button whose items name actions:
 
 ```xml
-<controls:ClassicMenuButton
-    text="{messages.projectsTabName}" variant="QUIET">
+<controls:ClassicMenuButton variant="QUIET"
+    text="{messages.projectsTabName}">
   <controls:ClassicMenuItem action="NEW_PROJECT"/>
   <controls:ClassicMenuItem action="IMPORT_PROJECT"/>
   <controls:ClassicMenuSeparator/>
@@ -140,13 +138,11 @@ is a small template of its own (P4-18, P5-32):
 ```xml
 <!-- ClassicProjectList.ui.xml (body) -->
 <gwt:HTMLPanel styleName="flex-col classic-ProjectList">
-  <gwt:HTMLPanel
-      styleName="flex-row items-center classic-ListHeader">
+  <gwt:HTMLPanel styleName="flex-row items-center classic-ListHeader">
     <controls:ClassicCheckbox ui:field="selectAll"/>
     <gwt:FocusPanel ui:field="sortByName"
         styleName="grow classic-SortHeader">
-      <gwt:InlineLabel
-          text="{messages.projectNameHeader}"/>
+      <gwt:InlineLabel text="{messages.projectNameHeader}"/>
     </gwt:FocusPanel>
   </gwt:HTMLPanel>
 
@@ -182,8 +178,7 @@ Pages only place regions; sizes are classes from the layout's CSS
       addStyleNames="classic-PaletteColumn"/>
   <editor:ClassicViewer ui:field="viewer"
       addStyleNames="grow classic-ViewerColumn"/>
-  <gwt:HTMLPanel
-      styleName="flex-col classic-SideColumn gap-sm">
+  <gwt:HTMLPanel styleName="flex-col classic-SideColumn gap-sm">
     <editor:ClassicComponentTree ui:field="components"
         addStyleNames="grow"/>
     <editor:ClassicMedia ui:field="media"
@@ -278,7 +273,8 @@ public class NewProjectAction extends Action {
 
   @Override
   public void run() {
-    setEnabled(false);   // the dialog cannot open twice
+    // disabled while open, so it cannot open twice
+    setEnabled(false);
     new NewProjectPresenter(App.views().newProjectDialog())
         .start(() -> setEnabled(
             !App.session().isReadOnly()));
@@ -349,11 +345,18 @@ are on the interface:
 public interface Button
     extends IsWidget, HasText, HasClickHandlers {
 
-  enum Variant { DEFAULT, PRIMARY, QUIET, DANGER }
+  enum Variant {
+    DEFAULT,
+    PRIMARY,
+    QUIET,
+    DANGER
+  }
 
-  void setAction(ActionId action);   // action="NEW_PROJECT"
+  /** A template sets it as action="NEW_PROJECT". */
+  void setAction(ActionId action);
 
-  void setVariant(Variant variant);  // variant="PRIMARY"
+  /** A template sets it as variant="PRIMARY". */
+  void setVariant(Variant variant);
 
   void setEnabled(boolean enabled);
 }
@@ -468,10 +471,16 @@ it accepts and reports errors through the view:
 public class LengthEditorModel
     extends PropertyEditor<LengthEditorModel.View> {
 
-  public enum Kind { AUTOMATIC, FILL_PARENT, PIXELS, PERCENT }
+  public enum Kind {
+    AUTOMATIC,
+    FILL_PARENT,
+    PIXELS,
+    PERCENT
+  }
 
   public interface View extends EditorView {
-    void setSummary(String summary);  // "120 pixels"
+    /** The closed editor's text, e.g. "120 pixels". */
+    void setSummary(String summary);
 
     void show(Kind kind, String amount);
 
@@ -479,7 +488,8 @@ public class LengthEditorModel
 
     String amount();
 
-    void showError(String message);   // Window.alert (0012)
+    /** Shows Window.alert for now (decision 0012). */
+    void showError(String message);
 
     void onOk(Runnable handler);
   }
@@ -500,9 +510,13 @@ public class LengthEditorModel
 
   // Stored values, as today: "-1" automatic,
   // "-2" fill parent, "120" pixels, "-1050" = 50 %
-  static String encode(Kind kind, String amount) { … }
+  static String encode(Kind kind, String amount) {
+    // …
+  }
 
-  static String check(Kind kind, String amount) { … }
+  static String check(Kind kind, String amount) {
+    // …
+  }
 }
 ```
 
@@ -566,9 +580,13 @@ glyph (decisions 0004, 0006, P4-22):
 // layouts/classic/icons/ClassicIcons.java
 public Icon action(IconKey key) {
   switch (key) {
-    case FOLDER: return Icon.image(ICONS + "folder.png");
-    case HELP:   return Icon.image(ICONS + "help.png");
-    default:     return Icon.NONE;   // text-only buttons
+    case FOLDER:
+      return Icon.image(ICONS + "folder.png");
+    case HELP:
+      return Icon.image(ICONS + "help.png");
+    default:
+      // text-only buttons
+      return Icon.NONE;
   }
 }
 ```
@@ -577,9 +595,12 @@ public Icon action(IconKey key) {
 // layouts/neo/icons/NeoIcons.java
 public Icon action(IconKey key) {
   switch (key) {
-    case ADD:    return Icon.glyph(MATERIAL, "add");
-    case FOLDER: return Icon.glyph(MATERIAL, "folder");
-    default:     return Icon.NONE;
+    case ADD:
+      return Icon.glyph(MATERIAL, "add");
+    case FOLDER:
+      return Icon.glyph(MATERIAL, "folder");
+    default:
+      return Icon.NONE;
   }
 }
 ```
@@ -597,15 +618,15 @@ IconView icon = new IconView(Icon.NONE);
 Decisions 0002 and 0010 (P4-15, P6-33 to P6-37). Shared files load first,
 then the layout's own, in `stylesheets()` order:
 
-```
-features/public/features/reset.css    page defaults
-features/public/features/layout.css   flex utilities
-<layout>/tokens.css                   values, light and dark
-<layout>/controls.css                 buttons, menus, inputs
-<layout>/views/shell.css              top bar, status bar
-<layout>/views/projects.css           projects page
-<layout>/views/editor.css             designer, blocks
-```
+| Order | File | Holds |
+|---|---|---|
+| 1 | `features/public/features/reset.css` | page defaults |
+| 2 | `features/public/features/layout.css` | flex utilities |
+| 3 | `<layout>/tokens.css` | values, light and dark |
+| 4 | `<layout>/controls.css` | buttons, menus, inputs |
+| 5 | `<layout>/views/shell.css` | top bar, status bar |
+| 6 | `<layout>/views/projects.css` | projects page |
+| 7 | `<layout>/views/editor.css` | designer, blocks |
 
 ```css
 /* layout.css, complete: layout only, no colours,
@@ -616,14 +637,24 @@ features/public/features/layout.css   flex utilities
   min-width: 0;
   min-height: 0;
 }
+
 .flex-col {
   display: flex;
   flex-direction: column;
   min-width: 0;
   min-height: 0;
 }
-.grow   { flex: 1 1 0; min-width: 0; min-height: 0; }
-.fixed  { flex: none; }
+
+.grow {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+}
+
+.fixed {
+  flex: none;
+}
+
 .screen {
   width: 100vw;
   height: 100vh;
@@ -631,36 +662,68 @@ features/public/features/layout.css   flex utilities
   overflow: hidden;
 }
 
-.overflow-auto   { overflow: auto; }
-.overflow-hidden { overflow: hidden; }
+.overflow-auto {
+  overflow: auto;
+}
 
-.items-center    { align-items: center; }
-.justify-end     { justify-content: flex-end; }
-.justify-between { justify-content: space-between; }
-.flex-wrap       { flex-wrap: wrap; }
+.overflow-hidden {
+  overflow: hidden;
+}
 
-.gap-xs { gap: 2px; }
-.gap-sm { gap: 4px; }
-.gap-md { gap: 8px; }
-.gap-lg { gap: 16px; }
+.items-center {
+  align-items: center;
+}
 
-.pad-sm { padding: 4px; }
-.pad-md { padding: 8px; }
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.gap-xs {
+  gap: 2px;
+}
+
+.gap-sm {
+  gap: 4px;
+}
+
+.gap-md {
+  gap: 8px;
+}
+
+.gap-lg {
+  gap: 16px;
+}
+
+.pad-sm {
+  padding: 4px;
+}
+
+.pad-md {
+  padding: 8px;
+}
 ```
 
 ```css
 /* classic/tokens.css: the only file that changes
    with the theme */
 :root {
-  --color-page: #ffffff;
-  --color-text: #333333;
+  --color-page: #fff;
+  --color-text: #333;
   --color-primary: #a4cf47;
   --font-body: "Poppins", sans-serif;
 }
 
 :root[data-theme="dark"] {
   --color-page: #1e1e1e;
-  --color-text: #dddddd;
+  --color-text: #ddd;
 }
 ```
 
@@ -676,7 +739,8 @@ features/public/features/layout.css   flex utilities
 html,
 body {
   margin: 0;
-  overflow: hidden;   /* the window never scrolls */
+  /* the window never scrolls; panes do */
+  overflow: hidden;
   background: var(--color-page);
   color: var(--color-text);
   font-family: var(--font-body);
@@ -718,8 +782,7 @@ label:
 ```xml
 <!-- a neo region: a card with a title row -->
 <gwt:HTMLPanel styleName="flex-col neo-Card">
-  <gwt:HTMLPanel
-      styleName="flex-row items-center neo-Card-title">
+  <gwt:HTMLPanel styleName="flex-row items-center neo-Card-title">
     <gwt:InlineLabel text="{messages.paletteBoxCaption}"/>
   </gwt:HTMLPanel>
   <gwt:FlowPanel ui:field="items"

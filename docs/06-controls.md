@@ -48,13 +48,17 @@ view's package, not in `controls/`, and a compile test showed it cannot call
 ```java
 // controls/SharedView.java
 public abstract class SharedView extends Composite {
-  @UiFactory public Button button() {
+  @UiFactory
+  public Button button() {
     return Controls.active().button();
   }
-  @UiFactory public TextField textField() {
+
+  @UiFactory
+  public TextField textField() {
     return Controls.active().textField();
   }
-  …
+
+  // one factory per control
 }
 ```
 
@@ -96,7 +100,9 @@ binding, focus, ARIA, events). For example
 <gwt:HTMLPanel styleName="flex-col gap-xs classic-TextField">
   <gwt:Label ui:field="label" styleName="classic-Label"/>
   <gwt:TextBox ui:field="input" styleName="classic-Input"/>
-  <gwt:Label ui:field="error" styleName="classic-Error" visible="false"/>
+  <gwt:Label ui:field="error"
+      styleName="classic-Error"
+      visible="false"/>
 </gwt:HTMLPanel>
 ```
 

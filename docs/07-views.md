@@ -52,11 +52,15 @@ other; no pane is hidden by CSS.
 ```xml
 <!-- layouts/classic/views/editor/ClassicDesignerArea.ui.xml -->
 <gwt:HTMLPanel styleName="flex-row grow gap-sm pad-sm">
-  <editor:ClassicPalette ui:field="palette" addStyleNames="classic-PaletteColumn"/>
-  <editor:ClassicViewer ui:field="viewer" addStyleNames="grow classic-ViewerColumn"/>
+  <editor:ClassicPalette ui:field="palette"
+      addStyleNames="classic-PaletteColumn"/>
+  <editor:ClassicViewer ui:field="viewer"
+      addStyleNames="grow classic-ViewerColumn"/>
   <gwt:HTMLPanel styleName="flex-col classic-SideColumn gap-sm">
-    <editor:ClassicComponentTree ui:field="components" addStyleNames="grow"/>
-    <editor:ClassicMedia ui:field="media" addStyleNames="classic-MediaPane"/>
+    <editor:ClassicComponentTree ui:field="components"
+        addStyleNames="grow"/>
+    <editor:ClassicMedia ui:field="media"
+        addStyleNames="classic-MediaPane"/>
   </gwt:HTMLPanel>
   <editor:ClassicProperties ui:field="properties"
       addStyleNames="classic-PropertiesColumn"/>
@@ -108,10 +112,12 @@ public class ClassicProjectToolbar extends Composite
   @UiField HTMLPanel projectButtons;
   @UiField HTMLPanel trashButtons;
 
+  @Override
   public void showTitle(String text) {
     title.setText(text);
   }
 
+  @Override
   public void showTrash(boolean trash) {
     projectButtons.setVisible(!trash);
     trashButtons.setVisible(trash);
@@ -123,6 +129,7 @@ The layout hands its views out:
 
 ```java
 // layouts/classic/ClassicLayout.java
+@Override
 public ProjectToolbarPresenter.View projectToolbar() {
   return new ClassicProjectToolbar();
 }
