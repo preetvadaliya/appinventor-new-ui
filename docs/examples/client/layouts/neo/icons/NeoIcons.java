@@ -85,6 +85,9 @@ public class NeoIcons implements Icons {
       case TRASH:          return Icon.glyph(MATERIAL, "folder_delete");
       case DELETE:         return Icon.glyph(MATERIAL, "delete");
       case DELETE_FOREVER: return Icon.glyph(MATERIAL, "delete_forever");
+      case FOLDER:         return Icon.glyph(MATERIAL, "folder");
+      case EXPAND:         return Icon.glyph(MATERIAL, "chevron_right");
+      case COLLAPSE:       return Icon.glyph(MATERIAL, "expand_more");
       case HELP:           return Icon.glyph(MATERIAL, "help");
       case CLOSE:          return Icon.glyph(MATERIAL, "close");
       default:             return Icon.NONE;

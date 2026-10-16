@@ -13,6 +13,8 @@ public enum IconKey {
   NONE,
   ADD, IMPORT, TEMPLATE, FOLDER_NEW, MOVE, EXPORT, GALLERY_LOGIN,
   PUBLISH, RESTORE, PROJECTS, TRASH, DELETE, DELETE_FOREVER,
+  // tree and list marks
+  FOLDER, EXPAND, COLLAPSE,
   // not actions: the icon-only buttons
   HELP, CLOSE
 }

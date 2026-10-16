@@ -74,6 +74,9 @@ public class NovaIcons implements Icons {
       case TRASH:          return tabler("ti-trash");
       case DELETE:         return tabler("ti-trash");
       case DELETE_FOREVER: return tabler("ti-trash-x");
+      case FOLDER:         return tabler("ti-folder");
+      case EXPAND:         return tabler("ti-chevron-right");
+      case COLLAPSE:       return tabler("ti-chevron-down");
       default:             return Icon.NONE;
     }
   }

@@ -115,3 +115,8 @@
   background: var(--color-header);
   font-weight: bold;
 }
+
+.classic-TreeNode-selected {
+  background: var(--color-row-highlight);
+  font-weight: 600;
+}

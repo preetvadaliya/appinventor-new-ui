@@ -182,3 +182,8 @@
   min-width: 320px;
   box-shadow: var(--shadow-menu);
 }
+
+.neo-TreeNode-selected {
+  background: var(--color-row-highlight);
+  font-weight: 600;
+}

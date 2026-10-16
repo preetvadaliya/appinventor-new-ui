@@ -1,0 +1,13 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- ClassicTreeNode: what one ClassicTree item shows, an optional icon
+     and its caption. -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
+    xmlns:shared="urn:import:com.google.appinventor.client.controls">
+  <gwt:HTMLPanel styleName="flex-row items-center gap-xs classic-TreeNode">
+    <shared:IconView ui:field="icon"/>
+    <gwt:InlineLabel ui:field="caption"/>
+  </gwt:HTMLPanel>
+</ui:UiBinder>

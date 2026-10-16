@@ -25,6 +25,9 @@ public class ClassicIcons implements Icons {
   @Override
   public Icon action(IconKey key) {
     switch (key) {
+      case FOLDER:   return Icon.image(ICONS + "folder.png");
+      case EXPAND:   return Icon.glyph("classic-glyph", "\u25B8");
+      case COLLAPSE: return Icon.glyph("classic-glyph", "\u25BE");
       // the PNGs Images.help() and Images.close() point at today
       case HELP:  return Icon.image(ICONS + "help.png");
       case CLOSE: return Icon.image(ICONS + "close.png");
