@@ -1,16 +1,14 @@
 <!-- Copyright 2026 MIT, All rights reserved -->
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
-<!-- PaletteItem: icon, name, help. Dragged onto the viewer to add a
-     component. The icon is a picture or a glyph, from the layout's Icons. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:c="urn:import:com.google.appinventor.client.controls">
   <g:FocusPanel ui:field="item" styleName="palette-item">
-    <g:FlowPanel>
-      <c:IconView ui:field="icon" styleName="palette-item-icon"/>
-      <g:InlineLabel ui:field="name" styleName="palette-item-name"/>
-      <c:IconButton ui:field="help" styleName="palette-item-help"/>
-    </g:FlowPanel>
+    <g:HTMLPanel styleName="row center gap-sm">
+      <c:IconView ui:field="icon"/>
+      <g:InlineLabel ui:field="name" styleName="grow"/>
+      <c:IconButton ui:field="help"/>
+    </g:HTMLPanel>
   </g:FocusPanel>
 </ui:UiBinder>

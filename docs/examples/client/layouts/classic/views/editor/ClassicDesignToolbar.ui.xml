@@ -1,13 +1,12 @@
 <!-- Copyright 2026 MIT, All rights reserved -->
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
-<!-- ClassicDesignToolbar: project name, screen controls, editor switch. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:ed="urn:import:com.google.appinventor.client.layouts.classic.views.editor">
-  <g:FlowPanel styleName="classic-DesignToolbar">
-    <g:Label ui:field="projectName" styleName="classic-DesignToolbar-project"/>
-    <ed:ClassicScreenControls ui:field="screens"/>
+  <g:HTMLPanel styleName="row center gap pad classic-DesignToolbar">
+    <g:Label ui:field="projectName" styleName="classic-Title"/>
+    <ed:ClassicScreenControls ui:field="screens" addStyleNames="grow"/>
     <ed:ClassicEditorSwitch ui:field="editorSwitch"/>
-  </g:FlowPanel>
+  </g:HTMLPanel>
 </ui:UiBinder>

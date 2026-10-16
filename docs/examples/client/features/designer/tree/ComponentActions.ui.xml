@@ -1,14 +1,13 @@
 <!-- Copyright 2026 MIT, All rights reserved -->
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
-<!-- ComponentActions: Rename and Delete for the selected component. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:c="urn:import:com.google.appinventor.client.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <g:FlowPanel styleName="component-actions">
+  <g:HTMLPanel styleName="row center gap-sm pad-sm">
     <c:Button ui:field="rename" text="{messages.renameButton}"/>
     <c:Button ui:field="delete" variant="DANGER"
         text="{messages.deleteButton}"/>
-  </g:FlowPanel>
+  </g:HTMLPanel>
 </ui:UiBinder>

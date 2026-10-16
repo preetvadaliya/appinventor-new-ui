@@ -1,24 +1,24 @@
 <!-- Copyright 2026 MIT, All rights reserved -->
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
-<!-- ClassicProjectFolder: a folder row plus its children, which are more
-     ClassicProjectRow / ClassicProjectFolder components added in Java. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls"
     xmlns:ic="urn:import:com.google.appinventor.client.controls">
-  <g:FlowPanel styleName="classic-ProjectFolder">
-    <g:FocusPanel ui:field="row" styleName="classic-ProjectRow">
-      <g:FlowPanel>
+  <g:HTMLPanel styleName="col">
+    <g:FocusPanel ui:field="row" styleName="classic-Row">
+      <g:HTMLPanel styleName="row center gap-xs">
         <c:ClassicCheckbox ui:field="selected"/>
-        <ic:IconView ui:field="expander" styleName="classic-ProjectFolder-expander"/>
-        <ic:IconView ui:field="folderIcon" styleName="classic-ProjectFolder-icon"/>
-        <g:Label ui:field="name" styleName="classic-ProjectRow-name"/>
-        <g:Label ui:field="created" styleName="classic-ProjectRow-date"/>
-        <g:Label ui:field="modified" styleName="classic-ProjectRow-date"/>
-      </g:FlowPanel>
+        <ic:IconView ui:field="expander"/>
+        <ic:IconView ui:field="folderIcon"/>
+        <g:Label ui:field="name" styleName="grow"/>
+        <g:Label ui:field="created" styleName="w-date"/>
+        <g:Label ui:field="modified" styleName="w-date"/>
+      </g:HTMLPanel>
     </g:FocusPanel>
-    <g:FlowPanel ui:field="children" styleName="classic-ProjectFolder-children"
+
+    <!-- children: more rows and folders, indented -->
+    <g:FlowPanel ui:field="children" styleName="col classic-Indent"
         visible="false"/>
-  </g:FlowPanel>
+  </g:HTMLPanel>
 </ui:UiBinder>

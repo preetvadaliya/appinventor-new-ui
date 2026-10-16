@@ -12,7 +12,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 
-/** Classic's project editor page: composes toolbar, work area, console. */
+/** Classic's editor page: shows the Designer area or the Blocks area. */
 public class ClassicEditorPage extends Composite
     implements EditorPagePresenter.View {
 
@@ -22,7 +22,8 @@ public class ClassicEditorPage extends Composite
   private static final Binder BINDER = GWT.create(Binder.class);
 
   @UiField ClassicDesignToolbar toolbar;
-  @UiField ClassicWorkArea work;
+  @UiField ClassicDesignerArea designer;
+  @UiField ClassicBlocksArea blocks;
   @UiField ConsolePanel console;
 
   public ClassicEditorPage() {
@@ -31,7 +32,8 @@ public class ClassicEditorPage extends Composite
 
   @Override
   public void showMode(EditorPagePresenter.Mode mode) {
-    work.showMode(mode);
+    designer.setVisible(mode == EditorPagePresenter.Mode.DESIGNER);
+    blocks.setVisible(mode == EditorPagePresenter.Mode.BLOCKS);
   }
 
   @Override

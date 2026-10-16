@@ -1,15 +1,19 @@
 <!-- Copyright 2026 MIT, All rights reserved -->
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
-<!-- ClassicEditorPage: design toolbar, work area, console. -->
+<!-- Like React: {mode === DESIGNER ? <Designer/> : <Blocks/>}.
+     Two separate areas instead of one area with hidden panes. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:ed="urn:import:com.google.appinventor.client.layouts.classic.views.editor"
     xmlns:con="urn:import:com.google.appinventor.client.features.console">
-  <g:FlowPanel styleName="classic-Page classic-EditorPage">
+  <g:HTMLPanel styleName="col grow">
     <ed:ClassicDesignToolbar ui:field="toolbar"/>
-    <ed:ClassicWorkArea ui:field="work"/>
-    <con:ConsolePanel ui:field="console" styleName="classic-Console"
-        visible="false"/>
-  </g:FlowPanel>
+
+    <ed:ClassicDesignerArea ui:field="designer"/>
+    <ed:ClassicBlocksArea ui:field="blocks" visible="false"/>
+
+    <con:ConsolePanel ui:field="console" visible="false"
+        addStyleNames="scroll classic-Console"/>
+  </g:HTMLPanel>
 </ui:UiBinder>

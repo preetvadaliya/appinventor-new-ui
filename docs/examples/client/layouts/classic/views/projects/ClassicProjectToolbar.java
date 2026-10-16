@@ -9,8 +9,9 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.dom.client.DivElement;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.UIObject;
 import com.google.gwt.user.client.ui.Widget;
 
 /** Classic's project toolbar: one row of text buttons. */
@@ -23,8 +24,8 @@ public class ClassicProjectToolbar extends Composite
   private static final Binder BINDER = GWT.create(Binder.class);
 
   @UiField Label title;
-  @UiField FlowPanel projectButtons;
-  @UiField FlowPanel trashButtons;
+  @UiField DivElement projectButtons;
+  @UiField DivElement trashButtons;
 
   public ClassicProjectToolbar() {
     initWidget(BINDER.createAndBindUi(this));
@@ -37,7 +38,7 @@ public class ClassicProjectToolbar extends Composite
 
   @Override
   public void showTrash(boolean trash) {
-    projectButtons.setVisible(!trash);
-    trashButtons.setVisible(trash);
+    UIObject.setVisible(projectButtons, !trash);
+    UIObject.setVisible(trashButtons, trash);
   }
 }

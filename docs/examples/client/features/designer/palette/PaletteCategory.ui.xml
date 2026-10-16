@@ -1,12 +1,11 @@
 <!-- Copyright 2026 MIT, All rights reserved -->
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
-<!-- PaletteCategory: one collapsible group (User Interface, Layout …).
-     Props: title, open. Items are PaletteItem components added in Java. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:c="urn:import:com.google.appinventor.client.controls">
-  <c:Collapsible ui:field="group" styleName="palette-category">
-    <g:FlowPanel ui:field="items" styleName="palette-category-items"/>
+  <c:Collapsible ui:field="group">
+    <!-- one PaletteItem per component, added in Java -->
+    <g:FlowPanel ui:field="items" styleName="col"/>
   </c:Collapsible>
 </ui:UiBinder>

@@ -1,16 +1,15 @@
 <!-- Copyright 2026 MIT, All rights reserved -->
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
-<!-- PropertyRow: label and help, then the editor for this property type
-     (ChoiceEditorView, NumberEditorView …) in the slot. -->
+<!-- The editor for this property type goes in the slot. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:c="urn:import:com.google.appinventor.client.controls">
-  <g:FlowPanel styleName="property">
-    <g:FlowPanel styleName="property-header">
-      <g:Label ui:field="label" styleName="property-label"/>
-      <c:IconButton ui:field="help" styleName="property-help"/>
-    </g:FlowPanel>
-    <g:SimplePanel ui:field="editor" styleName="property-editor"/>
-  </g:FlowPanel>
+  <g:HTMLPanel styleName="col gap-xs">
+    <div class="row center gap-xs">
+      <g:Label ui:field="label" styleName="grow property-label"/>
+      <c:IconButton ui:field="help"/>
+    </div>
+    <g:SimplePanel ui:field="editor"/>
+  </g:HTMLPanel>
 </ui:UiBinder>

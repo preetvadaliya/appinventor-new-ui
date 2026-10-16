@@ -1,8 +1,6 @@
 <!-- Copyright 2026 MIT, All rights reserved -->
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
-<!-- ClassicShell: the page. Composes the top bar, the three pages, the
-     tutorial and the status bar. No markup of its own beyond the frame. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:top="urn:import:com.google.appinventor.client.layouts.classic.views.topbar"
@@ -11,16 +9,21 @@
     xmlns:ad="urn:import:com.google.appinventor.client.layouts.classic.views.admin"
     xmlns:st="urn:import:com.google.appinventor.client.layouts.classic.views.status"
     xmlns:tu="urn:import:com.google.appinventor.client.features.tutorial">
-  <g:FlowPanel styleName="classic-Shell">
+  <g:HTMLPanel styleName="col screen classic-Shell">
+
     <top:ClassicTopBar ui:field="topBar"/>
-    <g:FlowPanel styleName="classic-Shell-main">
-      <g:FlowPanel styleName="classic-Shell-pages">
+
+    <div class="row grow">
+      <div class="col grow">
         <pr:ClassicProjectsPage ui:field="projectsPage"/>
         <ed:ClassicEditorPage ui:field="editorPage" visible="false"/>
         <ad:ClassicAdminPage ui:field="adminPage" visible="false"/>
-      </g:FlowPanel>
-      <tu:TutorialPanel ui:field="tutorial" visible="false"/>
-    </g:FlowPanel>
+      </div>
+      <tu:TutorialPanel ui:field="tutorial" visible="false"
+          addStyleNames="col scroll classic-Tutorial"/>
+    </div>
+
     <st:ClassicStatusBar ui:field="statusBar"/>
-  </g:FlowPanel>
+
+  </g:HTMLPanel>
 </ui:UiBinder>

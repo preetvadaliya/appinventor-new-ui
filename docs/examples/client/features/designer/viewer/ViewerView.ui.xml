@@ -1,13 +1,12 @@
 <!-- Copyright 2026 MIT, All rights reserved -->
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
-<!-- ViewerView: preview options, the phone, the non-visible components. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:vw="urn:import:com.google.appinventor.client.features.designer.viewer">
-  <g:FlowPanel styleName="viewer">
+  <g:HTMLPanel styleName="col grow">
     <vw:ViewerHeader ui:field="header"/>
-    <vw:PhonePreview ui:field="phone"/>
+    <vw:PhonePreview ui:field="phone" addStyleNames="grow scroll"/>
     <vw:NonVisibleStrip ui:field="nonVisible"/>
-  </g:FlowPanel>
+  </g:HTMLPanel>
 </ui:UiBinder>

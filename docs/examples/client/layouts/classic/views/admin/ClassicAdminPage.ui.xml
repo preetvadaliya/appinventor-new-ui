@@ -4,7 +4,7 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:box="urn:import:com.google.appinventor.client.features.workspace.boxes">
-  <g:FlowPanel styleName="classic-Page classic-AdminPage">
-    <box:AdminUserListBox ui:field="users" styleName="classic-Scroll"/>
-  </g:FlowPanel>
+  <g:HTMLPanel styleName="col grow">
+    <box:AdminUserListBox ui:field="users" addStyleNames="grow scroll"/>
+  </g:HTMLPanel>
 </ui:UiBinder>
