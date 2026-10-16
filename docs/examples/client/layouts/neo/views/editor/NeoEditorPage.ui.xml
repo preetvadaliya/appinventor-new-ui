@@ -1,38 +1,19 @@
 <!-- Copyright 2026 MIT, All rights reserved -->
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
-<!--
-  Project editor for both the Designer and the Blocks editor. Same panes as
-  classic, arranged as neo cards with titles; each card scrolls its body.
--->
+<!-- Like React: {mode === DESIGNER ? <Designer/> : <Blocks/>}.
+     Two separate areas instead of one area with hidden panes. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
     xmlns:editor="urn:import:com.google.appinventor.client.layouts.neo.views.editor"
-    xmlns:boxes="urn:import:com.google.appinventor.client.features.workspace.boxes"
     xmlns:console="urn:import:com.google.appinventor.client.features.console">
-  <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <gwt:FlowPanel styleName="neo-Page neo-EditorPage">
+  <gwt:HTMLPanel styleName="flex-col grow">
     <editor:NeoDesignToolbar ui:field="toolbar"/>
 
-    <gwt:FlowPanel ui:field="work" styleName="neo-Work is-designer">
-      <boxes:PaletteBox ui:field="palette" styleName="neo-Card neo-Work-palette"/>
-      <boxes:ViewerBox ui:field="viewer" styleName="neo-Card neo-Work-viewer"/>
-      <gwt:FlowPanel styleName="neo-Work-side">
-        <boxes:SourceStructureBox ui:field="components"
-            styleName="neo-Card neo-Work-components"/>
-        <boxes:BlockSelectorBox ui:field="drawers"
-            styleName="neo-Card neo-Work-drawers"/>
-        <gwt:FlowPanel styleName="neo-Card neo-Work-assets">
-          <gwt:Label styleName="neo-Card-title"
-              text="{messages.assetListBoxCaption}"/>
-          <boxes:AssetListBox ui:field="assets" styleName="neo-Scroll"/>
-        </gwt:FlowPanel>
-      </gwt:FlowPanel>
-      <boxes:PropertiesBox ui:field="properties"
-          styleName="neo-Card neo-Work-properties"/>
-    </gwt:FlowPanel>
+    <editor:NeoDesignerArea ui:field="designer"/>
+    <editor:NeoBlocksArea ui:field="blocks" visible="false"/>
 
-    <console:ConsolePanel ui:field="console" styleName="neo-Console"
-        visible="false"/>
-  </gwt:FlowPanel>
+    <console:ConsolePanel ui:field="console" visible="false"
+        addStyleNames="overflow-auto neo-Console"/>
+  </gwt:HTMLPanel>
 </ui:UiBinder>

@@ -1,28 +1,31 @@
 <!-- Copyright 2026 MIT, All rights reserved -->
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
-<!-- The whole page. Fills the window; only the panes inside scroll. -->
+<!-- The whole page: top bar, one page at a time beside the tutorial,
+     status bar. Fills the window; only the cards inside scroll. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
     xmlns:topbar="urn:import:com.google.appinventor.client.layouts.neo.views.topbar"
-    xmlns:status="urn:import:com.google.appinventor.client.layouts.neo.views.status"
     xmlns:projects="urn:import:com.google.appinventor.client.layouts.neo.views.projects"
     xmlns:editor="urn:import:com.google.appinventor.client.layouts.neo.views.editor"
     xmlns:admin="urn:import:com.google.appinventor.client.layouts.neo.views.admin"
+    xmlns:status="urn:import:com.google.appinventor.client.layouts.neo.views.status"
     xmlns:tutorial="urn:import:com.google.appinventor.client.features.tutorial">
-  <gwt:FlowPanel styleName="neo-Shell">
+  <gwt:HTMLPanel styleName="flex-col screen neo-Shell">
+
     <topbar:NeoTopBar ui:field="topBar"/>
 
-    <gwt:FlowPanel styleName="neo-Shell-main">
-      <gwt:FlowPanel styleName="neo-Shell-pages">
+    <gwt:HTMLPanel styleName="flex-row grow">
+      <gwt:HTMLPanel styleName="flex-col grow">
         <projects:NeoProjectsPage ui:field="projectsPage"/>
         <editor:NeoEditorPage ui:field="editorPage" visible="false"/>
         <admin:NeoAdminPage ui:field="adminPage" visible="false"/>
-      </gwt:FlowPanel>
-      <tutorial:TutorialPanel ui:field="tutorial" styleName="neo-Shell-tutorial"
-          visible="false"/>
-    </gwt:FlowPanel>
+      </gwt:HTMLPanel>
+      <tutorial:TutorialPanel ui:field="tutorial" visible="false"
+          addStyleNames="flex-col overflow-auto neo-Tutorial"/>
+    </gwt:HTMLPanel>
 
     <status:NeoStatusBar ui:field="statusBar"/>
-  </gwt:FlowPanel>
+
+  </gwt:HTMLPanel>
 </ui:UiBinder>

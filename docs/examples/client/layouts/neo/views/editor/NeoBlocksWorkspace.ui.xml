@@ -1,0 +1,15 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- Blocks workspace card: Blockly is injected into the slot and scrolls
+     itself, so the card clips instead of scrolling. -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
+  <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
+  <gwt:HTMLPanel styleName="flex-col neo-Card overflow-hidden">
+    <gwt:HTMLPanel styleName="flex-row items-center neo-Card-title">
+      <gwt:InlineLabel text="{messages.viewerBoxCaption}"/>
+    </gwt:HTMLPanel>
+    <gwt:HTMLPanel ui:field="blockly" styleName="grow"/>
+  </gwt:HTMLPanel>
+</ui:UiBinder>

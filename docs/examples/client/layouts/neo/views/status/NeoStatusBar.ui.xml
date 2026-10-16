@@ -4,8 +4,8 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <gwt:FlowPanel styleName="neo-StatusBar">
+  <gwt:HTMLPanel styleName="flex-row items-center justify-end pad-sm neo-StatusBar">
     <gwt:Anchor ui:field="terms" target="_blank"
         text="{messages.privacyTermsLink}"/>
-  </gwt:FlowPanel>
+  </gwt:HTMLPanel>
 </ui:UiBinder>

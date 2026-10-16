@@ -1,0 +1,18 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- Designer: palette | viewer | components over media | properties.
+     Narrow windows scroll here sideways, never the page. -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
+    xmlns:editor="urn:import:com.google.appinventor.client.layouts.neo.views.editor">
+  <gwt:HTMLPanel styleName="flex-row grow overflow-auto gap-md pad-md">
+    <editor:NeoPalette ui:field="palette" addStyleNames="neo-PaletteColumn"/>
+    <editor:NeoViewer ui:field="viewer" addStyleNames="grow neo-ViewerColumn"/>
+    <gwt:HTMLPanel styleName="flex-col neo-SideColumn gap-md">
+      <editor:NeoComponentTree ui:field="components" addStyleNames="grow"/>
+      <editor:NeoMedia ui:field="media" addStyleNames="neo-MediaPane"/>
+    </gwt:HTMLPanel>
+    <editor:NeoProperties ui:field="properties" addStyleNames="neo-PropertiesColumn"/>
+  </gwt:HTMLPanel>
+</ui:UiBinder>

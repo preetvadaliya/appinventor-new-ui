@@ -1,0 +1,33 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- Designer toolbar: project name, screen menu and screen actions, then
+     the console and a Designer | Blocks switch. -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
+    xmlns:controls="urn:import:com.google.appinventor.client.layouts.neo.controls">
+  <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
+  <gwt:HTMLPanel styleName="flex-row items-center gap-md neo-DesignToolbar">
+
+    <gwt:Label ui:field="projectName" styleName="neo-Title"/>
+
+    <gwt:HTMLPanel styleName="flex-row items-center gap-sm grow">
+      <!-- the project's screens are added in Java -->
+      <controls:NeoMenuButton ui:field="screens" text="{messages.screensButton}"/>
+      <controls:NeoButton action="ADD_SCREEN"/>
+      <controls:NeoButton action="REMOVE_SCREEN" variant="QUIET"/>
+      <controls:NeoButton action="PROJECT_PROPERTIES" variant="QUIET"/>
+      <controls:NeoButton action="SEND_TO_GALLERY" variant="QUIET"/>
+      <controls:NeoButton action="TOGGLE_TUTORIAL" variant="QUIET"/>
+    </gwt:HTMLPanel>
+
+    <gwt:HTMLPanel styleName="flex-row items-center gap-sm">
+      <controls:NeoButton action="TOGGLE_CONSOLE" variant="QUIET"/>
+      <gwt:HTMLPanel styleName="flex-row items-center neo-Segmented">
+        <controls:NeoButton action="SWITCH_TO_DESIGNER"/>
+        <controls:NeoButton action="SWITCH_TO_BLOCKS"/>
+      </gwt:HTMLPanel>
+    </gwt:HTMLPanel>
+
+  </gwt:HTMLPanel>
+</ui:UiBinder>

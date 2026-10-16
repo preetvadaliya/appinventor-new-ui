@@ -1,0 +1,12 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- NeoIconButton: a round button with one Material glyph (help, close).
+     It has no visible text, so its name goes in aria-label. -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
+    xmlns:controls="urn:import:com.google.appinventor.client.controls">
+  <gwt:FocusPanel ui:field="button" styleName="neo-IconButton">
+    <controls:IconView ui:field="icon"/>
+  </gwt:FocusPanel>
+</ui:UiBinder>

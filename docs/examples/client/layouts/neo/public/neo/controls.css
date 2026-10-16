@@ -1,0 +1,162 @@
+/* controls.css: how neo's controls look (layouts/neo/controls).
+   Rounded, borderless where quiet, a Material glyph before the label. */
+
+.neo-Button {
+  padding: 6px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  user-select: none;
+}
+
+.neo-Button:hover {
+  background: var(--color-row-highlight);
+}
+
+.neo-Button:focus-visible,
+.neo-IconButton:focus-visible,
+.neo-MenuButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 1px;
+}
+
+.neo-Button-primary {
+  background: var(--color-primary);
+  border-color: var(--color-primary-strong);
+  color: var(--color-on-primary);
+}
+
+.neo-Button-primary:hover {
+  background: var(--color-primary-strong);
+}
+
+.neo-Button-quiet {
+  border-color: transparent;
+  background: transparent;
+}
+
+.neo-Button-danger {
+  color: var(--color-danger);
+}
+
+.neo-Button-disabled {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* an action without a glyph shows its label alone, without the gap */
+.neo-Button-icon:empty {
+  display: none;
+}
+
+.neo-Button .material-icons,
+.neo-IconButton .material-icons,
+.neo-MenuButton .material-icons,
+.neo-MenuItem .material-icons {
+  font-size: var(--font-icon-size);
+}
+
+.neo-IconButton {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 28px;
+  color: var(--color-muted);
+  cursor: pointer;
+}
+
+.neo-IconButton:hover {
+  background: var(--color-row-highlight);
+}
+
+.neo-MenuButton {
+  padding: 6px 10px;
+  border-radius: var(--radius-control);
+  cursor: pointer;
+}
+
+.neo-MenuButton:hover {
+  background: var(--color-row-highlight);
+}
+
+.neo-MenuButton-caret {
+  color: var(--color-muted);
+}
+
+.neo-Menu {
+  padding: 4px 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  box-shadow: var(--shadow-menu);
+}
+
+.neo-MenuItem {
+  padding: 6px 16px;
+  cursor: pointer;
+}
+
+.neo-MenuItem:hover {
+  background: var(--color-row-highlight);
+}
+
+.neo-MenuItem-shortcut {
+  color: var(--color-muted);
+}
+
+.neo-MenuSeparator {
+  height: 1px;
+  margin: 4px 0;
+  background: var(--color-border-light);
+}
+
+.neo-Label {
+  font-weight: 600;
+}
+
+.neo-Input {
+  font: inherit;
+  padding: 6px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.neo-Input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.neo-Error {
+  color: var(--color-danger);
+}
+
+.neo-Checkbox input,
+.neo-Radio input {
+  accent-color: var(--color-primary);
+}
+
+.neo-Tree {
+  padding: 4px 8px;
+}
+
+.neo-Collapsible-header {
+  padding: 6px 8px;
+  border-radius: var(--radius-control);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.neo-Collapsible-header:hover {
+  background: var(--color-row-highlight);
+}
+
+.neo-Dialog {
+  min-width: 320px;
+  box-shadow: var(--shadow-menu);
+}

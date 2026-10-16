@@ -1,21 +1,24 @@
 <!-- Copyright 2026 MIT, All rights reserved -->
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- Neo's project toolbar: three groups of icon buttons and an Export
+     menu; in the trash, the title and the trash buttons. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
     xmlns:controls="urn:import:com.google.appinventor.client.layouts.neo.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <gwt:FlowPanel styleName="neo-ProjectToolbar">
-    <gwt:Label ui:field="title" styleName="neo-ProjectToolbar-title"/>
+  <gwt:HTMLPanel styleName="flex-row items-center gap-md neo-ProjectToolbar">
+    <gwt:Label ui:field="title" styleName="neo-Title" visible="false"/>
 
-    <gwt:FlowPanel ui:field="projectButtons" styleName="neo-ProjectToolbar-groups">
-      <gwt:FlowPanel styleName="neo-ProjectToolbar-start">
+    <gwt:HTMLPanel ui:field="projectButtons"
+        styleName="flex-row items-center justify-between flex-wrap grow gap-md">
+      <gwt:HTMLPanel styleName="flex-row items-center gap-sm">
         <controls:NeoButton action="NEW_PROJECT" variant="PRIMARY"/>
         <controls:NeoButton action="IMPORT_PROJECT"/>
         <controls:NeoButton action="IMPORT_TEMPLATE"/>
         <controls:NeoButton action="NEW_FOLDER"/>
-      </gwt:FlowPanel>
-      <gwt:FlowPanel styleName="neo-ProjectToolbar-center">
+      </gwt:HTMLPanel>
+      <gwt:HTMLPanel styleName="flex-row items-center gap-sm">
         <controls:NeoButton action="MOVE_PROJECTS"/>
         <controls:NeoMenuButton action="EXPORT">
           <controls:NeoMenuItem action="EXPORT_PROJECT"/>
@@ -25,18 +28,18 @@
             text="{messages.galleryTabName}"/>
         <controls:NeoButton action="SEND_TO_GALLERY"
             text="{messages.publishButton}"/>
-      </gwt:FlowPanel>
-      <gwt:FlowPanel styleName="neo-ProjectToolbar-end">
+      </gwt:HTMLPanel>
+      <gwt:HTMLPanel styleName="flex-row items-center gap-sm">
         <controls:NeoButton action="VIEW_TRASH" variant="QUIET"/>
         <controls:NeoButton action="DELETE_PROJECT" variant="DANGER"/>
-      </gwt:FlowPanel>
-    </gwt:FlowPanel>
+      </gwt:HTMLPanel>
+    </gwt:HTMLPanel>
 
-    <gwt:FlowPanel ui:field="trashButtons" styleName="neo-ProjectToolbar-end"
-        visible="false">
+    <gwt:HTMLPanel ui:field="trashButtons"
+        styleName="flex-row items-center justify-end grow gap-sm" visible="false">
       <controls:NeoButton action="RESTORE_PROJECT"/>
       <controls:NeoButton action="SWITCH_TO_PROJECTS" variant="QUIET"/>
       <controls:NeoButton action="DELETE_FOREVER" variant="DANGER"/>
-    </gwt:FlowPanel>
-  </gwt:FlowPanel>
+    </gwt:HTMLPanel>
+  </gwt:HTMLPanel>
 </ui:UiBinder>

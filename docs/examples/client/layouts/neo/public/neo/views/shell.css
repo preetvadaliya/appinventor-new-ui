@@ -1,0 +1,55 @@
+/* views/shell.css: the frame. Top bar, status bar, tutorial, and the
+   card every neo region sits in. */
+
+.neo-Shell {
+  background: var(--color-page);
+}
+
+.neo-TopBar {
+  padding: 6px 12px;
+  background: var(--color-header);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.neo-Logo {
+  height: 32px;
+}
+
+.neo-Warning {
+  color: var(--color-danger);
+}
+
+.neo-StatusBar {
+  padding: 4px 12px;
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.neo-Tutorial {
+  width: 360px;
+  flex: none;
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-border);
+}
+
+.neo-Title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.neo-Muted {
+  color: var(--color-muted);
+}
+
+/* Cards: the titled, rounded boxes every region sits in */
+.neo-Card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.neo-Card-title {
+  padding: 8px 12px;
+  font-weight: 600;
+}

@@ -1,0 +1,72 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- Main menu: Projects, Connect, Build, Settings, Admin and all their
+     items. Neo keeps Help in NeoTopBar. -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
+    xmlns:controls="urn:import:com.google.appinventor.client.layouts.neo.controls">
+  <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
+  <gwt:HTMLPanel styleName="flex-row items-center gap-xs">
+
+    <controls:NeoMenuButton text="{messages.projectsTabName}" variant="QUIET">
+      <controls:NeoMenuItem action="SWITCH_TO_PROJECTS"/>
+      <controls:NeoMenuSeparator/>
+      <controls:NeoMenuItem action="NEW_PROJECT"/>
+      <controls:NeoMenuItem action="IMPORT_PROJECT"/>
+      <controls:NeoMenuItem action="IMPORT_TEMPLATE"/>
+      <controls:NeoMenuItem action="DELETE_PROJECT"/>
+      <controls:NeoMenuItem action="SAVE_PROJECT"/>
+      <controls:NeoMenuItem action="SAVE_PROJECT_AS"/>
+      <controls:NeoMenuItem action="CHECKPOINT"/>
+      <controls:NeoMenuSeparator/>
+      <controls:NeoMenuItem action="EXPORT_PROJECT"/>
+      <controls:NeoMenuItem action="EXPORT_ALL_PROJECTS"/>
+      <controls:NeoMenuSeparator/>
+      <controls:NeoMenuItem action="DOWNLOAD_CSR"/>
+      <controls:NeoMenuItem action="UPLOAD_KEYSTORE"/>
+      <controls:NeoMenuItem action="DOWNLOAD_KEYSTORE"/>
+      <controls:NeoMenuItem action="DELETE_KEYSTORE"/>
+    </controls:NeoMenuButton>
+
+    <controls:NeoMenuButton text="{messages.connectTabName}" variant="QUIET">
+      <controls:NeoMenuItem action="CONNECT_COMPANION"/>
+      <controls:NeoMenuItem action="CONNECT_EMULATOR"/>
+      <controls:NeoMenuItem action="CONNECT_USB"/>
+      <controls:NeoMenuItem action="CONNECT_CHROMEBOOK"/>
+      <controls:NeoMenuSeparator/>
+      <controls:NeoMenuItem action="REFRESH_COMPANION"/>
+      <controls:NeoMenuItem action="RESET_CONNECTION"/>
+      <controls:NeoMenuItem action="HARD_RESET"/>
+      <controls:NeoMenuSeparator/>
+      <controls:NeoMenuItem action="SAVE_TO_COMPANION"/>
+    </controls:NeoMenuButton>
+
+    <controls:NeoMenuButton text="{messages.buildTabName}" variant="QUIET">
+      <controls:NeoMenuItem action="BUILD_APK"/>
+      <controls:NeoMenuItem action="BUILD_AAB"/>
+      <controls:NeoMenuSeparator/>
+      <controls:NeoMenuItem action="BUILD_APK_2"/>
+      <controls:NeoMenuItem action="BUILD_AAB_2"/>
+      <controls:NeoMenuSeparator/>
+      <controls:NeoMenuItem action="BUILD_IOS_ADHOC"/>
+      <controls:NeoMenuItem action="BUILD_IOS_APPSTORE"/>
+      <controls:NeoMenuSeparator/>
+      <controls:NeoMenuItem action="GENERATE_YAIL"/>
+    </controls:NeoMenuButton>
+
+    <controls:NeoMenuButton text="{messages.settingsTabName}" variant="QUIET">
+      <controls:NeoMenuItem action="UI_SETTINGS"/>
+      <controls:NeoMenuItem action="TOGGLE_AUTOLOAD"/>
+      <controls:NeoMenuItem action="TOGGLE_DYSLEXIC_FONT"/>
+      <controls:NeoMenuItem action="APP_STORE_SETTINGS"/>
+    </controls:NeoMenuButton>
+
+    <controls:NeoMenuButton ui:field="adminMenu" text="{messages.adminTabName}"
+        variant="QUIET">
+      <controls:NeoMenuItem action="DOWNLOAD_USER_SOURCE"/>
+      <controls:NeoMenuItem action="USER_ADMIN"/>
+    </controls:NeoMenuButton>
+
+  </gwt:HTMLPanel>
+</ui:UiBinder>

@@ -1,0 +1,62 @@
+/* views/editor.css: designer and blocks pages. Column sizes are neo's
+   design choice, so they live here, not in the shared layout.css. */
+
+.neo-DesignToolbar {
+  padding: 8px 12px 0;
+}
+
+.neo-PaletteColumn    { width: 240px; flex: none; }
+.neo-SideColumn       { width: 240px; flex: none; }
+.neo-PropertiesColumn { width: 222px; flex: none; }
+.neo-DrawersColumn    { width: 260px; flex: none; }
+.neo-ViewerColumn     { min-width: 368px; }
+.neo-MediaPane        { height: 40%; flex: none; }   /* 3:2 with the tree */
+
+/* Designer | Blocks: two buttons drawn as one switch */
+.neo-Segmented {
+  padding: 2px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+}
+
+.neo-Segmented .neo-Button {
+  border-color: transparent;
+}
+
+.neo-PaletteItem {
+  padding: 4px 8px;
+  border-radius: var(--radius-control);
+  cursor: grab;
+}
+
+.neo-PaletteItem:hover {
+  background: var(--color-row-highlight);
+}
+
+.neo-PhoneFrame {
+  margin: 0 auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.neo-NonVisible {
+  border-top: 1px solid var(--color-border-light);
+}
+
+.neo-PropertiesHeader {
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.neo-PropertyLabel {
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.neo-Console {
+  max-height: 30vh;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
