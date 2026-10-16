@@ -22,13 +22,15 @@ lines), others too small to be worth a file.
 - Text is a widget too: `<gwt:Label>` for text on its own line,
   `<gwt:InlineLabel>` for text inside a row, both with `text="{messages.…}"`.
 - `<gwt:FlowPanel>` where Java adds or removes children (lists);
-  `<gwt:SimplePanel>` for one slot Java fills; `FocusPanel` for clickable rows;
+  `<gwt:SimplePanel>` for one slot Java fills; `FocusPanel` only for the clickable rows that use it today;
   the layout's controls for buttons, inputs and menus.
 - One template per **page region**: top bar, main menu, project toolbar, project
   list, design toolbar, palette, viewer, component tree, media, properties,
   block drawers, blocks workspace. Small templates only for items repeated in a
   list (project row, folder, palette item, property row).
 - Controls (`ClassicButton` …) have their own template plus behaviour-only Java.
+  Anything the user presses has a `<gwt:HTMLPanel tag="button">` root, not a
+  `FocusPanel` (`docs/06-controls.md`, "Anything pressed is a real button").
 - Namespace prefixes are the last word of the package, so a tag says where
   its class lives: `ui:` (UiBinder itself), `gwt:` (GWT widgets, whose package
   ends in `ui`), `controls:` (any `…controls` package: the shared contracts

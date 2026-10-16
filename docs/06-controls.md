@@ -40,15 +40,18 @@ From what the client uses today (92 `new Button(`, 26 `new DialogBox(`,
 GWT 2.8.1's UiBinder accepts an interface-typed element when a `@UiFactory`
 method creates it, and it looks for `@UiFactory` methods on superclasses
 (`OwnerClass.findUiFactories` recurses). So every shared screen extends one base
-class:
+class. The factories must be `public`: UiBinder's generated class lives in the
+view's package, not in `controls/`, and a compile test showed it cannot call
+`protected` or package-private factories from there (`docs/07-views.md`,
+"Checked by a compile test").
 
 ```java
 // controls/SharedView.java
 public abstract class SharedView extends Composite {
-  @UiFactory Button button() {
+  @UiFactory public Button button() {
     return Controls.active().button();
   }
-  @UiFactory TextField textField() {
+  @UiFactory public TextField textField() {
     return Controls.active().textField();
   }
   …
@@ -65,6 +68,17 @@ public abstract class SharedView extends Composite {
 
 In classic this renders `ClassicTextField` and `ClassicButton`; in neo,
 `NeoTextField` and `NeoButton`.
+
+## Anything pressed is a real button
+
+A control the user presses (button, icon button, menu button, menu item, a
+collapsible's header) has a `<gwt:HTMLPanel tag="button">` root, so the browser
+gives it focus, Enter and Space for free, and Java listens with
+`root.addDomHandler(handler, ClickEvent.getType())`. Not `FocusPanel`: in
+App Inventor's WebKit build it inserts a hidden `<input>` into every instance.
+`FocusPanel` stays only where today's clickable rows already use it (project
+rows, palette items, sortable headers). `reset.css` resets the browser's
+button styles so the change is invisible.
 
 ## Layout views use their own controls directly
 
