@@ -1,14 +1,20 @@
 <!-- Copyright 2026 MIT, All rights reserved -->
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- Media: the project's files and the upload button. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <c:ClassicMenuButton text="{messages.settingsTabName}" variant="QUIET">
-    <c:ClassicMenuItem action="UI_SETTINGS"/>
-    <c:ClassicMenuItem action="TOGGLE_AUTOLOAD"/>
-    <c:ClassicMenuItem action="TOGGLE_DYSLEXIC_FONT"/>
-    <c:ClassicMenuItem action="APP_STORE_SETTINGS"/>
-  </c:ClassicMenuButton>
+  <g:HTMLPanel styleName="col pane">
+    <div class="row center pane-header">
+      <span class="pane-title"><ui:text from="{messages.assetListBoxCaption}"/></span>
+    </div>
+
+    <c:ClassicTree ui:field="files" addStyleNames="grow scroll"/>
+
+    <div class="row pad-sm">
+      <c:ClassicButton ui:field="upload" text="{messages.addButton}"/>
+    </div>
+  </g:HTMLPanel>
 </ui:UiBinder>

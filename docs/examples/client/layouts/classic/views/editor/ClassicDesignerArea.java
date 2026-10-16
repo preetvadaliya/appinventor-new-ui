@@ -4,20 +4,13 @@
 
 package com.google.appinventor.client.layouts.classic.views.editor;
 
-import com.google.appinventor.client.layouts.classic.views.editor.columns.ClassicComponentsColumn;
-import com.google.appinventor.client.layouts.classic.views.editor.columns.ClassicPaletteColumn;
-import com.google.appinventor.client.layouts.classic.views.editor.columns.ClassicPropertiesColumn;
-import com.google.appinventor.client.layouts.classic.views.editor.columns.ClassicViewerColumn;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 
-/**
- * Classic's Designer area: lines up its columns. Each column holds the shared
- * views that presenters fill.
- */
+/** Classic's Designer area: palette, viewer, components, media, properties. Each region is its own view. */
 public class ClassicDesignerArea extends Composite {
 
   interface Binder extends UiBinder<Widget, ClassicDesignerArea> {
@@ -25,10 +18,11 @@ public class ClassicDesignerArea extends Composite {
 
   private static final Binder BINDER = GWT.create(Binder.class);
 
-  @UiField ClassicPaletteColumn palette;
-  @UiField ClassicViewerColumn viewer;
-  @UiField ClassicComponentsColumn components;
-  @UiField ClassicPropertiesColumn properties;
+  @UiField ClassicPalette palette;
+  @UiField ClassicViewer viewer;
+  @UiField ClassicComponentTree components;
+  @UiField ClassicMedia media;
+  @UiField ClassicProperties properties;
 
   public ClassicDesignerArea() {
     initWidget(BINDER.createAndBindUi(this));

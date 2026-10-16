@@ -1,18 +1,40 @@
 <!-- Copyright 2026 MIT, All rights reserved -->
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- Top bar: logo, main menu, links, language, account. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls"
     xmlns:top="urn:import:com.google.appinventor.client.layouts.classic.views.topbar"
     xmlns:menus="urn:import:com.google.appinventor.client.layouts.classic.views.menus">
+  <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
   <g:HTMLPanel styleName="row center gap classic-TopBar">
-    <top:ClassicLogo/>
+
+    <g:Image ui:field="logo" styleName="classic-Logo"/>
+
     <menus:ClassicMainMenu ui:field="mainMenu"/>
 
     <div class="row center end grow gap">
-      <top:ClassicTopLinks ui:field="links"/>
-      <top:ClassicLanguageMenu ui:field="language"/>
-      <top:ClassicAccountMenu ui:field="account"/>
+      <g:Label ui:field="readOnly" styleName="classic-Warning"
+          text="{messages.readOnlyMode}" visible="false"/>
+
+      <c:ClassicButton action="SWITCH_TO_PROJECTS" variant="QUIET"
+          text="{messages.myProjectsTabName}"/>
+      <c:ClassicButton action="VIEW_TRASH" variant="QUIET"
+          text="{messages.viewTrashTabName}"/>
+      <c:ClassicButton action="OPEN_GUIDE" variant="QUIET"
+          text="{messages.guideTabName}"/>
+      <c:ClassicButton action="OPEN_FEEDBACK" variant="QUIET"
+          text="{messages.feedbackTabName}"/>
+
+      <!-- languages are added in Java; they come from the server -->
+      <c:ClassicMenuButton ui:field="language" variant="QUIET"/>
+
+      <c:ClassicMenuButton ui:field="account" variant="QUIET">
+        <c:ClassicMenuItem action="SIGN_OUT"/>
+        <c:ClassicMenuItem action="DELETE_ACCOUNT" variant="DANGER"/>
+      </c:ClassicMenuButton>
     </div>
+
   </g:HTMLPanel>
 </ui:UiBinder>

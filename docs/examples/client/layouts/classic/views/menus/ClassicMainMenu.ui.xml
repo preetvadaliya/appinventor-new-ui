@@ -1,15 +1,89 @@
 <!-- Copyright 2026 MIT, All rights reserved -->
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- Main menu: the six menus and all their items, as on master. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:menus="urn:import:com.google.appinventor.client.layouts.classic.views.menus">
+    xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
+  <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
   <g:HTMLPanel styleName="row center gap-sm">
-    <menus:ClassicProjectsMenu/>
-    <menus:ClassicConnectMenu/>
-    <menus:ClassicBuildMenu/>
-    <menus:ClassicSettingsMenu/>
-    <menus:ClassicHelpMenu/>
-    <menus:ClassicAdminMenu/>
+
+    <c:ClassicMenuButton text="{messages.projectsTabName}" variant="QUIET">
+      <c:ClassicMenuItem action="SWITCH_TO_PROJECTS"/>
+      <c:ClassicMenuSeparator/>
+      <c:ClassicMenuItem action="NEW_PROJECT"/>
+      <c:ClassicMenuItem action="IMPORT_PROJECT"/>
+      <c:ClassicMenuItem action="IMPORT_TEMPLATE"/>
+      <c:ClassicMenuItem action="DELETE_PROJECT"/>
+      <c:ClassicMenuItem action="SAVE_PROJECT"/>
+      <c:ClassicMenuItem action="SAVE_PROJECT_AS"/>
+      <c:ClassicMenuItem action="CHECKPOINT"/>
+      <c:ClassicMenuSeparator/>
+      <c:ClassicMenuItem action="EXPORT_PROJECT"/>
+      <c:ClassicMenuItem action="EXPORT_ALL_PROJECTS"/>
+      <c:ClassicMenuSeparator/>
+      <c:ClassicMenuItem action="DOWNLOAD_CSR"/>
+      <c:ClassicMenuItem action="UPLOAD_KEYSTORE"/>
+      <c:ClassicMenuItem action="DOWNLOAD_KEYSTORE"/>
+      <c:ClassicMenuItem action="DELETE_KEYSTORE"/>
+    </c:ClassicMenuButton>
+
+    <c:ClassicMenuButton text="{messages.connectTabName}" variant="QUIET">
+      <c:ClassicMenuItem action="CONNECT_COMPANION"/>
+      <c:ClassicMenuItem action="CONNECT_EMULATOR"/>
+      <c:ClassicMenuItem action="CONNECT_USB"/>
+      <c:ClassicMenuItem action="CONNECT_CHROMEBOOK"/>
+      <c:ClassicMenuSeparator/>
+      <c:ClassicMenuItem action="REFRESH_COMPANION"/>
+      <c:ClassicMenuItem action="RESET_CONNECTION"/>
+      <c:ClassicMenuItem action="HARD_RESET"/>
+      <c:ClassicMenuSeparator/>
+      <c:ClassicMenuItem action="SAVE_TO_COMPANION"/>
+    </c:ClassicMenuButton>
+
+    <c:ClassicMenuButton text="{messages.buildTabName}" variant="QUIET">
+      <c:ClassicMenuItem action="BUILD_APK"/>
+      <c:ClassicMenuItem action="BUILD_AAB"/>
+      <c:ClassicMenuSeparator/>
+      <c:ClassicMenuItem action="BUILD_APK_2"/>
+      <c:ClassicMenuItem action="BUILD_AAB_2"/>
+      <c:ClassicMenuSeparator/>
+      <c:ClassicMenuItem action="BUILD_IOS_ADHOC"/>
+      <c:ClassicMenuItem action="BUILD_IOS_APPSTORE"/>
+      <c:ClassicMenuSeparator/>
+      <c:ClassicMenuItem action="GENERATE_YAIL"/>
+    </c:ClassicMenuButton>
+
+    <c:ClassicMenuButton text="{messages.settingsTabName}" variant="QUIET">
+      <c:ClassicMenuItem action="UI_SETTINGS"/>
+      <c:ClassicMenuItem action="TOGGLE_AUTOLOAD"/>
+      <c:ClassicMenuItem action="TOGGLE_DYSLEXIC_FONT"/>
+      <c:ClassicMenuItem action="APP_STORE_SETTINGS"/>
+    </c:ClassicMenuButton>
+
+    <c:ClassicMenuButton text="{messages.helpTabName}" variant="QUIET">
+      <c:ClassicMenuItem action="ABOUT"/>
+      <c:ClassicMenuSeparator/>
+      <c:ClassicMenuItem action="OPEN_LIBRARY"/>
+      <c:ClassicMenuItem action="OPEN_GET_STARTED"/>
+      <c:ClassicMenuItem action="OPEN_EXTENSIONS"/>
+      <c:ClassicMenuItem action="OPEN_TUTORIALS"/>
+      <c:ClassicMenuItem action="OPEN_TROUBLESHOOTING"/>
+      <c:ClassicMenuItem action="OPEN_FORUMS"/>
+      <c:ClassicMenuSeparator/>
+      <c:ClassicMenuItem action="OPEN_FEEDBACK"/>
+      <c:ClassicMenuSeparator/>
+      <c:ClassicMenuItem action="COMPANION_INFO"/>
+      <c:ClassicMenuItem action="COMPANION_UPDATE"/>
+      <c:ClassicMenuItem action="SHOW_SPLASH"/>
+      <c:ClassicMenuItem action="SHOW_SHORTCUTS"/>
+    </c:ClassicMenuButton>
+
+    <c:ClassicMenuButton ui:field="adminMenu" text="{messages.adminTabName}"
+        variant="QUIET">
+      <c:ClassicMenuItem action="DOWNLOAD_USER_SOURCE"/>
+      <c:ClassicMenuItem action="USER_ADMIN"/>
+    </c:ClassicMenuButton>
+
   </g:HTMLPanel>
 </ui:UiBinder>

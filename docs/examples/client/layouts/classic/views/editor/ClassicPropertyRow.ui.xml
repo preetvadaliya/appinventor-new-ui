@@ -1,12 +1,15 @@
 <!-- Copyright 2026 MIT, All rights reserved -->
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
-<!-- ClassicAccountMenu: the user's email as the caption, two actions. -->
+<!-- One property: label and help, then its editor (ChoiceEditorView …). -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
-  <c:ClassicMenuButton ui:field="menu" variant="QUIET">
-    <c:ClassicMenuItem action="SIGN_OUT"/>
-    <c:ClassicMenuItem action="DELETE_ACCOUNT" variant="DANGER"/>
-  </c:ClassicMenuButton>
+  <g:HTMLPanel styleName="col gap-xs pad-sm">
+    <div class="row center gap-xs">
+      <g:Label ui:field="label" styleName="grow classic-PropertyLabel"/>
+      <c:ClassicIconButton ui:field="help"/>
+    </div>
+    <g:SimplePanel ui:field="editor"/>
+  </g:HTMLPanel>
 </ui:UiBinder>

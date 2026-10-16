@@ -1,0 +1,37 @@
+<!-- Copyright 2026 MIT, All rights reserved -->
+<!-- Released under the Apache License, Version 2.0 -->
+<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- Viewer: preview options, the phone, the non-visible components. -->
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+    xmlns:g="urn:import:com.google.gwt.user.client.ui"
+    xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
+  <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
+  <g:HTMLPanel styleName="col pane">
+    <div class="row center pane-header">
+      <span class="pane-title"><ui:text from="{messages.viewerBoxCaption}"/></span>
+    </div>
+
+    <!-- options are filled by ViewerPresenter -->
+    <div class="row center wrap gap pad-sm">
+      <c:ClassicCheckbox ui:field="showHidden"
+          label="{messages.showHiddenComponentsCheckbox}"/>
+      <c:ClassicSelect ui:field="deviceSize" label="{messages.previewDeviceSize}"/>
+      <c:ClassicSelect ui:field="previewStyle"
+          label="{messages.previewOperatingSystem}"/>
+    </div>
+
+    <!-- the phone; the screen being designed (MockForm) goes in the slot -->
+    <div class="row grow scroll pad">
+      <div class="col classic-PhoneFrame">
+        <g:SimplePanel ui:field="screen" styleName="col grow"/>
+      </div>
+    </div>
+
+    <!-- non-visible components (Clock, TinyDB …), added in Java -->
+    <div class="col gap-sm pad-sm">
+      <g:Label ui:field="nonVisibleHeading" visible="false"
+          text="{messages.nonVisibleComponentsHeader}"/>
+      <g:FlowPanel ui:field="nonVisible" styleName="row wrap gap-sm"/>
+    </div>
+  </g:HTMLPanel>
+</ui:UiBinder>

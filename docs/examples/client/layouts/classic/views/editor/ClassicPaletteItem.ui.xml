@@ -1,14 +1,16 @@
 <!-- Copyright 2026 MIT, All rights reserved -->
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
+<!-- One component in the palette: icon, name, help. Drag to the viewer. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:c="urn:import:com.google.appinventor.client.controls">
-  <g:FocusPanel ui:field="item" styleName="palette-item">
+    xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls"
+    xmlns:ic="urn:import:com.google.appinventor.client.controls">
+  <g:FocusPanel ui:field="item" styleName="classic-PaletteItem">
     <g:HTMLPanel styleName="row center gap-sm">
-      <c:IconView ui:field="icon"/>
+      <ic:IconView ui:field="icon"/>
       <g:InlineLabel ui:field="name" styleName="grow"/>
-      <c:IconButton ui:field="help"/>
+      <c:ClassicIconButton ui:field="help"/>
     </g:HTMLPanel>
   </g:FocusPanel>
 </ui:UiBinder>
