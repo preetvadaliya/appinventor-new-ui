@@ -3,87 +3,87 @@
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
 <!-- Main menu: the six menus and all their items, as on master. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
+    xmlns:controls="urn:import:com.google.appinventor.client.layouts.classic.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <g:HTMLPanel styleName="flex-row items-center gap-sm">
+  <gwt:HTMLPanel styleName="flex-row items-center gap-sm">
 
-    <c:ClassicMenuButton text="{messages.projectsTabName}" variant="QUIET">
-      <c:ClassicMenuItem action="SWITCH_TO_PROJECTS"/>
-      <c:ClassicMenuSeparator/>
-      <c:ClassicMenuItem action="NEW_PROJECT"/>
-      <c:ClassicMenuItem action="IMPORT_PROJECT"/>
-      <c:ClassicMenuItem action="IMPORT_TEMPLATE"/>
-      <c:ClassicMenuItem action="DELETE_PROJECT"/>
-      <c:ClassicMenuItem action="SAVE_PROJECT"/>
-      <c:ClassicMenuItem action="SAVE_PROJECT_AS"/>
-      <c:ClassicMenuItem action="CHECKPOINT"/>
-      <c:ClassicMenuSeparator/>
-      <c:ClassicMenuItem action="EXPORT_PROJECT"/>
-      <c:ClassicMenuItem action="EXPORT_ALL_PROJECTS"/>
-      <c:ClassicMenuSeparator/>
-      <c:ClassicMenuItem action="DOWNLOAD_CSR"/>
-      <c:ClassicMenuItem action="UPLOAD_KEYSTORE"/>
-      <c:ClassicMenuItem action="DOWNLOAD_KEYSTORE"/>
-      <c:ClassicMenuItem action="DELETE_KEYSTORE"/>
-    </c:ClassicMenuButton>
+    <controls:ClassicMenuButton text="{messages.projectsTabName}" variant="QUIET">
+      <controls:ClassicMenuItem action="SWITCH_TO_PROJECTS"/>
+      <controls:ClassicMenuSeparator/>
+      <controls:ClassicMenuItem action="NEW_PROJECT"/>
+      <controls:ClassicMenuItem action="IMPORT_PROJECT"/>
+      <controls:ClassicMenuItem action="IMPORT_TEMPLATE"/>
+      <controls:ClassicMenuItem action="DELETE_PROJECT"/>
+      <controls:ClassicMenuItem action="SAVE_PROJECT"/>
+      <controls:ClassicMenuItem action="SAVE_PROJECT_AS"/>
+      <controls:ClassicMenuItem action="CHECKPOINT"/>
+      <controls:ClassicMenuSeparator/>
+      <controls:ClassicMenuItem action="EXPORT_PROJECT"/>
+      <controls:ClassicMenuItem action="EXPORT_ALL_PROJECTS"/>
+      <controls:ClassicMenuSeparator/>
+      <controls:ClassicMenuItem action="DOWNLOAD_CSR"/>
+      <controls:ClassicMenuItem action="UPLOAD_KEYSTORE"/>
+      <controls:ClassicMenuItem action="DOWNLOAD_KEYSTORE"/>
+      <controls:ClassicMenuItem action="DELETE_KEYSTORE"/>
+    </controls:ClassicMenuButton>
 
-    <c:ClassicMenuButton text="{messages.connectTabName}" variant="QUIET">
-      <c:ClassicMenuItem action="CONNECT_COMPANION"/>
-      <c:ClassicMenuItem action="CONNECT_EMULATOR"/>
-      <c:ClassicMenuItem action="CONNECT_USB"/>
-      <c:ClassicMenuItem action="CONNECT_CHROMEBOOK"/>
-      <c:ClassicMenuSeparator/>
-      <c:ClassicMenuItem action="REFRESH_COMPANION"/>
-      <c:ClassicMenuItem action="RESET_CONNECTION"/>
-      <c:ClassicMenuItem action="HARD_RESET"/>
-      <c:ClassicMenuSeparator/>
-      <c:ClassicMenuItem action="SAVE_TO_COMPANION"/>
-    </c:ClassicMenuButton>
+    <controls:ClassicMenuButton text="{messages.connectTabName}" variant="QUIET">
+      <controls:ClassicMenuItem action="CONNECT_COMPANION"/>
+      <controls:ClassicMenuItem action="CONNECT_EMULATOR"/>
+      <controls:ClassicMenuItem action="CONNECT_USB"/>
+      <controls:ClassicMenuItem action="CONNECT_CHROMEBOOK"/>
+      <controls:ClassicMenuSeparator/>
+      <controls:ClassicMenuItem action="REFRESH_COMPANION"/>
+      <controls:ClassicMenuItem action="RESET_CONNECTION"/>
+      <controls:ClassicMenuItem action="HARD_RESET"/>
+      <controls:ClassicMenuSeparator/>
+      <controls:ClassicMenuItem action="SAVE_TO_COMPANION"/>
+    </controls:ClassicMenuButton>
 
-    <c:ClassicMenuButton text="{messages.buildTabName}" variant="QUIET">
-      <c:ClassicMenuItem action="BUILD_APK"/>
-      <c:ClassicMenuItem action="BUILD_AAB"/>
-      <c:ClassicMenuSeparator/>
-      <c:ClassicMenuItem action="BUILD_APK_2"/>
-      <c:ClassicMenuItem action="BUILD_AAB_2"/>
-      <c:ClassicMenuSeparator/>
-      <c:ClassicMenuItem action="BUILD_IOS_ADHOC"/>
-      <c:ClassicMenuItem action="BUILD_IOS_APPSTORE"/>
-      <c:ClassicMenuSeparator/>
-      <c:ClassicMenuItem action="GENERATE_YAIL"/>
-    </c:ClassicMenuButton>
+    <controls:ClassicMenuButton text="{messages.buildTabName}" variant="QUIET">
+      <controls:ClassicMenuItem action="BUILD_APK"/>
+      <controls:ClassicMenuItem action="BUILD_AAB"/>
+      <controls:ClassicMenuSeparator/>
+      <controls:ClassicMenuItem action="BUILD_APK_2"/>
+      <controls:ClassicMenuItem action="BUILD_AAB_2"/>
+      <controls:ClassicMenuSeparator/>
+      <controls:ClassicMenuItem action="BUILD_IOS_ADHOC"/>
+      <controls:ClassicMenuItem action="BUILD_IOS_APPSTORE"/>
+      <controls:ClassicMenuSeparator/>
+      <controls:ClassicMenuItem action="GENERATE_YAIL"/>
+    </controls:ClassicMenuButton>
 
-    <c:ClassicMenuButton text="{messages.settingsTabName}" variant="QUIET">
-      <c:ClassicMenuItem action="UI_SETTINGS"/>
-      <c:ClassicMenuItem action="TOGGLE_AUTOLOAD"/>
-      <c:ClassicMenuItem action="TOGGLE_DYSLEXIC_FONT"/>
-      <c:ClassicMenuItem action="APP_STORE_SETTINGS"/>
-    </c:ClassicMenuButton>
+    <controls:ClassicMenuButton text="{messages.settingsTabName}" variant="QUIET">
+      <controls:ClassicMenuItem action="UI_SETTINGS"/>
+      <controls:ClassicMenuItem action="TOGGLE_AUTOLOAD"/>
+      <controls:ClassicMenuItem action="TOGGLE_DYSLEXIC_FONT"/>
+      <controls:ClassicMenuItem action="APP_STORE_SETTINGS"/>
+    </controls:ClassicMenuButton>
 
-    <c:ClassicMenuButton text="{messages.helpTabName}" variant="QUIET">
-      <c:ClassicMenuItem action="ABOUT"/>
-      <c:ClassicMenuSeparator/>
-      <c:ClassicMenuItem action="OPEN_LIBRARY"/>
-      <c:ClassicMenuItem action="OPEN_GET_STARTED"/>
-      <c:ClassicMenuItem action="OPEN_EXTENSIONS"/>
-      <c:ClassicMenuItem action="OPEN_TUTORIALS"/>
-      <c:ClassicMenuItem action="OPEN_TROUBLESHOOTING"/>
-      <c:ClassicMenuItem action="OPEN_FORUMS"/>
-      <c:ClassicMenuSeparator/>
-      <c:ClassicMenuItem action="OPEN_FEEDBACK"/>
-      <c:ClassicMenuSeparator/>
-      <c:ClassicMenuItem action="COMPANION_INFO"/>
-      <c:ClassicMenuItem action="COMPANION_UPDATE"/>
-      <c:ClassicMenuItem action="SHOW_SPLASH"/>
-      <c:ClassicMenuItem action="SHOW_SHORTCUTS"/>
-    </c:ClassicMenuButton>
+    <controls:ClassicMenuButton text="{messages.helpTabName}" variant="QUIET">
+      <controls:ClassicMenuItem action="ABOUT"/>
+      <controls:ClassicMenuSeparator/>
+      <controls:ClassicMenuItem action="OPEN_LIBRARY"/>
+      <controls:ClassicMenuItem action="OPEN_GET_STARTED"/>
+      <controls:ClassicMenuItem action="OPEN_EXTENSIONS"/>
+      <controls:ClassicMenuItem action="OPEN_TUTORIALS"/>
+      <controls:ClassicMenuItem action="OPEN_TROUBLESHOOTING"/>
+      <controls:ClassicMenuItem action="OPEN_FORUMS"/>
+      <controls:ClassicMenuSeparator/>
+      <controls:ClassicMenuItem action="OPEN_FEEDBACK"/>
+      <controls:ClassicMenuSeparator/>
+      <controls:ClassicMenuItem action="COMPANION_INFO"/>
+      <controls:ClassicMenuItem action="COMPANION_UPDATE"/>
+      <controls:ClassicMenuItem action="SHOW_SPLASH"/>
+      <controls:ClassicMenuItem action="SHOW_SHORTCUTS"/>
+    </controls:ClassicMenuButton>
 
-    <c:ClassicMenuButton ui:field="adminMenu" text="{messages.adminTabName}"
+    <controls:ClassicMenuButton ui:field="adminMenu" text="{messages.adminTabName}"
         variant="QUIET">
-      <c:ClassicMenuItem action="DOWNLOAD_USER_SOURCE"/>
-      <c:ClassicMenuItem action="USER_ADMIN"/>
-    </c:ClassicMenuButton>
+      <controls:ClassicMenuItem action="DOWNLOAD_USER_SOURCE"/>
+      <controls:ClassicMenuItem action="USER_ADMIN"/>
+    </controls:ClassicMenuButton>
 
-  </g:HTMLPanel>
+  </gwt:HTMLPanel>
 </ui:UiBinder>

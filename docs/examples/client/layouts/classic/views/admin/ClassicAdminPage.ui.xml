@@ -2,9 +2,9 @@
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:box="urn:import:com.google.appinventor.client.features.workspace.boxes">
-  <g:HTMLPanel styleName="flex-col grow">
-    <box:AdminUserListBox ui:field="users" addStyleNames="grow overflow-auto"/>
-  </g:HTMLPanel>
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
+    xmlns:boxes="urn:import:com.google.appinventor.client.features.workspace.boxes">
+  <gwt:HTMLPanel styleName="flex-col grow">
+    <boxes:AdminUserListBox ui:field="users" addStyleNames="grow overflow-auto"/>
+  </gwt:HTMLPanel>
 </ui:UiBinder>

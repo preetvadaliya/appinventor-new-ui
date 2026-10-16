@@ -2,25 +2,25 @@
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
-  <g:HTMLPanel styleName="flex-row items-center gap-md pad-md classic-ProjectToolbar">
-    <g:Label ui:field="title" styleName="classic-Title"/>
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
+    xmlns:controls="urn:import:com.google.appinventor.client.layouts.classic.controls">
+  <gwt:HTMLPanel styleName="flex-row items-center gap-md pad-md classic-ProjectToolbar">
+    <gwt:Label ui:field="title" styleName="classic-Title"/>
 
-    <g:HTMLPanel ui:field="projectButtons" styleName="flex-row items-center gap-sm">
-      <c:ClassicButton action="NEW_PROJECT"/>
-      <c:ClassicButton action="NEW_FOLDER"/>
-      <c:ClassicButton action="MOVE_PROJECTS"/>
-      <c:ClassicButton action="DELETE_PROJECT"/>
-      <c:ClassicButton action="VIEW_TRASH"/>
-      <c:ClassicButton action="LOGIN_TO_GALLERY"/>
-      <c:ClassicButton action="SEND_TO_GALLERY"/>
-    </g:HTMLPanel>
+    <gwt:HTMLPanel ui:field="projectButtons" styleName="flex-row items-center gap-sm">
+      <controls:ClassicButton action="NEW_PROJECT"/>
+      <controls:ClassicButton action="NEW_FOLDER"/>
+      <controls:ClassicButton action="MOVE_PROJECTS"/>
+      <controls:ClassicButton action="DELETE_PROJECT"/>
+      <controls:ClassicButton action="VIEW_TRASH"/>
+      <controls:ClassicButton action="LOGIN_TO_GALLERY"/>
+      <controls:ClassicButton action="SEND_TO_GALLERY"/>
+    </gwt:HTMLPanel>
 
-    <g:HTMLPanel ui:field="trashButtons" styleName="flex-row items-center gap-sm" visible="false">
-      <c:ClassicButton action="SWITCH_TO_PROJECTS"/>
-      <c:ClassicButton action="RESTORE_PROJECT"/>
-      <c:ClassicButton action="DELETE_FOREVER"/>
-    </g:HTMLPanel>
-  </g:HTMLPanel>
+    <gwt:HTMLPanel ui:field="trashButtons" styleName="flex-row items-center gap-sm" visible="false">
+      <controls:ClassicButton action="SWITCH_TO_PROJECTS"/>
+      <controls:ClassicButton action="RESTORE_PROJECT"/>
+      <controls:ClassicButton action="DELETE_FOREVER"/>
+    </gwt:HTMLPanel>
+  </gwt:HTMLPanel>
 </ui:UiBinder>

@@ -3,9 +3,9 @@
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
 <!-- ClassicSelect: label and a drop-down list. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:g="urn:import:com.google.gwt.user.client.ui">
-  <g:HTMLPanel styleName="flex-col gap-xs classic-Select">
-    <g:Label ui:field="label" styleName="classic-Label"/>
-    <g:ListBox ui:field="list" styleName="classic-Input"/>
-  </g:HTMLPanel>
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
+  <gwt:HTMLPanel styleName="flex-col gap-xs classic-Select">
+    <gwt:Label ui:field="label" styleName="classic-Label"/>
+    <gwt:ListBox ui:field="list" styleName="classic-Input"/>
+  </gwt:HTMLPanel>
 </ui:UiBinder>

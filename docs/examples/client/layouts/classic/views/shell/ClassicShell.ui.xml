@@ -2,28 +2,28 @@
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:top="urn:import:com.google.appinventor.client.layouts.classic.views.topbar"
-    xmlns:pr="urn:import:com.google.appinventor.client.layouts.classic.views.projects"
-    xmlns:ed="urn:import:com.google.appinventor.client.layouts.classic.views.editor"
-    xmlns:ad="urn:import:com.google.appinventor.client.layouts.classic.views.admin"
-    xmlns:st="urn:import:com.google.appinventor.client.layouts.classic.views.status"
-    xmlns:tu="urn:import:com.google.appinventor.client.features.tutorial">
-  <g:HTMLPanel styleName="flex-col screen classic-Shell">
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
+    xmlns:topbar="urn:import:com.google.appinventor.client.layouts.classic.views.topbar"
+    xmlns:projects="urn:import:com.google.appinventor.client.layouts.classic.views.projects"
+    xmlns:editor="urn:import:com.google.appinventor.client.layouts.classic.views.editor"
+    xmlns:admin="urn:import:com.google.appinventor.client.layouts.classic.views.admin"
+    xmlns:status="urn:import:com.google.appinventor.client.layouts.classic.views.status"
+    xmlns:tutorial="urn:import:com.google.appinventor.client.features.tutorial">
+  <gwt:HTMLPanel styleName="flex-col screen classic-Shell">
 
-    <top:ClassicTopBar ui:field="topBar"/>
+    <topbar:ClassicTopBar ui:field="topBar"/>
 
-    <g:HTMLPanel styleName="flex-row grow">
-      <g:HTMLPanel styleName="flex-col grow">
-        <pr:ClassicProjectsPage ui:field="projectsPage"/>
-        <ed:ClassicEditorPage ui:field="editorPage" visible="false"/>
-        <ad:ClassicAdminPage ui:field="adminPage" visible="false"/>
-      </g:HTMLPanel>
-      <tu:TutorialPanel ui:field="tutorial" visible="false"
+    <gwt:HTMLPanel styleName="flex-row grow">
+      <gwt:HTMLPanel styleName="flex-col grow">
+        <projects:ClassicProjectsPage ui:field="projectsPage"/>
+        <editor:ClassicEditorPage ui:field="editorPage" visible="false"/>
+        <admin:ClassicAdminPage ui:field="adminPage" visible="false"/>
+      </gwt:HTMLPanel>
+      <tutorial:TutorialPanel ui:field="tutorial" visible="false"
           addStyleNames="flex-col overflow-auto classic-Tutorial"/>
-    </g:HTMLPanel>
+    </gwt:HTMLPanel>
 
-    <st:ClassicStatusBar ui:field="statusBar"/>
+    <status:ClassicStatusBar ui:field="statusBar"/>
 
-  </g:HTMLPanel>
+  </gwt:HTMLPanel>
 </ui:UiBinder>

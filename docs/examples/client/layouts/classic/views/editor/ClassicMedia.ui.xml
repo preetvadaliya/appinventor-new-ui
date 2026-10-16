@@ -3,18 +3,18 @@
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
 <!-- Media: the project's files and the upload button. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
+    xmlns:controls="urn:import:com.google.appinventor.client.layouts.classic.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <g:HTMLPanel styleName="flex-col pane">
-    <g:HTMLPanel styleName="flex-row items-center pane-header">
-      <g:InlineLabel styleName="pane-title" text="{messages.assetListBoxCaption}"/>
-    </g:HTMLPanel>
+  <gwt:HTMLPanel styleName="flex-col pane">
+    <gwt:HTMLPanel styleName="flex-row items-center pane-header">
+      <gwt:InlineLabel styleName="pane-title" text="{messages.assetListBoxCaption}"/>
+    </gwt:HTMLPanel>
 
-    <c:ClassicTree ui:field="files" addStyleNames="grow overflow-auto"/>
+    <controls:ClassicTree ui:field="files" addStyleNames="grow overflow-auto"/>
 
-    <g:HTMLPanel styleName="flex-row pad-sm">
-      <c:ClassicButton ui:field="upload" text="{messages.addButton}"/>
-    </g:HTMLPanel>
-  </g:HTMLPanel>
+    <gwt:HTMLPanel styleName="flex-row pad-sm">
+      <controls:ClassicButton ui:field="upload" text="{messages.addButton}"/>
+    </gwt:HTMLPanel>
+  </gwt:HTMLPanel>
 </ui:UiBinder>

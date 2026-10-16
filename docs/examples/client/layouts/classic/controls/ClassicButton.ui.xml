@@ -4,6 +4,6 @@
 <!-- ClassicButton: a plain text button. Text, enabled and visible come
      from the bound action (ClassicButton.java). -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:g="urn:import:com.google.gwt.user.client.ui">
-  <g:Button ui:field="button" styleName="classic-Button"/>
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
+  <gwt:Button ui:field="button" styleName="classic-Button"/>
 </ui:UiBinder>

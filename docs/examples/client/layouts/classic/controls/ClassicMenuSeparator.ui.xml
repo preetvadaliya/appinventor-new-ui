@@ -3,6 +3,6 @@
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
 <!-- ClassicMenuSeparator: a line between groups of menu items. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:g="urn:import:com.google.gwt.user.client.ui">
-  <g:HTML styleName="classic-MenuSeparator"/>
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
+  <gwt:HTML styleName="classic-MenuSeparator"/>
 </ui:UiBinder>

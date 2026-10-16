@@ -2,41 +2,41 @@
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:c="urn:import:com.google.appinventor.client.layouts.neo.controls">
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
+    xmlns:controls="urn:import:com.google.appinventor.client.layouts.neo.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <g:FlowPanel styleName="neo-ProjectToolbar">
-    <g:Label ui:field="title" styleName="neo-ProjectToolbar-title"/>
+  <gwt:FlowPanel styleName="neo-ProjectToolbar">
+    <gwt:Label ui:field="title" styleName="neo-ProjectToolbar-title"/>
 
-    <g:FlowPanel ui:field="projectButtons" styleName="neo-ProjectToolbar-groups">
-      <g:FlowPanel styleName="neo-ProjectToolbar-start">
-        <c:NeoButton action="NEW_PROJECT" variant="PRIMARY"/>
-        <c:NeoButton action="IMPORT_PROJECT"/>
-        <c:NeoButton action="IMPORT_TEMPLATE"/>
-        <c:NeoButton action="NEW_FOLDER"/>
-      </g:FlowPanel>
-      <g:FlowPanel styleName="neo-ProjectToolbar-center">
-        <c:NeoButton action="MOVE_PROJECTS"/>
-        <c:NeoMenuButton action="EXPORT">
-          <c:NeoMenuItem action="EXPORT_PROJECT"/>
-          <c:NeoMenuItem action="EXPORT_ALL_PROJECTS"/>
-        </c:NeoMenuButton>
-        <c:NeoButton action="LOGIN_TO_GALLERY"
+    <gwt:FlowPanel ui:field="projectButtons" styleName="neo-ProjectToolbar-groups">
+      <gwt:FlowPanel styleName="neo-ProjectToolbar-start">
+        <controls:NeoButton action="NEW_PROJECT" variant="PRIMARY"/>
+        <controls:NeoButton action="IMPORT_PROJECT"/>
+        <controls:NeoButton action="IMPORT_TEMPLATE"/>
+        <controls:NeoButton action="NEW_FOLDER"/>
+      </gwt:FlowPanel>
+      <gwt:FlowPanel styleName="neo-ProjectToolbar-center">
+        <controls:NeoButton action="MOVE_PROJECTS"/>
+        <controls:NeoMenuButton action="EXPORT">
+          <controls:NeoMenuItem action="EXPORT_PROJECT"/>
+          <controls:NeoMenuItem action="EXPORT_ALL_PROJECTS"/>
+        </controls:NeoMenuButton>
+        <controls:NeoButton action="LOGIN_TO_GALLERY"
             text="{messages.galleryTabName}"/>
-        <c:NeoButton action="SEND_TO_GALLERY"
+        <controls:NeoButton action="SEND_TO_GALLERY"
             text="{messages.publishButton}"/>
-      </g:FlowPanel>
-      <g:FlowPanel styleName="neo-ProjectToolbar-end">
-        <c:NeoButton action="VIEW_TRASH" variant="QUIET"/>
-        <c:NeoButton action="DELETE_PROJECT" variant="DANGER"/>
-      </g:FlowPanel>
-    </g:FlowPanel>
+      </gwt:FlowPanel>
+      <gwt:FlowPanel styleName="neo-ProjectToolbar-end">
+        <controls:NeoButton action="VIEW_TRASH" variant="QUIET"/>
+        <controls:NeoButton action="DELETE_PROJECT" variant="DANGER"/>
+      </gwt:FlowPanel>
+    </gwt:FlowPanel>
 
-    <g:FlowPanel ui:field="trashButtons" styleName="neo-ProjectToolbar-end"
+    <gwt:FlowPanel ui:field="trashButtons" styleName="neo-ProjectToolbar-end"
         visible="false">
-      <c:NeoButton action="RESTORE_PROJECT"/>
-      <c:NeoButton action="SWITCH_TO_PROJECTS" variant="QUIET"/>
-      <c:NeoButton action="DELETE_FOREVER" variant="DANGER"/>
-    </g:FlowPanel>
-  </g:FlowPanel>
+      <controls:NeoButton action="RESTORE_PROJECT"/>
+      <controls:NeoButton action="SWITCH_TO_PROJECTS" variant="QUIET"/>
+      <controls:NeoButton action="DELETE_FOREVER" variant="DANGER"/>
+    </gwt:FlowPanel>
+  </gwt:FlowPanel>
 </ui:UiBinder>

@@ -80,7 +80,7 @@ attributes (GWT 2.8.1 ships `EnumAttributeParser`), so no custom parser is
 needed:
 
 ```xml
-<c:NeoButton action="NEW_PROJECT"/>
+<controls:NeoButton action="NEW_PROJECT"/>
 ```
 
 A helper in `controls/behaviour` attaches the click handler and listens for

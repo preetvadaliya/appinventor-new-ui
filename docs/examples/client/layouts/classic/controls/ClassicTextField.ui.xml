@@ -3,10 +3,10 @@
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
 <!-- ClassicTextField: label, input, error message under it. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:g="urn:import:com.google.gwt.user.client.ui">
-  <g:HTMLPanel styleName="flex-col gap-xs classic-TextField">
-    <g:Label ui:field="label" styleName="classic-Label"/>
-    <g:TextBox ui:field="input" styleName="classic-Input"/>
-    <g:Label ui:field="error" styleName="classic-Error" visible="false"/>
-  </g:HTMLPanel>
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
+  <gwt:HTMLPanel styleName="flex-col gap-xs classic-TextField">
+    <gwt:Label ui:field="label" styleName="classic-Label"/>
+    <gwt:TextBox ui:field="input" styleName="classic-Input"/>
+    <gwt:Label ui:field="error" styleName="classic-Error" visible="false"/>
+  </gwt:HTMLPanel>
 </ui:UiBinder>

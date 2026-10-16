@@ -56,10 +56,10 @@ public abstract class SharedView extends Composite {
 
 ```xml
 <!-- features/properties/PropertiesPanel.ui.xml -->
-<g:FlowPanel>
-  <c:TextField ui:field="search"/>
-  <c:Button ui:field="reset" text="Reset"/>
-</g:FlowPanel>
+<gwt:FlowPanel>
+  <controls:TextField ui:field="search"/>
+  <controls:Button ui:field="reset" text="Reset"/>
+</gwt:FlowPanel>
 ```
 
 In classic this renders `ClassicTextField` and `ClassicButton`; in neo,
@@ -68,7 +68,7 @@ In classic this renders `ClassicTextField` and `ClassicButton`; in neo,
 ## Layout views use their own controls directly
 
 A layout's own views may name their concrete control classes
-(`<c:NeoButton action="NEW_PROJECT"/>`), because they never run in another
+(`<controls:NeoButton action="NEW_PROJECT"/>`), because they never run in another
 layout.
 
 ## Each control is a template plus behaviour
@@ -78,11 +78,11 @@ binding, focus, ARIA, events). For example
 `layouts/classic/controls/ClassicTextField.ui.xml`:
 
 ```xml
-<g:HTMLPanel styleName="flex-col gap-xs classic-TextField">
-  <g:Label ui:field="label" styleName="classic-Label"/>
-  <g:TextBox ui:field="input" styleName="classic-Input"/>
-  <g:Label ui:field="error" styleName="classic-Error" visible="false"/>
-</g:HTMLPanel>
+<gwt:HTMLPanel styleName="flex-col gap-xs classic-TextField">
+  <gwt:Label ui:field="label" styleName="classic-Label"/>
+  <gwt:TextBox ui:field="input" styleName="classic-Input"/>
+  <gwt:Label ui:field="error" styleName="classic-Error" visible="false"/>
+</gwt:HTMLPanel>
 ```
 
 `ClassicTextField.java` wires `for`/`id`, `aria-invalid` and the error text,

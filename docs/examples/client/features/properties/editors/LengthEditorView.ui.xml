@@ -2,37 +2,37 @@
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
 <!-- Width and Height: a summary button ("120 pixels") that opens the
-     form below. Every c: element is the active layout's control. -->
+     form below. Every controls: element is the active layout's control. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:c="urn:import:com.google.appinventor.client.controls">
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
+    xmlns:controls="urn:import:com.google.appinventor.client.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <g:HTMLPanel styleName="flex-col properties-LengthEditor">
-    <c:Button ui:field="summary"/>
+  <gwt:HTMLPanel styleName="flex-col properties-LengthEditor">
+    <controls:Button ui:field="summary"/>
 
     <!-- Java moves this into the popup (see LengthEditorView). -->
-    <g:HTMLPanel ui:field="form" styleName="flex-col gap-sm pad-md">
-      <c:Radio ui:field="automatic" text="{messages.automaticCaption}"/>
-      <c:Radio ui:field="fillParent" text="{messages.fillParentCaption}"/>
+    <gwt:HTMLPanel ui:field="form" styleName="flex-col gap-sm pad-md">
+      <controls:Radio ui:field="automatic" text="{messages.automaticCaption}"/>
+      <controls:Radio ui:field="fillParent" text="{messages.fillParentCaption}"/>
 
-      <g:HTMLPanel styleName="flex-row items-center gap-xs">
-        <c:Radio ui:field="pixels"/>
-        <c:TextField ui:field="pixelsAmount" maxLength="4"/>
-        <g:InlineLabel text="{messages.pixelsCaption}"/>
-      </g:HTMLPanel>
+      <gwt:HTMLPanel styleName="flex-row items-center gap-xs">
+        <controls:Radio ui:field="pixels"/>
+        <controls:TextField ui:field="pixelsAmount" maxLength="4"/>
+        <gwt:InlineLabel text="{messages.pixelsCaption}"/>
+      </gwt:HTMLPanel>
 
-      <g:HTMLPanel ui:field="percentRow" styleName="flex-row items-center gap-xs">
-        <c:Radio ui:field="percent"/>
-        <c:TextField ui:field="percentAmount" maxLength="4"/>
-        <g:InlineLabel text="{messages.percentCaption}"/>
-      </g:HTMLPanel>
+      <gwt:HTMLPanel ui:field="percentRow" styleName="flex-row items-center gap-xs">
+        <controls:Radio ui:field="percent"/>
+        <controls:TextField ui:field="percentAmount" maxLength="4"/>
+        <gwt:InlineLabel text="{messages.percentCaption}"/>
+      </gwt:HTMLPanel>
 
-      <g:Label ui:field="error" styleName="properties-Error" visible="false"/>
+      <gwt:Label ui:field="error" styleName="properties-Error" visible="false"/>
 
-      <g:HTMLPanel styleName="flex-row justify-end gap-sm">
-        <c:Button ui:field="cancel" text="{messages.cancelButton}"/>
-        <c:Button ui:field="ok" text="{messages.okButton}" variant="PRIMARY"/>
-      </g:HTMLPanel>
-    </g:HTMLPanel>
-  </g:HTMLPanel>
+      <gwt:HTMLPanel styleName="flex-row justify-end gap-sm">
+        <controls:Button ui:field="cancel" text="{messages.cancelButton}"/>
+        <controls:Button ui:field="ok" text="{messages.okButton}" variant="PRIMARY"/>
+      </gwt:HTMLPanel>
+    </gwt:HTMLPanel>
+  </gwt:HTMLPanel>
 </ui:UiBinder>

@@ -6,33 +6,33 @@
   classic, arranged as neo cards with titles; each card scrolls its body.
 -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:ed="urn:import:com.google.appinventor.client.layouts.neo.views.editor"
-    xmlns:box="urn:import:com.google.appinventor.client.features.workspace.boxes"
-    xmlns:con="urn:import:com.google.appinventor.client.features.console">
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
+    xmlns:editor="urn:import:com.google.appinventor.client.layouts.neo.views.editor"
+    xmlns:boxes="urn:import:com.google.appinventor.client.features.workspace.boxes"
+    xmlns:console="urn:import:com.google.appinventor.client.features.console">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <g:FlowPanel styleName="neo-Page neo-EditorPage">
-    <ed:NeoDesignToolbar ui:field="toolbar"/>
+  <gwt:FlowPanel styleName="neo-Page neo-EditorPage">
+    <editor:NeoDesignToolbar ui:field="toolbar"/>
 
-    <g:FlowPanel ui:field="work" styleName="neo-Work is-designer">
-      <box:PaletteBox ui:field="palette" styleName="neo-Card neo-Work-palette"/>
-      <box:ViewerBox ui:field="viewer" styleName="neo-Card neo-Work-viewer"/>
-      <g:FlowPanel styleName="neo-Work-side">
-        <box:SourceStructureBox ui:field="components"
+    <gwt:FlowPanel ui:field="work" styleName="neo-Work is-designer">
+      <boxes:PaletteBox ui:field="palette" styleName="neo-Card neo-Work-palette"/>
+      <boxes:ViewerBox ui:field="viewer" styleName="neo-Card neo-Work-viewer"/>
+      <gwt:FlowPanel styleName="neo-Work-side">
+        <boxes:SourceStructureBox ui:field="components"
             styleName="neo-Card neo-Work-components"/>
-        <box:BlockSelectorBox ui:field="drawers"
+        <boxes:BlockSelectorBox ui:field="drawers"
             styleName="neo-Card neo-Work-drawers"/>
-        <g:FlowPanel styleName="neo-Card neo-Work-assets">
-          <g:Label styleName="neo-Card-title"
+        <gwt:FlowPanel styleName="neo-Card neo-Work-assets">
+          <gwt:Label styleName="neo-Card-title"
               text="{messages.assetListBoxCaption}"/>
-          <box:AssetListBox ui:field="assets" styleName="neo-Scroll"/>
-        </g:FlowPanel>
-      </g:FlowPanel>
-      <box:PropertiesBox ui:field="properties"
+          <boxes:AssetListBox ui:field="assets" styleName="neo-Scroll"/>
+        </gwt:FlowPanel>
+      </gwt:FlowPanel>
+      <boxes:PropertiesBox ui:field="properties"
           styleName="neo-Card neo-Work-properties"/>
-    </g:FlowPanel>
+    </gwt:FlowPanel>
 
-    <con:ConsolePanel ui:field="console" styleName="neo-Console"
+    <console:ConsolePanel ui:field="console" styleName="neo-Console"
         visible="false"/>
-  </g:FlowPanel>
+  </gwt:FlowPanel>
 </ui:UiBinder>

@@ -2,18 +2,18 @@
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:c="urn:import:com.google.appinventor.client.controls">
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
+    xmlns:controls="urn:import:com.google.appinventor.client.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <g:FlowPanel styleName="dialog-body">
+  <gwt:FlowPanel styleName="dialog-body">
     <!-- Same fields and order as today's NewYoungAndroidProjectWizard -->
-    <c:TextField ui:field="name" label="{messages.projectNameLabel}"/>
-    <c:Select ui:field="toolkit" label="{messages.blocksToolkitTitle}"/>
-    <c:Select ui:field="theme" label="{messages.themeTitle}"/>
-    <g:FlowPanel styleName="dialog-buttons">
-      <c:Button ui:field="cancel" text="{messages.cancelButton}"/>
-      <c:Button ui:field="create" variant="PRIMARY"
+    <controls:TextField ui:field="name" label="{messages.projectNameLabel}"/>
+    <controls:Select ui:field="toolkit" label="{messages.blocksToolkitTitle}"/>
+    <controls:Select ui:field="theme" label="{messages.themeTitle}"/>
+    <gwt:FlowPanel styleName="dialog-buttons">
+      <controls:Button ui:field="cancel" text="{messages.cancelButton}"/>
+      <controls:Button ui:field="create" variant="PRIMARY"
           text="{messages.okButton}"/>
-    </g:FlowPanel>
-  </g:FlowPanel>
+    </gwt:FlowPanel>
+  </gwt:FlowPanel>
 </ui:UiBinder>

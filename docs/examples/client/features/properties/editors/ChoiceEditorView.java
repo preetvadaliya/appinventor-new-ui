@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 /**
- * The shared view for every choice property. The template's <c:Select>
+ * The shared view for every choice property. The template's <controls:Select>
  * is ClassicSelect in classic and NeoSelect in neo.
  */
 public class ChoiceEditorView extends SharedView

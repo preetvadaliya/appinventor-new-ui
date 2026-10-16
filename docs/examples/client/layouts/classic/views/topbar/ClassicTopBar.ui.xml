@@ -3,38 +3,38 @@
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
 <!-- Top bar: logo, main menu, links, language, account. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls"
-    xmlns:top="urn:import:com.google.appinventor.client.layouts.classic.views.topbar"
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
+    xmlns:controls="urn:import:com.google.appinventor.client.layouts.classic.controls"
+    xmlns:topbar="urn:import:com.google.appinventor.client.layouts.classic.views.topbar"
     xmlns:menus="urn:import:com.google.appinventor.client.layouts.classic.views.menus">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <g:HTMLPanel styleName="flex-row items-center gap-md classic-TopBar">
+  <gwt:HTMLPanel styleName="flex-row items-center gap-md classic-TopBar">
 
-    <g:Image ui:field="logo" styleName="classic-Logo"/>
+    <gwt:Image ui:field="logo" styleName="classic-Logo"/>
 
     <menus:ClassicMainMenu ui:field="mainMenu"/>
 
-    <g:HTMLPanel styleName="flex-row items-center justify-end grow gap-md">
-      <g:Label ui:field="readOnly" styleName="classic-Warning"
+    <gwt:HTMLPanel styleName="flex-row items-center justify-end grow gap-md">
+      <gwt:Label ui:field="readOnly" styleName="classic-Warning"
           text="{messages.readOnlyMode}" visible="false"/>
 
-      <c:ClassicButton action="SWITCH_TO_PROJECTS" variant="QUIET"
+      <controls:ClassicButton action="SWITCH_TO_PROJECTS" variant="QUIET"
           text="{messages.myProjectsTabName}"/>
-      <c:ClassicButton action="VIEW_TRASH" variant="QUIET"
+      <controls:ClassicButton action="VIEW_TRASH" variant="QUIET"
           text="{messages.viewTrashTabName}"/>
-      <c:ClassicButton action="OPEN_GUIDE" variant="QUIET"
+      <controls:ClassicButton action="OPEN_GUIDE" variant="QUIET"
           text="{messages.guideTabName}"/>
-      <c:ClassicButton action="OPEN_FEEDBACK" variant="QUIET"
+      <controls:ClassicButton action="OPEN_FEEDBACK" variant="QUIET"
           text="{messages.feedbackTabName}"/>
 
       <!-- languages are added in Java; they come from the server -->
-      <c:ClassicMenuButton ui:field="language" variant="QUIET"/>
+      <controls:ClassicMenuButton ui:field="language" variant="QUIET"/>
 
-      <c:ClassicMenuButton ui:field="account" variant="QUIET">
-        <c:ClassicMenuItem action="SIGN_OUT"/>
-        <c:ClassicMenuItem action="DELETE_ACCOUNT" variant="DANGER"/>
-      </c:ClassicMenuButton>
-    </g:HTMLPanel>
+      <controls:ClassicMenuButton ui:field="account" variant="QUIET">
+        <controls:ClassicMenuItem action="SIGN_OUT"/>
+        <controls:ClassicMenuItem action="DELETE_ACCOUNT" variant="DANGER"/>
+      </controls:ClassicMenuButton>
+    </gwt:HTMLPanel>
 
-  </g:HTMLPanel>
+  </gwt:HTMLPanel>
 </ui:UiBinder>

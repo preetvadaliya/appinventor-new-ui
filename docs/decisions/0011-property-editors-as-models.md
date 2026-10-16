@@ -19,7 +19,7 @@ widget code.
 - `PropertyEditors.forType(type)` maps each editor type from
   `simple_components.json` to its model.
 - One shared default view per model in `features/properties/editors/`, written
-  like every other view (decision 0008): a `.ui.xml` template whose `c:`
+  like every other view (decision 0008): a `.ui.xml` template whose `controls:`
   elements are control interfaces, plus behaviour-only Java extending
   `SharedView`. The controls make it look right in each layout, so one
   template serves classic and neo.

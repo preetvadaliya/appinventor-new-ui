@@ -8,7 +8,7 @@ import com.google.gwt.uibinder.client.UiFactory;
 import com.google.gwt.user.client.ui.Composite;
 
 /**
- * Base class for shared views. A template that says <c:Button> gets the
+ * Base class for shared views. A template that says <controls:Button> gets the
  * active layout's button: UiBinder calls these @UiFactory methods, and it
  * finds them on superclasses.
  */

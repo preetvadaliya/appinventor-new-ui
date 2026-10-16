@@ -3,20 +3,20 @@
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
 <!-- Components: the screen's components as a tree; Rename and Delete. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
+    xmlns:controls="urn:import:com.google.appinventor.client.layouts.classic.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <g:HTMLPanel styleName="flex-col pane">
-    <g:HTMLPanel styleName="flex-row items-center pane-header">
-      <g:InlineLabel styleName="pane-title" text="{messages.sourceStructureBoxCaption}"/>
-    </g:HTMLPanel>
+  <gwt:HTMLPanel styleName="flex-col pane">
+    <gwt:HTMLPanel styleName="flex-row items-center pane-header">
+      <gwt:InlineLabel styleName="pane-title" text="{messages.sourceStructureBoxCaption}"/>
+    </gwt:HTMLPanel>
 
-    <c:ClassicTree ui:field="tree" addStyleNames="grow overflow-auto"/>
+    <controls:ClassicTree ui:field="tree" addStyleNames="grow overflow-auto"/>
 
-    <g:HTMLPanel styleName="flex-row items-center gap-sm pad-sm">
-      <c:ClassicButton ui:field="rename" text="{messages.renameButton}"/>
-      <c:ClassicButton ui:field="delete" variant="DANGER"
+    <gwt:HTMLPanel styleName="flex-row items-center gap-sm pad-sm">
+      <controls:ClassicButton ui:field="rename" text="{messages.renameButton}"/>
+      <controls:ClassicButton ui:field="delete" variant="DANGER"
           text="{messages.deleteButton}"/>
-    </g:HTMLPanel>
-  </g:HTMLPanel>
+    </gwt:HTMLPanel>
+  </gwt:HTMLPanel>
 </ui:UiBinder>

@@ -3,28 +3,28 @@
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
 <!-- Designer toolbar: project name, screens, then Designer / Blocks. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:g="urn:import:com.google.gwt.user.client.ui"
-    xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
+    xmlns:controls="urn:import:com.google.appinventor.client.layouts.classic.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <g:HTMLPanel styleName="flex-row items-center gap-md pad-md classic-DesignToolbar">
+  <gwt:HTMLPanel styleName="flex-row items-center gap-md pad-md classic-DesignToolbar">
 
-    <g:Label ui:field="projectName" styleName="classic-Title"/>
+    <gwt:Label ui:field="projectName" styleName="classic-Title"/>
 
-    <g:HTMLPanel styleName="flex-row items-center gap-sm grow">
-      <c:ClassicButton action="TOGGLE_TUTORIAL"/>
+    <gwt:HTMLPanel styleName="flex-row items-center gap-sm grow">
+      <controls:ClassicButton action="TOGGLE_TUTORIAL"/>
       <!-- the project's screens are added in Java -->
-      <c:ClassicMenuButton ui:field="screens" text="{messages.screensButton}"/>
-      <c:ClassicButton action="ADD_SCREEN"/>
-      <c:ClassicButton action="REMOVE_SCREEN"/>
-      <c:ClassicButton action="PROJECT_PROPERTIES"/>
-      <c:ClassicButton action="SEND_TO_GALLERY"/>
-    </g:HTMLPanel>
+      <controls:ClassicMenuButton ui:field="screens" text="{messages.screensButton}"/>
+      <controls:ClassicButton action="ADD_SCREEN"/>
+      <controls:ClassicButton action="REMOVE_SCREEN"/>
+      <controls:ClassicButton action="PROJECT_PROPERTIES"/>
+      <controls:ClassicButton action="SEND_TO_GALLERY"/>
+    </gwt:HTMLPanel>
 
-    <g:HTMLPanel styleName="flex-row items-center gap-sm">
-      <c:ClassicButton action="TOGGLE_CONSOLE"/>
-      <c:ClassicButton action="SWITCH_TO_DESIGNER"/>
-      <c:ClassicButton action="SWITCH_TO_BLOCKS"/>
-    </g:HTMLPanel>
+    <gwt:HTMLPanel styleName="flex-row items-center gap-sm">
+      <controls:ClassicButton action="TOGGLE_CONSOLE"/>
+      <controls:ClassicButton action="SWITCH_TO_DESIGNER"/>
+      <controls:ClassicButton action="SWITCH_TO_BLOCKS"/>
+    </gwt:HTMLPanel>
 
-  </g:HTMLPanel>
+  </gwt:HTMLPanel>
 </ui:UiBinder>

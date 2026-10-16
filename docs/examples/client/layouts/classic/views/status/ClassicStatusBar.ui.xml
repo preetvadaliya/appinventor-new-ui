@@ -2,10 +2,10 @@
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:g="urn:import:com.google.gwt.user.client.ui">
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <g:HTMLPanel styleName="flex-row items-center justify-end pad-sm classic-StatusBar">
-    <g:Anchor ui:field="terms" target="_blank"
+  <gwt:HTMLPanel styleName="flex-row items-center justify-end pad-sm classic-StatusBar">
+    <gwt:Anchor ui:field="terms" target="_blank"
         text="{messages.privacyTermsLink}"/>
-  </g:HTMLPanel>
+  </gwt:HTMLPanel>
 </ui:UiBinder>

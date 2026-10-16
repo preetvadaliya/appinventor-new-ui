@@ -23,41 +23,44 @@ other; no pane is hidden by CSS.
 
 ## How a template is written
 
-- Every box is a `<g:HTMLPanel>`, the root and every nested one, with the flex
+- Every box is a `<gwt:HTMLPanel>`, the root and every nested one, with the flex
   classes from `layout.css`: `flex-row`, `flex-col`, `grow`, `overflow-auto`, `items-center`, `justify-end`,
   `gap-*`, `pad-*` (Tailwind-style names, so they don't clash with today's
   `.row`, `.col` and `.center`).
 - No raw `<div>` or `<span>` (decision 0008): any box can get a `ui:field` and
   be handled from Java as a widget.
-- `<g:FlowPanel>` only where Java adds or removes children (rows, items).
-- `<g:SimplePanel>` only for one slot Java fills (the phone screen, an editor).
-- Widgets only where there is behaviour: the layout's controls
-  (`<c:ClassicButton action="NEW_PROJECT"/>`), `FocusPanel` for clickable rows.
+- `<gwt:FlowPanel>` only where Java adds or removes children (rows, items).
+- `<gwt:SimplePanel>` only for one slot Java fills (the phone screen, an editor).
+- Buttons, inputs and menus are the layout's controls
+  (`<controls:ClassicButton action="NEW_PROJECT"/>`); `FocusPanel` for clickable rows.
 - On a component use `addStyleNames`, never `styleName`, so it keeps its own
   class.
-- Text is `<g:Label>` on its own line or `<g:InlineLabel>` inside a row, with
+- Prefixes are the last word of the package (decision 0008): `gwt:` for GWT
+  widgets, `controls:` for controls, `editor:`, `projects:` … for views;
+  `ui:` is UiBinder's own.
+- Text is `<gwt:Label>` on its own line or `<gwt:InlineLabel>` inside a row, with
   `text="{messages.…}"`.
 
 ```xml
 <!-- layouts/classic/views/projects/ClassicProjectsPage.ui.xml -->
-<g:HTMLPanel styleName="flex-col grow">
-  <pr:ClassicProjectToolbar ui:field="toolbar"/>
-  <pr:ClassicProjectList ui:field="list" addStyleNames="grow"/>
-</g:HTMLPanel>
+<gwt:HTMLPanel styleName="flex-col grow">
+  <projects:ClassicProjectToolbar ui:field="toolbar"/>
+  <projects:ClassicProjectList ui:field="list" addStyleNames="grow"/>
+</gwt:HTMLPanel>
 ```
 
 ```xml
 <!-- layouts/classic/views/editor/ClassicDesignerArea.ui.xml -->
-<g:HTMLPanel styleName="flex-row grow gap-sm pad-sm">
-  <ed:ClassicPalette ui:field="palette" addStyleNames="classic-PaletteColumn"/>
-  <ed:ClassicViewer ui:field="viewer" addStyleNames="grow classic-ViewerColumn"/>
-  <g:HTMLPanel styleName="flex-col classic-SideColumn gap-sm">
-    <ed:ClassicComponentTree ui:field="components" addStyleNames="grow"/>
-    <ed:ClassicMedia ui:field="media" addStyleNames="classic-MediaPane"/>
-  </g:HTMLPanel>
-  <ed:ClassicProperties ui:field="properties"
+<gwt:HTMLPanel styleName="flex-row grow gap-sm pad-sm">
+  <editor:ClassicPalette ui:field="palette" addStyleNames="classic-PaletteColumn"/>
+  <editor:ClassicViewer ui:field="viewer" addStyleNames="grow classic-ViewerColumn"/>
+  <gwt:HTMLPanel styleName="flex-col classic-SideColumn gap-sm">
+    <editor:ClassicComponentTree ui:field="components" addStyleNames="grow"/>
+    <editor:ClassicMedia ui:field="media" addStyleNames="classic-MediaPane"/>
+  </gwt:HTMLPanel>
+  <editor:ClassicProperties ui:field="properties"
       addStyleNames="classic-PropertiesColumn"/>
-</g:HTMLPanel>
+</gwt:HTMLPanel>
 ```
 
 ## Full height
@@ -102,7 +105,7 @@ public ProjectToolbarPresenter.View projectToolbar() {
 ## Shared dialogs
 
 Default dialogs live in `features/dialogs` and are built from control
-interfaces (`<c:Button>`, `<c:TextField>`) through `SharedView`, so they look
+interfaces (`<controls:Button>`, `<controls:TextField>`) through `SharedView`, so they look
 right in any layout. A layout may replace one by implementing the presenter's
 `View` and returning it from the matching `Layout` method; the presenter does
 not change. Example: `NovaNewProjectDialog` in `docs/examples`.

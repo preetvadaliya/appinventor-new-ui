@@ -3,6 +3,6 @@
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
 <!-- ClassicCheckbox: a checkbox with its label. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:g="urn:import:com.google.gwt.user.client.ui">
-  <g:CheckBox ui:field="box" styleName="classic-Checkbox"/>
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
+  <gwt:CheckBox ui:field="box" styleName="classic-Checkbox"/>
 </ui:UiBinder>

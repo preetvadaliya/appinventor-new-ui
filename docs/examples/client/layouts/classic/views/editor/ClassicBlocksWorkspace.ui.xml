@@ -3,12 +3,12 @@
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
 <!-- Blocks workspace: Blockly is injected into the div and scrolls itself. -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:g="urn:import:com.google.gwt.user.client.ui">
+    xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
-  <g:HTMLPanel styleName="flex-col pane overflow-hidden">
-    <g:HTMLPanel styleName="flex-row items-center pane-header">
-      <g:InlineLabel styleName="pane-title" text="{messages.viewerBoxCaption}"/>
-    </g:HTMLPanel>
-    <g:HTMLPanel ui:field="blockly" styleName="grow"/>
-  </g:HTMLPanel>
+  <gwt:HTMLPanel styleName="flex-col pane overflow-hidden">
+    <gwt:HTMLPanel styleName="flex-row items-center pane-header">
+      <gwt:InlineLabel styleName="pane-title" text="{messages.viewerBoxCaption}"/>
+    </gwt:HTMLPanel>
+    <gwt:HTMLPanel ui:field="blockly" styleName="grow"/>
+  </gwt:HTMLPanel>
 </ui:UiBinder>
