@@ -6,12 +6,12 @@
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:ed="urn:import:com.google.appinventor.client.layouts.classic.views.editor">
   <g:HTMLPanel styleName="row grow gap-sm pad-sm">
-    <ed:ClassicPalette ui:field="palette" addStyleNames="w-palette"/>
-    <ed:ClassicViewer ui:field="viewer" addStyleNames="grow min-viewer"/>
-    <div class="col w-side gap-sm">
+    <ed:ClassicPalette ui:field="palette" addStyleNames="classic-PaletteColumn"/>
+    <ed:ClassicViewer ui:field="viewer" addStyleNames="grow classic-ViewerColumn"/>
+    <div class="col classic-SideColumn gap-sm">
       <ed:ClassicComponentTree ui:field="components" addStyleNames="grow"/>
-      <ed:ClassicMedia ui:field="media" addStyleNames="h-media"/>
+      <ed:ClassicMedia ui:field="media" addStyleNames="classic-MediaPane"/>
     </div>
-    <ed:ClassicProperties ui:field="properties" addStyleNames="w-properties"/>
+    <ed:ClassicProperties ui:field="properties" addStyleNames="classic-PropertiesColumn"/>
   </g:HTMLPanel>
 </ui:UiBinder>

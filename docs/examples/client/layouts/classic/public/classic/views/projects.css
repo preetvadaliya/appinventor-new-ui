@@ -1,0 +1,39 @@
+/* views/projects.css: the projects page. */
+
+.classic-ProjectToolbar {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.classic-ListHeader {
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--color-border);
+  font-weight: bold;
+}
+
+.classic-SortHeader {
+  cursor: pointer;
+}
+
+.classic-Row {
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--color-border-light);
+  cursor: pointer;
+}
+
+.classic-Row:hover {
+  background: var(--color-row-highlight);
+}
+
+.classic-DateColumn {
+  width: 160px;
+  flex: none;
+}
+
+.classic-Indent {
+  padding-left: 24px;
+}
+
+.classic-Empty {
+  padding: 24px;
+  color: var(--color-muted);
+}

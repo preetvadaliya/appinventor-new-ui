@@ -1,0 +1,22 @@
+/* reset.css: page defaults every layout shares. Values come from the
+   active layout's tokens.css, so this file never changes per layout. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  overflow: hidden;            /* the window never scrolls; panes do */
+  background: var(--color-page);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size);
+}
+
+[hidden] {
+  display: none !important;
+}

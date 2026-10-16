@@ -1,0 +1,41 @@
+/* views/editor.css: designer and blocks pages. Column sizes are classic's
+   design choice, so they live here, not in the shared layout.css. */
+
+.classic-DesignToolbar {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.classic-PaletteColumn    { width: 240px; flex: none; }
+.classic-SideColumn       { width: 240px; flex: none; }
+.classic-PropertiesColumn { width: 222px; flex: none; }
+.classic-DrawersColumn    { width: 260px; flex: none; }
+.classic-ViewerColumn     { min-width: 368px; }
+.classic-MediaPane        { height: 40%; flex: none; }
+
+.classic-PaletteItem {
+  padding: 2px 4px;
+  cursor: grab;
+}
+
+.classic-PaletteItem:hover {
+  background: var(--color-row-highlight);
+}
+
+.classic-PhoneFrame {
+  margin: 0 auto;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.classic-PropertiesHeader {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.classic-PropertyLabel {
+  font-size: 12px;
+}
+
+.classic-Console {
+  max-height: 30vh;
+  border-top: 1px solid var(--color-border);
+}

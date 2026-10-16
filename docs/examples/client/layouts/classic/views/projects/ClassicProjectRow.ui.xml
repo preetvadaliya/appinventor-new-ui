@@ -8,8 +8,8 @@
     <g:HTMLPanel styleName="row center">
       <c:ClassicCheckbox ui:field="selected"/>
       <g:Label ui:field="name" styleName="grow"/>
-      <g:Label ui:field="created" styleName="w-date"/>
-      <g:Label ui:field="modified" styleName="w-date"/>
+      <g:Label ui:field="created" styleName="classic-DateColumn"/>
+      <g:Label ui:field="modified" styleName="classic-DateColumn"/>
     </g:HTMLPanel>
   </g:FocusPanel>
 </ui:UiBinder>

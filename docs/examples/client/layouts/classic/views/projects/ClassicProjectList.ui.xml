@@ -14,11 +14,11 @@
       <g:FocusPanel ui:field="sortByName" styleName="grow classic-SortHeader">
         <g:InlineLabel ui:field="nameHeader" text="{messages.projectNameHeader}"/>
       </g:FocusPanel>
-      <g:FocusPanel ui:field="sortByCreated" styleName="w-date classic-SortHeader">
+      <g:FocusPanel ui:field="sortByCreated" styleName="classic-DateColumn classic-SortHeader">
         <g:InlineLabel ui:field="createdHeader"
             text="{messages.projectDateCreatedHeader}"/>
       </g:FocusPanel>
-      <g:FocusPanel ui:field="sortByModified" styleName="w-date classic-SortHeader">
+      <g:FocusPanel ui:field="sortByModified" styleName="classic-DateColumn classic-SortHeader">
         <g:InlineLabel ui:field="modifiedHeader"
             text="{messages.projectDateModifiedHeader}"/>
       </g:FocusPanel>
