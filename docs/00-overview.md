@@ -54,4 +54,5 @@ only**. Nova starts after P7 (milestone *Nova*).
 | `11-folder-structure.md` | The complete client tree after P7 |
 | `12-patterns.md` | Short code snippets for every pattern |
 | `13-code-style.md` | How code is written: Google style, templates, CSS |
+| `14-drag-and-drop.md` | Drag and drop today, its problems, and the proposal |
 | `decisions/` | Why each key choice was made |
