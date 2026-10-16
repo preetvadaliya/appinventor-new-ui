@@ -17,6 +17,17 @@ body {
   font-size: var(--font-size);
 }
 
+/* pressable controls are real <button>s; each layout's controls.css
+   gives them their look, so the browser's own style goes */
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
 [hidden] {
   display: none !important;
 }

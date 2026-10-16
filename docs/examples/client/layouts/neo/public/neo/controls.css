@@ -41,14 +41,10 @@
   color: var(--color-danger);
 }
 
-.neo-Button-disabled {
-  opacity: 0.5;
-  cursor: default;
-  pointer-events: none;
-}
-
 /* an action without a glyph shows its label alone, without the gap */
-.neo-Button-icon:empty {
+.neo-Button-icon:empty,
+.neo-MenuButton .icon:empty,
+.neo-MenuItem .icon:empty {
   display: none;
 }
 
@@ -73,10 +69,18 @@
   background: var(--color-row-highlight);
 }
 
+/* a menu button looks like a button; in the menu and top bars it is QUIET */
 .neo-MenuButton {
   padding: 6px 10px;
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-control);
+  background: var(--color-surface);
   cursor: pointer;
+}
+
+.neo-MenuButton-quiet {
+  border-color: transparent;
+  background: transparent;
 }
 
 .neo-MenuButton:hover {
@@ -93,6 +97,12 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-control);
   box-shadow: var(--shadow-menu);
+}
+
+.neo-MenuPopup {
+  z-index: 20;
+  min-width: 180px;
+  margin-top: 4px;
 }
 
 .neo-MenuItem {
@@ -112,6 +122,18 @@
   height: 1px;
   margin: 4px 0;
   background: var(--color-border-light);
+}
+
+.neo-MenuItem-danger {
+  color: var(--color-danger);
+}
+
+.neo-Button:disabled,
+.neo-IconButton:disabled,
+.neo-MenuButton:disabled,
+.neo-MenuItem:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 .neo-Label {

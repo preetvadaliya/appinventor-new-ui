@@ -28,9 +28,22 @@
   cursor: pointer;
 }
 
+/* a menu button looks like a button; in the menu and top bars it is QUIET */
 .classic-MenuButton {
   padding: 4px 8px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
   cursor: pointer;
+}
+
+.classic-MenuButton-quiet {
+  border-color: transparent;
+  background: transparent;
+}
+
+.classic-MenuPopup {
+  z-index: 20;
+  min-width: 160px;
 }
 
 .classic-Menu {
@@ -56,6 +69,18 @@
   height: 1px;
   margin: 4px 0;
   background: var(--color-border);
+}
+
+.classic-MenuItem-danger {
+  color: var(--color-danger);
+}
+
+.classic-Button:disabled,
+.classic-IconButton:disabled,
+.classic-MenuButton:disabled,
+.classic-MenuItem:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 .classic-Label {

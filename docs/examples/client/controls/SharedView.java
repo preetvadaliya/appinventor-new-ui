@@ -15,27 +15,47 @@ import com.google.gwt.user.client.ui.Composite;
 public abstract class SharedView extends Composite {
 
   @UiFactory
-  protected Button button() {
+  public Button button() {
     return Controls.active().button();
   }
 
   @UiFactory
-  protected TextField textField() {
+  public IconButton iconButton() {
+    return Controls.active().iconButton();
+  }
+
+  @UiFactory
+  public MenuButton menuButton() {
+    return Controls.active().menuButton();
+  }
+
+  @UiFactory
+  public MenuItem menuItem() {
+    return Controls.active().menuItem();
+  }
+
+  @UiFactory
+  public TextField textField() {
     return Controls.active().textField();
   }
 
   @UiFactory
-  protected Select select() {
+  public Select select() {
     return Controls.active().select();
   }
 
   @UiFactory
-  protected Checkbox checkbox() {
+  public Checkbox checkbox() {
     return Controls.active().checkbox();
   }
 
   @UiFactory
-  protected Radio radio() {
+  public Radio radio() {
     return Controls.active().radio();
+  }
+
+  @UiFactory
+  public Collapsible collapsible() {
+    return Controls.active().collapsible();
   }
 }

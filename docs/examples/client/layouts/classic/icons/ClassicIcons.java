@@ -11,16 +11,25 @@ import com.google.appinventor.client.core.icons.ComponentIconSource;
 import com.google.appinventor.client.core.icons.Icon;
 import com.google.appinventor.client.features.blocks.BlockCategoryImages;
 import com.google.appinventor.client.features.designer.palette.ComponentIcons;
+import com.google.gwt.core.client.GWT;
 
 /**
- * Classic: text-only buttons, and the shared PNGs (with their dark versions)
+ * Classic: text-only buttons, today's two pictures for the icon-only
+ * buttons (help, close), and the shared PNGs (with their dark versions)
  * for components and block drawers.
  */
 public class ClassicIcons implements Icons {
+  private static final String ICONS =
+      GWT.getModuleBaseURL() + "classic/icons/";
 
   @Override
   public Icon action(IconKey key) {
-    return Icon.NONE;
+    switch (key) {
+      // the PNGs Images.help() and Images.close() point at today
+      case HELP:  return Icon.image(ICONS + "help.png");
+      case CLOSE: return Icon.image(ICONS + "close.png");
+      default:    return Icon.NONE;
+    }
   }
 
   @Override

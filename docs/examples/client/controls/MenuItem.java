@@ -23,6 +23,9 @@ public interface MenuItem extends IsWidget, HasText, HasClickHandlers {
 
   void setEnabled(boolean enabled);
 
+  /** A disabled item is a disabled button: MenuKeyboard skips it. */
+  boolean isEnabled();
+
   /** shortcut="Ctrl+S" in a template; hidden when empty. */
   void setShortcut(String keys);
 

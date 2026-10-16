@@ -4,6 +4,7 @@
 
 package com.google.appinventor.client.layouts.classic.views.editor;
 
+import com.google.appinventor.client.core.actions.IconKey;
 import com.google.appinventor.client.layouts.classic.controls.ClassicIconButton;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -30,10 +31,12 @@ public class ClassicPropertyRow extends Composite {
   public ClassicPropertyRow() {
     initWidget(BINDER.createAndBindUi(this));
     label.getElement().setId("property-label-" + (nextId++));
+    help.setIcon(IconKey.HELP);
   }
 
   public void setCaption(String caption) {
     label.setText(caption);
+    help.setText(caption + " help");   // as PropertyHelpWidget names it
   }
 
   /** No help text: no help button. */

@@ -1,15 +1,15 @@
 <!-- Copyright 2026 MIT, All rights reserved -->
 <!-- Released under the Apache License, Version 2.0 -->
 <!-- http://www.apache.org/licenses/LICENSE-2.0 -->
-<!-- NeoButton: the action's Material glyph, then its label. Text, icon,
-     enabled and visible come from the bound action (NeoButton.java). -->
+<!-- NeoButton: a real <button> with the action's Material glyph, then its
+     label. Text, icon, enabled and visible come from the bound action
+     (NeoButton.java). -->
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
     xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
     xmlns:controls="urn:import:com.google.appinventor.client.controls">
-  <gwt:FocusPanel ui:field="button" styleName="neo-Button">
-    <gwt:HTMLPanel styleName="flex-row items-center gap-sm">
-      <controls:IconView ui:field="icon" addStyleNames="neo-Button-icon"/>
-      <gwt:InlineLabel ui:field="label" styleName="neo-Button-label"/>
-    </gwt:HTMLPanel>
-  </gwt:FocusPanel>
+  <gwt:HTMLPanel tag="button" ui:field="root"
+      styleName="flex-row items-center gap-sm neo-Button">
+    <controls:IconView ui:field="icon" addStyleNames="neo-Button-icon"/>
+    <gwt:InlineLabel ui:field="label" styleName="neo-Button-label"/>
+  </gwt:HTMLPanel>
 </ui:UiBinder>

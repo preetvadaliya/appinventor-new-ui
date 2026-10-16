@@ -12,19 +12,21 @@ import com.google.appinventor.client.core.actions.Action;
 import com.google.appinventor.client.core.actions.ActionId;
 import com.google.appinventor.client.core.icons.Icon;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.dom.client.Document;
+import com.google.gwt.dom.client.ButtonElement;
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.DomEvent;
-import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.FocusPanel;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.InlineLabel;
 import com.google.gwt.user.client.ui.Widget;
 
-/** Behaviour of neo's button; its markup is NeoButton.ui.xml. */
+/**
+ * Behaviour of neo's button; its markup is NeoButton.ui.xml. A
+ * real <button>, so focus, Enter and Space come from the browser.
+ */
 public class NeoButton extends Composite implements Button {
 
   interface Binder extends UiBinder<Widget, NeoButton> {
@@ -32,25 +34,17 @@ public class NeoButton extends Composite implements Button {
 
   private static final Binder BINDER = GWT.create(Binder.class);
 
-  @UiField FocusPanel button;
+  @UiField HTMLPanel root;
   @UiField(provided = true) IconView icon = new IconView(Icon.NONE, "");
   @UiField InlineLabel label;
 
+  private final ButtonElement button;
   private String captionOverride;
-  private boolean enabled = true;
 
   public NeoButton() {
     initWidget(BINDER.createAndBindUi(this));
-    button.getElement().setAttribute("role", "button");
-    // Enter and Space press it, as they do a native button
-    button.addKeyDownHandler(e -> {
-      int key = e.getNativeKeyCode();
-      if (key == KeyCodes.KEY_ENTER || key == KeyCodes.KEY_SPACE) {
-        e.preventDefault();
-        DomEvent.fireNativeEvent(Document.get().createClickEvent(
-            0, 0, 0, 0, 0, false, false, false, false), button);
-      }
-    });
+    button = ButtonElement.as(root.getElement());
+    button.setAttribute("type", "button");   // never submits a form
   }
 
   @Override
@@ -72,18 +66,15 @@ public class NeoButton extends Composite implements Button {
 
   @Override
   public void setVariant(Variant variant) {
-    button.setStyleName("neo-Button-primary", variant == Variant.PRIMARY);
-    button.setStyleName("neo-Button-quiet", variant == Variant.QUIET);
-    button.setStyleName("neo-Button-danger", variant == Variant.DANGER);
+    root.setStyleName("neo-Button-primary", variant == Variant.PRIMARY);
+    root.setStyleName("neo-Button-quiet", variant == Variant.QUIET);
+    root.setStyleName("neo-Button-danger", variant == Variant.DANGER);
   }
 
+  /** A disabled <button> takes no focus and fires no click. */
   @Override
   public void setEnabled(boolean enabled) {
-    this.enabled = enabled;
-    button.setStyleName("neo-Button-disabled", !enabled);
-    button.getElement().setAttribute("aria-disabled",
-        String.valueOf(!enabled));
-    button.setTabIndex(enabled ? 0 : -1);
+    button.setDisabled(!enabled);
   }
 
   @Override
@@ -99,13 +90,8 @@ public class NeoButton extends Composite implements Button {
     button.setTitle(text);
   }
 
-  /** A FocusPanel has no disabled state, so clicks are dropped here. */
   @Override
   public HandlerRegistration addClickHandler(ClickHandler handler) {
-    return button.addClickHandler(e -> {
-      if (enabled) {
-        handler.onClick(e);
-      }
-    });
+    return root.addDomHandler(handler, ClickEvent.getType());
   }
 }

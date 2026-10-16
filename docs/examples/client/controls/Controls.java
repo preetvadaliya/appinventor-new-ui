@@ -13,6 +13,12 @@ package com.google.appinventor.client.controls;
 public interface Controls {
   Button button();
 
+  IconButton iconButton();
+
+  MenuButton menuButton();
+
+  MenuItem menuItem();
+
   Dialog dialog();
 
   TextField textField();
@@ -22,6 +28,8 @@ public interface Controls {
   Checkbox checkbox();
 
   Radio radio();
+
+  Collapsible collapsible();
 
   /** The layout's icon set: images, glyphs, or both. */
   Icons icons();

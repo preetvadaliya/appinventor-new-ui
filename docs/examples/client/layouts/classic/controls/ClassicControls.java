@@ -6,9 +6,13 @@ package com.google.appinventor.client.layouts.classic.controls;
 
 import com.google.appinventor.client.controls.Button;
 import com.google.appinventor.client.controls.Checkbox;
+import com.google.appinventor.client.controls.Collapsible;
 import com.google.appinventor.client.controls.Controls;
 import com.google.appinventor.client.controls.Dialog;
+import com.google.appinventor.client.controls.IconButton;
 import com.google.appinventor.client.controls.Icons;
+import com.google.appinventor.client.controls.MenuButton;
+import com.google.appinventor.client.controls.MenuItem;
 import com.google.appinventor.client.controls.Radio;
 import com.google.appinventor.client.controls.Select;
 import com.google.appinventor.client.controls.TextField;
@@ -21,6 +25,21 @@ public class ClassicControls implements Controls {
   @Override
   public Button button() {
     return new ClassicButton();
+  }
+
+  @Override
+  public IconButton iconButton() {
+    return new ClassicIconButton();
+  }
+
+  @Override
+  public MenuButton menuButton() {
+    return new ClassicMenuButton();
+  }
+
+  @Override
+  public MenuItem menuItem() {
+    return new ClassicMenuItem();
   }
 
   @Override
@@ -46,6 +65,11 @@ public class ClassicControls implements Controls {
   @Override
   public Radio radio() {
     return new ClassicRadio();
+  }
+
+  @Override
+  public Collapsible collapsible() {
+    return new ClassicCollapsible();
   }
 
   @Override

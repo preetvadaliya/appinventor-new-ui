@@ -4,8 +4,11 @@
 
 package com.google.appinventor.client.layouts.neo.controls;
 
+import static com.google.appinventor.client.core.i18n.OdeMessages.MESSAGES;
+
 import com.google.appinventor.client.controls.Dialog;
 import com.google.appinventor.client.controls.behaviour.DialogA11y;
+import com.google.appinventor.client.core.actions.IconKey;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -37,6 +40,8 @@ public class NeoDialog implements Dialog {
     popup.setWidget(BINDER.createAndBindUi(this));
     popup.setGlassEnabled(true);
     popup.setStyleName("neo-DialogPopup");
+    close.setIcon(IconKey.CLOSE);
+    close.setText(MESSAGES.dismissButton());
     close.addClickHandler(e -> dismiss.run());
     DialogA11y.install(popup, caption, () -> dismiss.run());
   }

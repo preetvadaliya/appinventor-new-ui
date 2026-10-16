@@ -6,7 +6,10 @@ package com.google.appinventor.client.layouts.neo.controls;
 
 import com.google.appinventor.client.controls.TextField;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.FocusHandler;
+import com.google.gwt.event.dom.client.KeyPressHandler;
 import com.google.gwt.event.dom.client.KeyUpHandler;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -48,6 +51,11 @@ public class NeoTextField extends Composite implements TextField {
   }
 
   @Override
+  public void setMaxLength(int length) {
+    input.setMaxLength(length);
+  }
+
+  @Override
   public void setError(String message) {
     error.setText(message);
     error.setVisible(true);
@@ -80,5 +88,21 @@ public class NeoTextField extends Composite implements TextField {
   @Override
   public HandlerRegistration addKeyUpHandler(KeyUpHandler handler) {
     return input.addKeyUpHandler(handler);
+  }
+
+  @Override
+  public HandlerRegistration addKeyPressHandler(KeyPressHandler handler) {
+    return input.addKeyPressHandler(handler);
+  }
+
+  @Override
+  public HandlerRegistration addFocusHandler(FocusHandler handler) {
+    return input.addFocusHandler(handler);
+  }
+
+  @Override
+  public HandlerRegistration addValueChangeHandler(
+      ValueChangeHandler<String> handler) {
+    return input.addValueChangeHandler(handler);
   }
 }

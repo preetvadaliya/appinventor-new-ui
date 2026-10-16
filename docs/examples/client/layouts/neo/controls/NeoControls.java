@@ -6,9 +6,13 @@ package com.google.appinventor.client.layouts.neo.controls;
 
 import com.google.appinventor.client.controls.Button;
 import com.google.appinventor.client.controls.Checkbox;
+import com.google.appinventor.client.controls.Collapsible;
 import com.google.appinventor.client.controls.Controls;
 import com.google.appinventor.client.controls.Dialog;
+import com.google.appinventor.client.controls.IconButton;
 import com.google.appinventor.client.controls.Icons;
+import com.google.appinventor.client.controls.MenuButton;
+import com.google.appinventor.client.controls.MenuItem;
 import com.google.appinventor.client.controls.Radio;
 import com.google.appinventor.client.controls.Select;
 import com.google.appinventor.client.controls.TextField;
@@ -21,6 +25,21 @@ public class NeoControls implements Controls {
   @Override
   public Button button() {
     return new NeoButton();
+  }
+
+  @Override
+  public IconButton iconButton() {
+    return new NeoIconButton();
+  }
+
+  @Override
+  public MenuButton menuButton() {
+    return new NeoMenuButton();
+  }
+
+  @Override
+  public MenuItem menuItem() {
+    return new NeoMenuItem();
   }
 
   @Override
@@ -46,6 +65,11 @@ public class NeoControls implements Controls {
   @Override
   public Radio radio() {
     return new NeoRadio();
+  }
+
+  @Override
+  public Collapsible collapsible() {
+    return new NeoCollapsible();
   }
 
   @Override

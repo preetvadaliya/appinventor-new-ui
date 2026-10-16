@@ -12,5 +12,7 @@ package com.google.appinventor.client.core.actions;
 public enum IconKey {
   NONE,
   ADD, IMPORT, TEMPLATE, FOLDER_NEW, MOVE, EXPORT, GALLERY_LOGIN,
-  PUBLISH, RESTORE, PROJECTS, TRASH, DELETE, DELETE_FOREVER
+  PUBLISH, RESTORE, PROJECTS, TRASH, DELETE, DELETE_FOREVER,
+  // not actions: the icon-only buttons
+  HELP, CLOSE
 }
