@@ -18,8 +18,10 @@ lines each), which MIT merged within 1–4 days of opening.
 | P6 · CSS split | P6-33 … P6-37 | 11 | No global stylesheet |
 | P7 · Final moves | P7-38 … P7-40 | 3 | Final packages; import rules enforced |
 
-Coordination tickets: C-01 (share the plan with MIT), C-02 (agree the
-package-move window), C-03 (decide nova's scope).
+Coordination and decision tickets: C-01 (share the plan with MIT), C-02 (agree
+the package-move window), C-03 (decide nova's scope), C-04 (how property
+editors report invalid input, before P5-30), C-05 (whether `StandardControls`
+stays, before P7-39).
 
 ## Order and overlap
 

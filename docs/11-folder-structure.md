@@ -16,6 +16,12 @@ the corrections made while writing the tickets:
   properties, drawers) are views owned by each layout. Today's palette, tree and
   properties classes listed under `features/` split into presenters
   (`core/presenters`) and those layout regions in P5-32 and P5-43.
+- Property editors follow decision 0011: models in `core/properties/editors/`
+  (`ChoiceEditorModel`, `NumberEditorModel`, `LengthEditorModel` …), option
+  lists in `core/properties/choices/`, and one template view per kind in
+  `features/properties/editors/` (`<Kind>EditorView.ui.xml` + `.java`). The
+  `YoungAndroid*PropertyEditor` classes listed below are where today's editors
+  land in P7; P5-30 and P5-31 fold most of them into those models and views.
 - CSS files follow decision 0010; shared CSS is `features/public/features/`
   (`reset.css`, `layout.css` and shared feature files).
 - Transitional classes (`actions/CommandAction`, `client/ShellBinders`) are gone

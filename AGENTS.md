@@ -18,7 +18,10 @@ Scope right now: **classic and neo only**. Do not add nova code.
 2. `docs/02-target.md` — the four packages and the import rules
 3. The doc for your ticket's area (the ticket's "Read first" section)
 4. `docs/10-pr-rules.md` — what every PR must satisfy
-5. `docs/decisions/` — when you wonder why something is the way it is
+5. `docs/decisions/README.md` — every decision in one line; open a record when
+   you wonder why something is the way it is
+6. `docs/examples/README.md` — example code for the target structure. Copy its
+   patterns; classic and neo examples mirror each other file for file
 
 `docs/01-today.md` explains how the client works on master, and
 `docs/file-map.html` maps every client file to its new home.
@@ -72,6 +75,13 @@ Prove "no visual change" with the snapshot script from P0-02 (once it lands):
 - `features/` use control interfaces only, never a concrete layout class.
 - A layout never imports or extends another layout.
 - Menus and toolbars name actions by `ActionId`; never find a widget by name.
+- A view is a `.ui.xml` template plus behaviour-only Java: one template per page
+  region, every box a `<gwt:HTMLPanel>`, text a `<gwt:Label>`/`<gwt:InlineLabel>`,
+  no raw `<div>` or `<span>`, flex classes from `layout.css` (decision 0008).
+- Template prefixes are the package's last word: `ui:`, `gwt:`, `controls:`,
+  `editor:`, `projects:` … (decision 0008).
+- Shared views (dialogs, property editors) extend `SharedView` and use control
+  contracts (`<controls:Button>`), so they take on the active layout's look.
 - Commit subjects are short and conventional, e.g.
   `refactor(actions): project toolbar runs on action ids`.
 - No AI attribution lines (`Co-Authored-By` and similar) in commits or PRs.
