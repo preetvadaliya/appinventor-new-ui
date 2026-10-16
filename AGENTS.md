@@ -20,8 +20,8 @@ Scope right now: **classic and neo only**. Do not add nova code.
 4. `docs/10-pr-rules.md` — what every PR must satisfy
 5. `docs/decisions/README.md` — every decision in one line; open a record when
    you wonder why something is the way it is
-6. `docs/examples/README.md` — example code for the target structure. Copy its
-   patterns; classic and neo examples mirror each other file for file
+6. `docs/12-patterns.md` — short code snippets for every pattern (region view,
+   control, shared view, presenter, actions, property editors, icons, CSS)
 
 `docs/01-today.md` explains how the client works on master, and
 `docs/file-map.html` maps every client file to its new home.

@@ -34,8 +34,8 @@ New here? Read in this order; it takes about an hour.
 2. [docs/01-today.md](docs/01-today.md) — how the client works on master today
 3. [docs/02-target.md](docs/02-target.md) — the four packages and the import rules
 4. [docs/decisions/](docs/decisions/README.md) — every decision in one line, with links
-5. [docs/examples/](docs/examples/README.md) — what the code looks like after the
-   refactor: templates, controls, presenters, CSS, property editors
+5. [docs/12-patterns.md](docs/12-patterns.md) — what the code looks like after the
+   refactor, as short snippets: templates, controls, presenters, CSS, editors
 6. [AGENTS.md](AGENTS.md) — how to pick up a ticket (people and coding agents)
 
 Then, for the ticket you pick, its "Read first" list.
@@ -53,7 +53,6 @@ Reference:
 ```
 docs/            design, one topic per file
 docs/decisions/  one short record per decision, indexed in its README
-docs/examples/   example code for the target structure (not compiled)
 plan/            milestones, labels and one file per ticket
 tools/           sync.py (plan -> GitHub), upstream_status.py
 ```

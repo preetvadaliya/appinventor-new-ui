@@ -52,4 +52,5 @@ only**. Nova starts after P7 (milestone *Nova*).
 | `10-pr-rules.md` | What every PR must satisfy |
 | `file-map.html` | Every client file, today and proposed |
 | `11-folder-structure.md` | The complete client tree after P7 |
+| `12-patterns.md` | Short code snippets for every pattern |
 | `decisions/` | Why each key choice was made |

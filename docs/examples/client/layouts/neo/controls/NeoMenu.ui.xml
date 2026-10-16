@@ -1,9 +1,0 @@
-<!-- Copyright 2026 MIT, All rights reserved -->
-<!-- Released under the Apache License, Version 2.0 -->
-<!-- http://www.apache.org/licenses/LICENSE-2.0 -->
-<!-- NeoMenu: the floating card a NeoMenuButton opens. Items and
-     separators are the menu button's children, moved here in Java. -->
-<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-    xmlns:gwt="urn:import:com.google.gwt.user.client.ui">
-  <gwt:FlowPanel ui:field="items" styleName="flex-col neo-Menu"/>
-</ui:UiBinder>

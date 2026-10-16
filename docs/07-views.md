@@ -1,7 +1,7 @@
 # Views
 
 Decisions: `0003-no-layout-inheritance.md`, `0008-templates-like-react.md`,
-`0009-designer-regions-per-layout.md`. Full examples: `docs/examples/`.
+`0009-designer-regions-per-layout.md`. Snippets: `docs/12-patterns.md`.
 
 ## One template per region
 
@@ -134,7 +134,7 @@ Default dialogs live in `features/dialogs` and are built from control
 interfaces (`<controls:Button>`, `<controls:TextField>`) through `SharedView`, so they look
 right in any layout. A layout may replace one by implementing the presenter's
 `View` and returning it from the matching `Layout` method; the presenter does
-not change. Example: `NovaNewProjectDialog` in `docs/examples`.
+not change.
 
 ## Property editor views
 
