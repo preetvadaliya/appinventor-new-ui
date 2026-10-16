@@ -6,10 +6,10 @@
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
   <g:HTMLPanel styleName="flex-col gap-xs pad-sm">
-    <div class="flex-row items-center gap-xs">
+    <g:HTMLPanel styleName="flex-row items-center gap-xs">
       <g:Label ui:field="label" styleName="grow classic-PropertyLabel"/>
       <c:ClassicIconButton ui:field="help"/>
-    </div>
+    </g:HTMLPanel>
     <g:SimplePanel ui:field="editor"/>
   </g:HTMLPanel>
 </ui:UiBinder>

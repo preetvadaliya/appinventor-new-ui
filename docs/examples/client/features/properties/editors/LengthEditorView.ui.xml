@@ -15,24 +15,24 @@
       <c:Radio ui:field="automatic" text="{messages.automaticCaption}"/>
       <c:Radio ui:field="fillParent" text="{messages.fillParentCaption}"/>
 
-      <div class="flex-row items-center gap-xs">
+      <g:HTMLPanel styleName="flex-row items-center gap-xs">
         <c:Radio ui:field="pixels"/>
         <c:TextField ui:field="pixelsAmount" maxLength="4"/>
-        <span><ui:text from="{messages.pixelsCaption}"/></span>
-      </div>
+        <g:InlineLabel text="{messages.pixelsCaption}"/>
+      </g:HTMLPanel>
 
       <g:HTMLPanel ui:field="percentRow" styleName="flex-row items-center gap-xs">
         <c:Radio ui:field="percent"/>
         <c:TextField ui:field="percentAmount" maxLength="4"/>
-        <span><ui:text from="{messages.percentCaption}"/></span>
+        <g:InlineLabel text="{messages.percentCaption}"/>
       </g:HTMLPanel>
 
       <g:Label ui:field="error" styleName="properties-Error" visible="false"/>
 
-      <div class="flex-row justify-end gap-sm">
+      <g:HTMLPanel styleName="flex-row justify-end gap-sm">
         <c:Button ui:field="cancel" text="{messages.cancelButton}"/>
         <c:Button ui:field="ok" text="{messages.okButton}" variant="PRIMARY"/>
-      </div>
+      </g:HTMLPanel>
     </g:HTMLPanel>
   </g:HTMLPanel>
 </ui:UiBinder>

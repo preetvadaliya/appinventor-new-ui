@@ -8,17 +8,17 @@
     xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
   <g:HTMLPanel styleName="flex-col pane">
-    <div class="flex-row items-center pane-header">
-      <span class="pane-title"><ui:text from="{messages.paletteBoxCaption}"/></span>
-    </div>
+    <g:HTMLPanel styleName="flex-row items-center pane-header">
+      <g:InlineLabel styleName="pane-title" text="{messages.paletteBoxCaption}"/>
+    </g:HTMLPanel>
 
-    <div class="flex-col grow overflow-auto gap-sm pad-sm">
+    <g:HTMLPanel styleName="flex-col grow overflow-auto gap-sm pad-sm">
       <c:ClassicTextField ui:field="search"
           placeholder="{messages.searchComponents}"/>
       <g:FlowPanel ui:field="results" styleName="flex-col" visible="false"/>
       <g:FlowPanel ui:field="categories" styleName="flex-col"/>
       <c:ClassicButton ui:field="importExtension" variant="QUIET"
           text="{messages.importExtensionMenuItem}"/>
-    </div>
+    </g:HTMLPanel>
   </g:HTMLPanel>
 </ui:UiBinder>

@@ -7,15 +7,15 @@
     xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
   <g:HTMLPanel styleName="flex-col pane">
-    <div class="flex-row items-center pane-header">
-      <span class="pane-title"><ui:text from="{messages.blockSelectorBoxCaption}"/></span>
-    </div>
+    <g:HTMLPanel styleName="flex-row items-center pane-header">
+      <g:InlineLabel styleName="pane-title" text="{messages.blockSelectorBoxCaption}"/>
+    </g:HTMLPanel>
 
-    <div class="flex-col grow overflow-auto gap-sm pad-sm">
+    <g:HTMLPanel styleName="flex-col grow overflow-auto gap-sm pad-sm">
       <g:Label text="{messages.builtinBlocksLabel}" styleName="classic-Muted"/>
       <!-- Control, Logic, Math … added in Java, each with its icon -->
       <g:FlowPanel ui:field="builtIn" styleName="flex-col"/>
       <c:ClassicTree ui:field="components"/>
-    </div>
+    </g:HTMLPanel>
   </g:HTMLPanel>
 </ui:UiBinder>

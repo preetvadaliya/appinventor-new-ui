@@ -7,14 +7,14 @@
     xmlns:g="urn:import:com.google.gwt.user.client.ui">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
   <g:HTMLPanel styleName="flex-col pane">
-    <div class="flex-row items-center pane-header">
-      <span class="pane-title"><ui:text from="{messages.propertiesBoxCaption}"/></span>
-    </div>
+    <g:HTMLPanel styleName="flex-row items-center pane-header">
+      <g:InlineLabel styleName="pane-title" text="{messages.propertiesBoxCaption}"/>
+    </g:HTMLPanel>
 
-    <div class="flex-col pad-sm classic-PropertiesHeader">
+    <g:HTMLPanel styleName="flex-col pad-sm classic-PropertiesHeader">
       <g:Label ui:field="componentName" styleName="classic-Title"/>
       <g:Label ui:field="componentType" styleName="classic-Muted"/>
-    </div>
+    </g:HTMLPanel>
 
     <g:FlowPanel ui:field="categories" styleName="flex-col grow overflow-auto"/>
   </g:HTMLPanel>

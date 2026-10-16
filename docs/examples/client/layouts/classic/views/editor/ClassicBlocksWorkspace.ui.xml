@@ -6,9 +6,9 @@
     xmlns:g="urn:import:com.google.gwt.user.client.ui">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
   <g:HTMLPanel styleName="flex-col pane overflow-hidden">
-    <div class="flex-row items-center pane-header">
-      <span class="pane-title"><ui:text from="{messages.viewerBoxCaption}"/></span>
-    </div>
-    <div ui:field="blockly" class="grow"/>
+    <g:HTMLPanel styleName="flex-row items-center pane-header">
+      <g:InlineLabel styleName="pane-title" text="{messages.viewerBoxCaption}"/>
+    </g:HTMLPanel>
+    <g:HTMLPanel ui:field="blockly" styleName="grow"/>
   </g:HTMLPanel>
 </ui:UiBinder>

@@ -7,16 +7,16 @@
     xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
   <g:HTMLPanel styleName="flex-col pane">
-    <div class="flex-row items-center pane-header">
-      <span class="pane-title"><ui:text from="{messages.sourceStructureBoxCaption}"/></span>
-    </div>
+    <g:HTMLPanel styleName="flex-row items-center pane-header">
+      <g:InlineLabel styleName="pane-title" text="{messages.sourceStructureBoxCaption}"/>
+    </g:HTMLPanel>
 
     <c:ClassicTree ui:field="tree" addStyleNames="grow overflow-auto"/>
 
-    <div class="flex-row items-center gap-sm pad-sm">
+    <g:HTMLPanel styleName="flex-row items-center gap-sm pad-sm">
       <c:ClassicButton ui:field="rename" text="{messages.renameButton}"/>
       <c:ClassicButton ui:field="delete" variant="DANGER"
           text="{messages.deleteButton}"/>
-    </div>
+    </g:HTMLPanel>
   </g:HTMLPanel>
 </ui:UiBinder>

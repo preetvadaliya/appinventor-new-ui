@@ -7,7 +7,7 @@
   <g:HTMLPanel styleName="flex-row items-center gap-md pad-md classic-ProjectToolbar">
     <g:Label ui:field="title" styleName="classic-Title"/>
 
-    <div ui:field="projectButtons" class="flex-row items-center gap-sm">
+    <g:HTMLPanel ui:field="projectButtons" styleName="flex-row items-center gap-sm">
       <c:ClassicButton action="NEW_PROJECT"/>
       <c:ClassicButton action="NEW_FOLDER"/>
       <c:ClassicButton action="MOVE_PROJECTS"/>
@@ -15,12 +15,12 @@
       <c:ClassicButton action="VIEW_TRASH"/>
       <c:ClassicButton action="LOGIN_TO_GALLERY"/>
       <c:ClassicButton action="SEND_TO_GALLERY"/>
-    </div>
+    </g:HTMLPanel>
 
-    <div ui:field="trashButtons" class="flex-row items-center gap-sm" hidden="hidden">
+    <g:HTMLPanel ui:field="trashButtons" styleName="flex-row items-center gap-sm" visible="false">
       <c:ClassicButton action="SWITCH_TO_PROJECTS"/>
       <c:ClassicButton action="RESTORE_PROJECT"/>
       <c:ClassicButton action="DELETE_FOREVER"/>
-    </div>
+    </g:HTMLPanel>
   </g:HTMLPanel>
 </ui:UiBinder>

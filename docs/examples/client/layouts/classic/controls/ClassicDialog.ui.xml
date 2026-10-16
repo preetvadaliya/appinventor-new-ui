@@ -7,10 +7,10 @@
     xmlns:g="urn:import:com.google.gwt.user.client.ui"
     xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
   <g:HTMLPanel styleName="flex-col classic-Dialog">
-    <div class="flex-row items-center classic-Dialog-caption">
+    <g:HTMLPanel styleName="flex-row items-center classic-Dialog-caption">
       <g:Label ui:field="caption" styleName="grow"/>
       <c:ClassicIconButton ui:field="close"/>
-    </div>
+    </g:HTMLPanel>
     <g:SimplePanel ui:field="content" styleName="flex-col pad-md"/>
   </g:HTMLPanel>
 </ui:UiBinder>

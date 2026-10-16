@@ -9,7 +9,7 @@
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
   <g:HTMLPanel styleName="flex-col classic-ProjectList">
 
-    <div class="flex-row items-center classic-ListHeader">
+    <g:HTMLPanel styleName="flex-row items-center classic-ListHeader">
       <c:ClassicCheckbox ui:field="selectAll"/>
       <g:FocusPanel ui:field="sortByName" styleName="grow classic-SortHeader">
         <g:InlineLabel ui:field="nameHeader" text="{messages.projectNameHeader}"/>
@@ -22,7 +22,7 @@
         <g:InlineLabel ui:field="modifiedHeader"
             text="{messages.projectDateModifiedHeader}"/>
       </g:FocusPanel>
-    </div>
+    </g:HTMLPanel>
 
     <g:FlowPanel ui:field="rows" styleName="flex-col grow overflow-auto"/>
 

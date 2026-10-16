@@ -10,7 +10,7 @@
 
     <g:Label ui:field="projectName" styleName="classic-Title"/>
 
-    <div class="flex-row items-center gap-sm grow">
+    <g:HTMLPanel styleName="flex-row items-center gap-sm grow">
       <c:ClassicButton action="TOGGLE_TUTORIAL"/>
       <!-- the project's screens are added in Java -->
       <c:ClassicMenuButton ui:field="screens" text="{messages.screensButton}"/>
@@ -18,13 +18,13 @@
       <c:ClassicButton action="REMOVE_SCREEN"/>
       <c:ClassicButton action="PROJECT_PROPERTIES"/>
       <c:ClassicButton action="SEND_TO_GALLERY"/>
-    </div>
+    </g:HTMLPanel>
 
-    <div class="flex-row items-center gap-sm">
+    <g:HTMLPanel styleName="flex-row items-center gap-sm">
       <c:ClassicButton action="TOGGLE_CONSOLE"/>
       <c:ClassicButton action="SWITCH_TO_DESIGNER"/>
       <c:ClassicButton action="SWITCH_TO_BLOCKS"/>
-    </div>
+    </g:HTMLPanel>
 
   </g:HTMLPanel>
 </ui:UiBinder>

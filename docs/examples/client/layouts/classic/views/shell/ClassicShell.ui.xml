@@ -13,15 +13,15 @@
 
     <top:ClassicTopBar ui:field="topBar"/>
 
-    <div class="flex-row grow">
-      <div class="flex-col grow">
+    <g:HTMLPanel styleName="flex-row grow">
+      <g:HTMLPanel styleName="flex-col grow">
         <pr:ClassicProjectsPage ui:field="projectsPage"/>
         <ed:ClassicEditorPage ui:field="editorPage" visible="false"/>
         <ad:ClassicAdminPage ui:field="adminPage" visible="false"/>
-      </div>
+      </g:HTMLPanel>
       <tu:TutorialPanel ui:field="tutorial" visible="false"
           addStyleNames="flex-col overflow-auto classic-Tutorial"/>
-    </div>
+    </g:HTMLPanel>
 
     <st:ClassicStatusBar ui:field="statusBar"/>
 

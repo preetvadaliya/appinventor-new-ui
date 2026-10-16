@@ -7,31 +7,31 @@
     xmlns:c="urn:import:com.google.appinventor.client.layouts.classic.controls">
   <ui:with field="messages" type="com.google.appinventor.client.core.i18n.OdeMessages"/>
   <g:HTMLPanel styleName="flex-col pane">
-    <div class="flex-row items-center pane-header">
-      <span class="pane-title"><ui:text from="{messages.viewerBoxCaption}"/></span>
-    </div>
+    <g:HTMLPanel styleName="flex-row items-center pane-header">
+      <g:InlineLabel styleName="pane-title" text="{messages.viewerBoxCaption}"/>
+    </g:HTMLPanel>
 
     <!-- options are filled by ViewerPresenter -->
-    <div class="flex-row items-center flex-wrap gap-md pad-sm">
+    <g:HTMLPanel styleName="flex-row items-center flex-wrap gap-md pad-sm">
       <c:ClassicCheckbox ui:field="showHidden"
           label="{messages.showHiddenComponentsCheckbox}"/>
       <c:ClassicSelect ui:field="deviceSize" label="{messages.previewDeviceSize}"/>
       <c:ClassicSelect ui:field="previewStyle"
           label="{messages.previewOperatingSystem}"/>
-    </div>
+    </g:HTMLPanel>
 
     <!-- the phone; the screen being designed (MockForm) goes in the slot -->
-    <div class="flex-row grow overflow-auto pad-md">
-      <div class="flex-col classic-PhoneFrame">
+    <g:HTMLPanel styleName="flex-row grow overflow-auto pad-md">
+      <g:HTMLPanel styleName="flex-col classic-PhoneFrame">
         <g:SimplePanel ui:field="screen" styleName="flex-col grow"/>
-      </div>
-    </div>
+      </g:HTMLPanel>
+    </g:HTMLPanel>
 
     <!-- non-visible components (Clock, TinyDB …), added in Java -->
-    <div class="flex-col gap-sm pad-sm">
+    <g:HTMLPanel styleName="flex-col gap-sm pad-sm">
       <g:Label ui:field="nonVisibleHeading" visible="false"
           text="{messages.nonVisibleComponentsHeader}"/>
       <g:FlowPanel ui:field="nonVisible" styleName="flex-row flex-wrap gap-sm"/>
-    </div>
+    </g:HTMLPanel>
   </g:HTMLPanel>
 </ui:UiBinder>

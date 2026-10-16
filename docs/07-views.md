@@ -23,18 +23,20 @@ other; no pane is hidden by CSS.
 
 ## How a template is written
 
-- The root is `<g:HTMLPanel>`. Layout inside it is plain `<div>`s with the flex
+- Every box is a `<g:HTMLPanel>`, the root and every nested one, with the flex
   classes from `layout.css`: `flex-row`, `flex-col`, `grow`, `overflow-auto`, `items-center`, `justify-end`,
   `gap-*`, `pad-*` (Tailwind-style names, so they don't clash with today's
   `.row`, `.col` and `.center`).
+- No raw `<div>` or `<span>` (decision 0008): any box can get a `ui:field` and
+  be handled from Java as a widget.
 - `<g:FlowPanel>` only where Java adds or removes children (rows, items).
 - `<g:SimplePanel>` only for one slot Java fills (the phone screen, an editor).
 - Widgets only where there is behaviour: the layout's controls
   (`<c:ClassicButton action="NEW_PROJECT"/>`), `FocusPanel` for clickable rows.
 - On a component use `addStyleNames`, never `styleName`, so it keeps its own
   class.
-- Text set in the template uses `{messages.…}`; text in raw HTML uses
-  `<ui:text from="{messages.…}"/>`.
+- Text is `<g:Label>` on its own line or `<g:InlineLabel>` inside a row, with
+  `text="{messages.…}"`.
 
 ```xml
 <!-- layouts/classic/views/projects/ClassicProjectsPage.ui.xml -->
@@ -49,10 +51,10 @@ other; no pane is hidden by CSS.
 <g:HTMLPanel styleName="flex-row grow gap-sm pad-sm">
   <ed:ClassicPalette ui:field="palette" addStyleNames="classic-PaletteColumn"/>
   <ed:ClassicViewer ui:field="viewer" addStyleNames="grow classic-ViewerColumn"/>
-  <div class="flex-col classic-SideColumn gap-sm">
+  <g:HTMLPanel styleName="flex-col classic-SideColumn gap-sm">
     <ed:ClassicComponentTree ui:field="components" addStyleNames="grow"/>
     <ed:ClassicMedia ui:field="media" addStyleNames="classic-MediaPane"/>
-  </div>
+  </g:HTMLPanel>
   <ed:ClassicProperties ui:field="properties"
       addStyleNames="classic-PropertiesColumn"/>
 </g:HTMLPanel>
@@ -74,16 +76,16 @@ The view implements its presenter's `View` and holds no rules.
 public class ClassicProjectToolbar extends Composite
     implements ProjectToolbarPresenter.View {
   @UiField Label title;
-  @UiField DivElement projectButtons;
-  @UiField DivElement trashButtons;
+  @UiField HTMLPanel projectButtons;
+  @UiField HTMLPanel trashButtons;
 
   public void showTitle(String text) {
     title.setText(text);
   }
 
   public void showTrash(boolean trash) {
-    UIObject.setVisible(projectButtons, !trash);
-    UIObject.setVisible(trashButtons, trash);
+    projectButtons.setVisible(!trash);
+    trashButtons.setVisible(trash);
   }
 }
 ```
